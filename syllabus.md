@@ -3,7 +3,7 @@ layout: page
 title:  "Syllabus"
 date:   2019-09-17 17:11:23 -0400
 categories: jekyll update
-permalink: /syllabus/
+permalink: syllabus/
 ---
 
 Please note that this is only a draft.
