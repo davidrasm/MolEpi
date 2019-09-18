@@ -5,4 +5,4 @@
 layout: home
 ---
 
-![MEIDBanner](/assets/img/banner.png "MEIDBanner")
+![MEIDBanner](assets/img/banner.png "MEIDBanner")
