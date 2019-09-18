@@ -6,4 +6,4 @@ categories: jekyll update
 ---
 Hi all. A draft [Syllabus][syllabus] for Spring 2020 is now available.
 
-[syllabus]: /syllabus/
+[syllabus]: syllabus/
