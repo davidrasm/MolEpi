@@ -16,6 +16,6 @@ Welcome to the course website for *Molecular Epidemiology of Infectious Diseases
 
 See the [Syllabus][syllabus] for more info. 
 
-[syllabus]: syllabus/
+[syllabus]: /syllabus/
 [david-web]: https://phylodynamics.wordpress.ncsu.edu/people/david-rasmussen/
 
