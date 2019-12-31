@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Wrangling sequences and trees
-permalink: /tutorials/week_1/
+permalink: /tutorials/wrangling-week1/
 ---
 
 ### What you will need:
