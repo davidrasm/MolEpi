@@ -29,6 +29,9 @@ theme: minima
 plugins:
   - jekyll-feed
 
+# Added '_pages/tutorials'
+include: ['_pages', '_pages/tutorials']
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
