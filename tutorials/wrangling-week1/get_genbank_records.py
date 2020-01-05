@@ -36,8 +36,7 @@ seq_list = df['Sequence Accession'] # get the seq accessions from the dataframe
 seq_str = ",".join(seq_list) # a comma seperated list of all sequence accessions
 
 "We'll use Biopython's Entrez inferface to download the sequences from NCBI GenBank"
-# Entrez.email = "your_email@important_univ.edu"
-Entrez.email = "drasmus@ncsu.edu"  # Always tell NCBI who you are
+Entrez.email = "your_email@important_univ.edu" # Always tell NCBI who you are
 handle = Entrez.efetch(db="nucleotide", id=seq_str, rettype="gb", retmode="text")
 records = SeqIO.parse(handle, "gb")
 
