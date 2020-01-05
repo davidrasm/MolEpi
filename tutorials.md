@@ -13,3 +13,8 @@ permalink: /tutorials/
 [MCMC in BEAST 2][week-2] <br>
 
 [week-2]: <{{site.baseurl}}/tutorials/beast-week2/>
+
+### Week 3: Jan 20-24
+[Discrete trait phylogeography][week-3] <br>
+
+[week-3]: <{{site.baseurl}}/tutorials/phylogeo-week3/>

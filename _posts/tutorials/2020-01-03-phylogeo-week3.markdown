@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Discrete trait phylogeography
-permalink: /tutorials/beast-week2/
+permalink: /tutorials/phylogeo-week3/
 ---
 
 ### What you will need:
