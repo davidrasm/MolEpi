@@ -48,7 +48,7 @@ In the Priors panel, we will use a ***Coalescent Constant Population*** tree pri
 
 <img src="{{site.baseurl}}/assets/img/tutorials/week3/tree_prior.png" alt="Settting the coalescent tree prior" width="600" height="400">
 
-Now we want to add our data about our discrete trait, which will be the geographic location of each sample. BEAST 2 treats this trait data in a very similar way to adding another data set or partition to the alignment. Go back to the Partitions screen. 
+Now we want to add our data about our discrete trait, which will be the geographic location of each sample. BEAST 2 treats this trait data in a very similar way to adding another data set or partition to the alignment. Go back to the Partitions screen.
 
 ---
 **Note**
