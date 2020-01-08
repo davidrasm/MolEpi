@@ -6,9 +6,9 @@ permalink: /tutorials/wrangling-week1/
 
 ### What you will need:
 
--[RAxML][raxml] <br>
+-[RAxML][raxml] (Precompiled versions for [Mac][mac-raxml-exec] and [Windows][windows-raxml-exec]) <br>
 -[AliView][aliview] or another sequence alignment viewer <br> 
--[FigTree][figtree] (Precompiled versions for [Mac][mac-raxml-exec] and [Windows][windows-raxml-exec])<br>
+-[FigTree][figtree] <br>
 -[TempEst][tempest] <br>
 
 [raxml]: <https://cme.h-its.org/exelixis/web/software/raxml/index.html>
