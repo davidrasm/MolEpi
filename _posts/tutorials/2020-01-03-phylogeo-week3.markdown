@@ -9,12 +9,16 @@ permalink: /tutorials/phylogeo-week3/
 -[BEAST v.2.5.0][beast] or greater <br>
 -[Tracer v1.7.0][tracer] or greater <br>
 -[FigTree][figtree] <br>
+
+For postprocessing (optional):
 -[Spread][spread] <br>
+-[Google Earth Pro][gearth]
 
 [beast]: <http://www.beast2.org/>
 [tracer]: <https://github.com/beast-dev/tracer/releases/tag/v1.7.1>
 [figtree]: <http://tree.bio.ed.ac.uk/software/figtree/>
-[spread]: <https://www.kuleuven.be/aidslab/phylogeography/SPREAD.html>
+[spread]: <https://rega.kuleuven.be/cev/ecv/software/spread>
+[gearth]: <https://www.google.com/earth/versions/#earth-pro>
 
 ### Exploring the origins of *Phytophthora infestans*
 
@@ -43,6 +47,8 @@ We will assume all samples are contemporaneous (i.e. sampled at the present) so 
 In the Site Model panel, we will use a gamma site model with four rate categories, so enter '4' next to Gamma Category Count. A HKY substitution model should be sufficient for this data. The Site Model panel should look like the screenshot below.
 
 <img src="{{site.baseurl}}/assets/img/tutorials/week3/site_model.png" alt="Setting up the site model" width="600" height="400">
+
+Note may want to give a more reasonable rate like 0.00001
 
 In the Clock Model panel we do not need to change anything because we will use a strict clock model but we will not estimate the Clock.rate since we do not have a way of calibrating the molecular clock for the nuclear genes used here. Time will therefore be in units of arbitrary time for our analysis, but we can still reconstruct the ancestral locations of lineages through. BEAST however likes to force you to either estimate the clock rate or the substitution rate, so to prevent this from happening click ***Mode*** and then unselect ***Automatic set clock rate***. In the Create new trait windown you can give the trait a name like *location*, then select OK.
 
@@ -86,25 +92,64 @@ Open Tracer and then import the .log file from your BEAST run. We can use Tracer
 
 ### Exploring the phylogeographic reconstructions
 
-We can summarize the posterior distribution of trees and ancestral locations as a single concensus (MCC) tree in TreeAnnotator. Open TreeAnnotator and select the *location_tree_with_trait.trees* file that BEAST created for the Input Tree File. For the Burnin percentage, we can use 10%. Make sure that Maximum clade credibility tree is selected for Target tree type. Select an Output File name for the MCC tree such as ***phyt_PITG_mcc.tre***.  Now press ***Run***.
+We can summarize the posterior distribution of trees and reconstructed ancestral states as a single concensus (MCC) tree in TreeAnnotator. Open TreeAnnotator and for the Input Tree File select the *location_tree_with_trait.trees* file that BEAST generated. For the Burnin percentage, we can use 10%. Make sure that Maximum clade credibility tree is selected for Target tree type. Select an Output File name for the MCC tree such as ***phyt_PITG_mcc.tre***. Now press ***Run***.
 
 <img src="{{site.baseurl}}/assets/img/tutorials/week3/summarizing_trees.png" alt="Creating a MCC consensus tree in TreeAnnotator" width="600" height="400">  
 
-Open the consensus MCC tree you just generated in in FigTree. Select ***Appearance***, and then choose location under Colour by. The lineages in the tree will now be colored by their most probable ancestral location (the state with the highest posterior probability). You may want to increase the Line Width to make this easier to see. You can also have the branch widths reflect the posterior support for the most probable ancestral state by selecting location.prob under Width by. 
+Open the consensus MCC tree you just generated in in FigTree. Select ***Appearance***, and then choose location under Colour by. The lineages in the tree will now be colored by their most probable ancestral location (the state with the highest posterior probability). You may want to increase the Line Width to make this easier to see. You can also have the branch widths reflect the posterior support for the ancestral states by selecting location.prob under Width by. 
 
 <img src="{{site.baseurl}}/assets/img/tutorials/week3/mcc_tree_colored.png" alt="The MCMC coloured by ancestral locations" width="600" height="400">
 
 ### Visualizing geographic spread
 
-Download Spread if you have not done so already. In Spread, select ***Open &rarr; Load tree file*** and then choose the consensus tree file we generated.
+***Note:*** Update Spread link to 1.07.
 
-If you click the ***Set-up*** button, you can manually edit the latitude and longitude. locations 
+Download Spread if you haven't already. Unfortunately, the Mac version does not seem to work on newer OS versions, so download the .jar file. Launch it through the command line:
 
-To do: Insert table
+```
+java -jar SPREAD\ v1.0.7.jar
+```
 
-### Other tutorials
+In Spread, select ***Open &rarr; Load tree file*** and then choose the consensus MCC tree file. Under State attribute name select *location*. 
 
-Continuous phylogeography.
+If you click the ***Set-up*** button, you can manually edit the longitude and latitude locations of each discrete sampling location. I used the cooridinates of the centroid of each country available [here][worldmap-centroids]. 
+
+[worldmap-centroids]: <https://worldmap.harvard.edu/data/geonode:country_centroids_az8>
+
+| Location | Code | Latitude | Longitude |
+| ---- | ---- | ---- | ---- |
+| Europe | EU | 51.1069 | 10.385 |
+| Peru | PE | -9.152 | -74.382 |
+| United Kingdom | UK | 54.123 | -2.865 |
+| Mexico | MX | 23.947 | -102.523 |
+| Columbia | C0 | 3.913 | -73.081 |
+| Ecuador | EC | -1.423 | -78.752 |
+| United States | US | 45.679 | -112.461 |
+
+---
+
+***Note:*** If you need to find the geographic coordinates of more specific locations, you can always use Google Earth. Pointing the mouse cursor at a specifc location will provide the longitude and latitude.
+
+___
+
+You can then click the output button to generate a KML file. Clicking display will show the migration events in the MCC phylogeny mapped onto the world map. The diameter of the circles shows how many lineages in the tree reside in a particular location at a particular time. The branch lengths are colored by their timing. 
+
+<img src="{{site.baseurl}}/assets/img/tutorials/week3/phyt_global_spread.png" alt="Visualizing the spread of P. infestans in Spread" width="600" height="400">
+
+Finally, you can create an animated video of the spread of lineages through time and space that can be viewed in Google Earth. Download [Google Earth Pro][gearth] and open the application. Click ***File &rarr; Open***, select the KML file you just generated and then click ***Open***. The animation should play automatically and you can rewind or advance through the animation using the cursor at the top of the window.
+
+
+### Other phylogeography tutorials
+
+Phylogeography and tools for visualizing phylogeographic analyses have developed incredibly rapidly in the past decade. So in some sense this tutorial is already out-of-date relative to the cutting edge. So below I've provided links to other tutorials using newer methods. Note that these tutorials are based on BEAST v1.
+
+There is another great tutorial on discrete-trait phylogeography exploring the spread of bat rabies [here][bat-tutorial]. This tutorial is also really neat because it shows how to create web-based visualizations in D3 using SpreaD3, the succesor to Spread, and identify predictors of migration rates using Generalized Linear Models.
+
+[bat-tutorial]: <https://beast.community/workshop_discrete_diffusion>
+
+There is also a very cool tutorial on tracking the spread of West Nile Virus through North America using continuous-trait phylogeographic models [here][continuous-trait-tutorial]. 
+
+[continuous-trait-tutorial]: <https://beast.community/workshop_continuous_diffusion_wnv>
 
 ---
 **Note**
