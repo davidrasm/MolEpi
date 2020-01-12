@@ -17,7 +17,7 @@ title: Molecular Epidemiology of Infectious Diseases
 email: drasmus@ncsu.edu
 description: >- # this means to ignore newlines until "baseurl:"
   Course website for Moleculer Epidemiology of Infectious Diseases at NC State.
-baseurl: "/drasmus/MolEpi" # the subpath of your site, e.g. /blog
+baseurl: "MolEpi" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: davorasmussen
 github_username:  drasmus
