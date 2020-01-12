@@ -141,7 +141,7 @@ Finally, you can create an animated video of the spread of lineages through time
 
 ### Other phylogeography tutorials
 
-Phylogeography and tools for visualizing phylogeographic analyses have developed incredibly rapidly in the past decade. So in some sense this tutorial is already out-of-date relative to the cutting edge. So below I've provided links to other tutorials using newer methods. Note that these tutorials are based on BEAST v1.
+Phylogeographic methods and related visualization tools have developed incredibly rapidly in the past decade. So in some sense this tutorial is already out-of-date relative to the cutting edge. So below I've provided links to other tutorials using newer methods. Note that these tutorials are based on BEAST v1.
 
 There is another great tutorial on discrete-trait phylogeography exploring the spread of bat rabies [here][bat-tutorial]. This tutorial is also really neat because it shows how to create web-based visualizations in D3 using SpreaD3, the succesor to Spread, and identify predictors of migration rates using Generalized Linear Models.
 
