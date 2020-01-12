@@ -27,6 +27,11 @@ Introduces the Felsenstein pruning algorithm <br>
 
 [holder2003]: <http://cgl.bioinfo.uqam.ca/bif7001/articles/BIF7001-Phylo-NatureReviewsGenetics4a.pdf>
 
+[Yang, Z. (2014). Molecular evolution: a statistical approach. Oxford University Press.][yang2014] <br>
+\* Chapter 1 gives a great overview of the substitution models used in molecular evolution. <br>
+
+[yang2014]: <https://catalog.lib.ncsu.edu/catalog/DUKE006146449>
+
 ### Week 3: Jan 20-24
 
 [Lemey, P., Rambaut, A., Drummond, A. J., & Suchard, M. A. (2009). Bayesian phylogeography finds its roots. PLoS Computational Biology, 5(9), e1000520.][lemey2009] <br>

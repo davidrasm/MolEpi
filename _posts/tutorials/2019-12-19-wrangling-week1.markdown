@@ -6,7 +6,7 @@ permalink: /tutorials/wrangling-week1/
 
 ### What you will need:
 
--[RAxML][raxml] <br>
+-[RAxML][raxml] (Precompiled versions for [Mac][mac-raxml-exec] and [Windows][windows-raxml-exec]) <br>
 -[AliView][aliview] or another sequence alignment viewer <br> 
 -[FigTree][figtree] <br>
 -[TempEst][tempest] <br>
@@ -15,6 +15,9 @@ permalink: /tutorials/wrangling-week1/
 [aliview]: <http://www.ormbunkar.se/aliview/downloads/> 
 [figtree]: <http://tree.bio.ed.ac.uk/software/figtree/>
 [tempest]: <http://tree.bio.ed.ac.uk/software/tempest/>
+
+[mac-raxml-exec]: <http://www.sfu.ca/biology2/staff/dc/raxml/>
+[windows-raxml-exec]: <https://github.com/stamatak/standard-RAxML>
 
 ### Optional:
 -Python 3.6 or later <br>
@@ -27,7 +30,7 @@ If you plan to do the ***optional*** tutorial on wrangling sequences in Python, 
 
 ### Influenza A H3N2 in North Carolina
 
-In this tutorial we will look at the phylogenetic history of human influenza viruses sampled in North Carolina over the past 10 years. These viruses are mostly influenza A subtype H3N2, which has been the dominate subtype of seasonal flu circulating in the human population since 1968. The data consist of full-length sequences of influenza's hemagluttinin (HA) protein, which the virus uses to enter mammalian cells and is the major target of human antibodies against flu. All sequences were downloaded from the [Influenza Research Database][fludb], taking all H3N2 subtype sequences collected in North Carolina from 2010 to 2019. We will use these sequences again in Week 4 to infer seasonal flu dynamics in NC from the flu phylogeny. A cleaned FASTA file containing the sequences is availabile on the [GitHub repository for this tutorial][tutorial-repo]
+In this tutorial we will look at the phylogenetic history of human influenza viruses sampled in North Carolina over the past 10 years. These viruses are mostly influenza A subtype H3N2, which has been the dominate subtype of seasonal flu circulating in the human population since 1968. The data consist of full-length sequences of influenza's hemagluttinin (HA) protein, which the virus uses to enter mammalian cells and is the major target of human antibodies against flu. All sequences were downloaded from the [Influenza Research Database][fludb], taking all H3N2 subtype sequences collected in North Carolina from 2010 to 2019. We will use these sequences again in Week 4 to infer seasonal flu dynamics in NC from the flu phylogeny. A cleaned FASTA file containing the sequences is availabile on the [GitHub repository for this tutorial][tutorial-repo].
 
 [fludb]: <https://www.fludb.org/brc/influenza_sequence_search_segment_display.spg?method=ShowCleanSearch&decorator=influenza>
 [tutorial-repo]: <https://github.ncsu.edu/drasmus/MolEpi/tree/gh-pages/tutorials/wrangling-week1>
@@ -45,6 +48,13 @@ If you have installed the [Anaconda][anaconda] distribution of Python, you can u
 Next download the files ***get_genbank_records.py*** and ***influenzaA_H3N2_NC_2010-2019.tsv*** from the [GitHub repository for this tutorial][tutorial-repo]. Put both files in a folder or directory that is easy to access on your computer.
 
 The python script ***get_genbank_records.py*** will download all sequences from NCBI GenBank for us. We just need to pass the Entrez interface in Biopython a comma-seperated list of sequence accessions. We'll use the Python library Pandas to quickly grab the list of sequence accessions from the *.tsv* file.
+
+---
+
+***Note:*** We will run the actual script at the end of this section, you can just follow along with the code in the tutorial for now.
+
+---
+
 
 ```python
 import pandas as pd
@@ -132,8 +142,6 @@ Export the nucleotide alignment as a fasta file by selecting ***File &rarr; Save
 
 We will learn more about how likelihood-based phylogenetic reconstruction works next week. For now, we'll use RAxML to build our first influenza HA phylogeny. Windows users can download an executable version of RAxML [here][windows-raxml-exec]. Mac users can download a precompiled version and follow the instructions [here][mac-raxml-exec]. If for some reason you cannot get RAxML installed on your own machine, you can run it remotely on the [CIPRES Science Gateway][cipres].
 
-[mac-raxml-exec]: <http://www.sfu.ca/biology2/staff/dc/raxml/>
-[windows-raxml-exec]: <https://github.com/stamatak/standard-RAxML>
 [cipres]: <http://www.phylo.org/sub_sections/portal/>
 
 ---
@@ -155,7 +163,7 @@ Now we can build some trees! Go to the command line and run RAxML with our influ
 raxml -m GTRGAMMA -p 12345 -s /path_to_file/influenzaA_H3N2_NC_2010-2019_aligned.fasta -n influenzaA_H3N2_NC -T 2 
 ```
 
-RAxML will then perform a heuristic (i.e. not exhaustive but good enough) search for the tree that maximizes the likelihood of our sequence data. The ***-m GTRGAMMA*** arguement tells RAxML that we want to use a General Time Reversiable (GTR) model of molecular evolution but allow for gamma distributed rate heterogeniety among sites. The ***-p*** argument is just a random number to seed the tree search. The ***-n*** argument gives the exention of the output files and ***-T*** tells RAxML how many threads (cores) to use on your machine. If you are interested, there is a nice [hands-on guide to RAxML][raxml-handson].
+RAxML will then perform a heuristic (i.e. not exhaustive but good enough) search for the tree that maximizes the likelihood of our sequence data. The ***-m GTRGAMMA*** arguement tells RAxML that we want to use a General Time Reversiable (GTR) model of molecular evolution but allow for gamma distributed rate heterogeniety among sites. The ***-p*** argument is just a random number to seed the tree search. The ***-n*** argument gives the exention of the output files and ***-T*** tells RAxML how many threads (cores) to use on your machine. If you are interested in learning more, there is a nice [hands-on guide to RAxML][raxml-handson].
 
 [raxml-handson]: <https://cme.h-its.org/exelixis/web/software/raxml/hands_on.html>
 
@@ -171,13 +179,13 @@ We can see right away that there is a great deal of temporal structure to the tr
 
 ### Testing the molecular clock assumption
 
-Note that branch lengths in the tree are given in terms of subsitutions, not in units of real time. Next week we will look into Bayesian approaches for reconstrucing time-calibrated phylogenies with branch lengths in units of real time. But dating phylogenies requires us to make an assumption about the molecular clock, namely that substitions accumulate along lineages in tree tree at a roughly constant rate. If this is true, two lineages sampled at the present should have accumulated roughly the same number of substitutions since they last shared a most recent common ancestor (MRCA).
+Note that branch lengths in the tree are given in terms of subsitutions, not in units of real time. Next week we will look into Bayesian approaches for reconstrucing time-calibrated phylogenies with branch lengths in units of real time. But dating phylogenies requires us to make an assumption about the molecular clock, namely that substitutions accumulate along lineages in the tree at a roughly constant rate. If this is true, two lineages sampled at the present should have accumulated roughly the same number of substitutions since they last shared a most recent common ancestor (MRCA).
 
-One way to test the molecular clock assumption is therefore to regress root-to-tip distances (in units of substituions) against sample times. Since all sampled lineages share a common ancestor at the root of the tree, the number of subsitutions seperating each sample (tip) from the root should be proportional to the time elapsed between the root and each lineage's sampling time. We therefore expect a roughly linear relationship between the root-to-tip distances and sampling times if the molecular clock assumption holds. Moreover, the slope of the resulting regression line will provide us with a rough estimate of the rate at which subsitutions accumulate, i.e. the molecular clock rate. 
+One way to test the molecular clock assumption is therefore to regress root-to-tip distances (in units of substituions) against sample times. Since all sampled lineages share a common ancestor at the root of the tree, the number of subsitutions seperating each sample (tip) from the root should be proportional to the time elapsed between the root and each lineage's sampling time. We therefore expect a roughly linear relationship between the root-to-tip distances and sampling times if the molecular clock assumption holds. Moreover, the slope of the resulting regression line will provide us with a rough estimate of the rate at which substitutions accumulate, i.e. the molecular clock rate. 
 
 [TempEst][tempest] provides an easy way of testing the assumption of clock-like evolution. Open TempEst and then open the ML phylogeny we reconstructed before ***RAxML_bestTree.influenzaA_H3N2_NC*** in the pop up window that opens automatically.
 
-Click on ***Parse Dates*** and in the pop up window that opens, select ***Defined just by its order*** and then select ***Last*** in the ***Order*** drop down menu below. You can leave ***Parse as number*** selected, then click ***OK***. The Date column next to the name of each sequence should now be auto-populated with the correct tip dates (we will loose some info about the exact day of sampling but that's ok). Select the ***Best-fitting root*** box at the top left of the window. Now navigate to the ***Root-to-tip*** panel. In the resulting least-squares regression plot we can see that the root-to-tip distance increases almost perfectly linearly with the sample times. Moreover, the slope of the  regression line is about 3.0 X 10^3, a very reasonable molecular clock rate for a RNA virus. The molecular clock assumption therefore seems perfectly reasonable for our flu samples, and we are all set to start reconstructing time-calibrated phylogenies using molecular clock models in BEAST 2 next week.
+Click on ***Parse Dates*** and in the pop up window that opens, select ***Defined just by its order*** and then select ***Last*** in the ***Order*** drop down menu below. You can leave ***Parse as number*** selected, then click ***OK***. The Date column next to the name of each sequence should now be auto-populated with the correct tip dates (we will loose some info about the exact day of sampling but that's ok). Select the ***Best-fitting root*** box at the top left of the window. Now navigate to the ***Root-to-tip*** panel. In the resulting least-squares regression plot we can see that the root-to-tip distance increases almost perfectly linearly with the sample times. Moreover, the slope of the  regression line is about 3.0 X 10^-3, a very reasonable molecular clock rate for a RNA virus. The molecular clock assumption therefore seems perfectly reasonable for our flu samples, and we are all set to start reconstructing time-calibrated phylogenies using molecular clock models in BEAST 2 next week.
 
 <img src="{{site.baseurl}}/assets/img/tutorials/week1/NC_H3N2_root-to-tip.png" alt="Root-to-tip regression on influenza tree" width="600" height="400">
 
