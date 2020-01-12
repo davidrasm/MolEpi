@@ -16,6 +16,6 @@ Welcome to the course website for *Molecular Epidemiology of Infectious Diseases
 
 See the [Syllabus][syllabus] for more info. 
 
-[Syllabus]: https://pages.github.ncsu.edu/drasmus/MolEpi/syllabus/
+[Syllabus]: {{site.baseurl}}/syllabus/
 [david-web]: https://phylodynamics.wordpress.ncsu.edu/people/david-rasmussen/
 

@@ -33,7 +33,7 @@ If you plan to do the ***optional*** tutorial on wrangling sequences in Python, 
 In this tutorial we will look at the phylogenetic history of human influenza viruses sampled in North Carolina over the past 10 years. These viruses are mostly influenza A subtype H3N2, which has been the dominate subtype of seasonal flu circulating in the human population since 1968. The data consist of full-length sequences of influenza's hemagluttinin (HA) protein, which the virus uses to enter mammalian cells and is the major target of human antibodies against flu. All sequences were downloaded from the [Influenza Research Database][fludb], taking all H3N2 subtype sequences collected in North Carolina from 2010 to 2019. We will use these sequences again in Week 4 to infer seasonal flu dynamics in NC from the flu phylogeny. A cleaned FASTA file containing the sequences is availabile on the [GitHub repository for this tutorial][tutorial-repo].
 
 [fludb]: <https://www.fludb.org/brc/influenza_sequence_search_segment_display.spg?method=ShowCleanSearch&decorator=influenza>
-[tutorial-repo]: <https://github.ncsu.edu/drasmus/MolEpi/tree/gh-pages/tutorials/wrangling-week1>
+[tutorial-repo]: <https://github.com/davidrasm/MolEpi/tree/gh-pages/tutorials/wrangling-week1>
 
 ### Optional: Wrangling sequence data using Python
 

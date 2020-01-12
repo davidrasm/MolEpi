@@ -24,6 +24,6 @@ This week we are going to get a with the workflow of setting up an analysis in B
 
 The tutorial will walk you through setting up your first BEAST MCMC run using a primate mitochondrial DNA example. If you prefer, you can use the [influenza H3N2 sequences][fluseqs] we alinged last week. If you use the flu sequences, the alignment is not partitioned so you can just ignore the parts about linking partitions. Also note that for the flu sequences, we do not have a fossil calibration point, but the sequences were collected serially over time so it should be possible to estimate the molecular clock based on the sampling times in the tip.
 
-[fluseqs]: <https://github.ncsu.edu/drasmus/MolEpi/blob/gh-pages/tutorials/wrangling-week1/influenzaA_H3N2_NC_2010-2019_aligned.fasta>
+[fluseqs]: <{{site.baseurl}}/tutorials/wrangling-week1/influenzaA_H3N2_NC_2010-2019_aligned.fasta>
 
 
