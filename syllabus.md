@@ -17,15 +17,15 @@ Please note that this is only a draft.
 **Lab:** MCMC in BEAST: priors, posteriors, mixing, convergence, ect.
 
 ### Week 3: Jan 20 - 24
-**Lecture:** Exploring the origins of epidemics with phylogeography <br>
-**Lab:** Discrete and continuous trait models for phylogeographic analysis
+**No Lecture: MLK Day** <br>
+**Lab:** Discrete trait models for phylogeographic analysis
 
 ### Week 4: Jan 27 - 31
-**Lecture:** Coalescent theory and the population genetics of molecular evolution <br>
+**Lecture:**  Exploring the origins of epidemics with phylogeography <br>
 **Lab:** Bayesian skyline plots in BEAST
 
 ### Week 5: Feb 3 - 7
-**Lecture:** Dealing with population structure <br>
+**Lecture:** Coalescent theory and the population genetics of molecular evolution <br>
 **Lab:** Structured coalescent models with MASCOT
 
 ### Week 6: Feb 10 - 14 
