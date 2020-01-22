@@ -42,3 +42,21 @@ Introduces the Felsenstein pruning algorithm <br>
 
 [pybus2012]: <https://doi.org/10.1073/pnas.1206598109>
 
+### Week 4: Jan 27-31
+
+[Rosenberg, N. A., & Nordborg, M. (2002). Genealogical trees, coalescent theory and the analysis of genetic polymorphisms. Nature Reviews Genetics, 3(5), 380-390.][rosenberg2002] <br>
+\* Provides a great conceptual overview of coalescent theory <br>
+
+[rosenberg2002]: <https://www.nature.com/articles/nrg795>
+
+[Drummond, A. J., Rambaut, A., Shapiro, B. E. T. H., & Pybus, O. G. (2005). Bayesian coalescent inference of past population dynamics from molecular sequences. Molecular Biology and Evolution, 22(5), 1185-1192.][drummond2005] <br>
+
+[drummond2005]: <https://academic.oup.com/mbe/article/22/5/1185/1066885>
+
+### Week 5: Feb 3-7
+
+[De Maio, N., Wu, C. H., O’Reilly, K. M., & Wilson, D. (2015). New routes to phylogeography: a Bayesian structured coalescent approximation. PLoS Genetics, 11(8)][demaio2015] <br>
+\* Demonstrates how structured coalescent models can improve upon discrete trait phylogeographic analysis <br>
+
+[demaio2015]: <https://doi.org/10.1371/journal.pgen.1005421>
+

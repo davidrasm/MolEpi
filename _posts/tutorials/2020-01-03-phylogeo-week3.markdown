@@ -116,7 +116,7 @@ Finally, select ***File &rarr; Save As*** to generate the XML file to input into
 Open BEAST and choose the XML file we just generated and hit ***Run***.
 
 [PITG-log]: <{{site.baseurl}}/tutorials/phylogeo-week3/phyt_PITG.log>
-[PITG-trees]: <{{site.baseurl}}/tutorials/phylogeo-week3/phyt_PITG.trees>
+[PITG-trees]: <{{site.baseurl}}/tutorials/phylogeo-week3/location_tree_with_trait.trees>
 
 Once BEAST is finished running, open Tracer and then import the .log file from your BEAST run. We can use Tracer to explore the posterior estimates of some key parameters like the absolute migration rate (traitClockRate) and the relative migration rates between locations (relGeoRates).
 
