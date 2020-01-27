@@ -16,5 +16,11 @@ permalink: /lectures/
 
 [lecture2]: <{{site.baseurl}}/lectures/MolEpi.StatisticalUnderpinnings.Lecture2.pdf>
 
+### Week 4: Jan 27-31
+
+[Exploring the origin and spread of epidemics with phylogeography][lecture3] <br>
+
+[lecture3]: <{{site.baseurl}}/lectures/MolEpi.Phylogeography.Lecture3.pdf>
+
 
 
