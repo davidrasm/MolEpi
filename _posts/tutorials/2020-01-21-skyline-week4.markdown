@@ -6,8 +6,8 @@ permalink: /tutorials/skyline-week4/
 
 ### What you will need:
 
--[BEAST v.2.5.0][beast] or greater <br>
--[Tracer v1.7.0][tracer] or greater <br>
+-[BEAST 2.5.0][beast] or greater <br>
+-[Tracer 1.7.0][tracer] or greater <br>
 -[FigTree][figtree] <br>
 
 [beast]: <http://www.beast2.org/>
@@ -16,7 +16,7 @@ permalink: /tutorials/skyline-week4/
 
 ### Inferring seasonal flu dynamics using the Coalescent Bayesian Skyline
 
-The epidemic dynamics of rapidly evolving pathogens can strongly shape their phylogenetic history. It is therefore often possible to reconstruct past epidemic dynamics from information contained within pathogen phylogenies. In this tutorial we will reconstruct changes in effective population sizes through time using the Bayesian Coalescent Skyline plot [Drummond et al., 2005][drummond-2005], which uses a flexible non-parametric approach to model how population sizes change through time.
+The epidemic dynamics of rapidly evolving pathogens can strongly shape their phylogenetic history. It is therefore often possible to reconstruct past epidemic dynamics from information contained within pathogen phylogenies. In this tutorial we will reconstruct changes in effective population sizes through time using the Bayesian Coalescent Skyline plot [(Drummond *et al.*, 2005)][drummond-2005], which uses a flexible non-parametric approach to model how population sizes change through time.
 
 [drummond-2005]: <https://academic.oup.com/mbe/article/22/5/1185/1066885> 
 
@@ -37,15 +37,15 @@ All influenza hemagglutinin (HA) sequences were downloaded from the [Influenza R
 
 Open BEAUTi and import the aligned sequences by selecting ***File &rarr; Import Alignment***. BEAUti should recognize the sequences as nucleotide data, but if not choose *nucleotide* from the list of datatypes that pops up.
 
-Next click the ***Tip Dates*** tab at the top of the window and check the *Use tip dates box* on the left. This should bring all of the sequences you just imported into view. We now need to tell the program the sampling date of each sequence. To do this, click the *Auto-configure* button to have BEAUti parse the sampling dates from the sample names. As you can see, each sample is named with the sample date following the last underscore. So with the *use everything* option selected, pick *after first* from the drop down menu and leave the underscore in the box to the right. Once you click ***OK***, BEAUti should automatically fill in the correct dates in the table.
+Next click the ***Tip Dates*** tab at the top of the window and check the ***Use tip dates box*** on the left. This should bring all of the sequences you just imported into view. We now need to tell BEAUTi the sampling date of each sequence. To do this, click the ***Auto-configure*** button to have BEAUti parse the sampling dates from the sample names. As you can see, each sample is named with the sample date following the last underscore. So with the *use everything* option selected, pick *after first* from the drop down menu and leave the underscore in the box to the right. Once you click ***OK***, BEAUti should automatically fill in the correct dates in the table.
 
 <img src="{{site.baseurl}}/assets/img/tutorials/skyline-week4/guessing-tip-dates.png" alt="Guessing tip dates in BEAUTi" width="600" height="400">
 
-Click the ***Site Model*** tab at the top of the window to specify a model of molecular evolution. We will use the General Time Reversible (GTR) model. The GTR model is generally appropriate for rapidly evolving pathogens like influenza where we know that there is enough nucleotide diversity in the seqeunce data to estimate transition rates between each possible pair of nucleotide bases separately. Additionally, we will allow for rate heterogeneity among sites by changing the *Gamma Category Count* to 4. This adds some flexibility, as it allows different sites to evolve at slightly different rates. We can also select the *estimate* box next to *Proportion Invariant* if we want to assume that no substitutions are allowed at a fraction of sites and are thus completely invariant across all sequences in our sample. 
+Click the ***Site Model*** tab at the top of the window to specify a model of molecular evolution. We will use the General Time Reversible (GTR) model. The GTR model is generally appropriate for rapidly evolving pathogens like influenza when we know that there is enough nucleotide diversity in the seqeunce data to estimate substitution rates between each pair of nucleotides. Additionally, we will allow for rate heterogeneity among sites by changing the *Gamma Category Count* to 4. This adds some flexibility, as it allows different sites to evolve at slightly different rates. We can also select the *estimate* box next to *Proportion Invariant* if we want to assume that no substitutions are allowed at a fraction of sites and are thus completely invariant across all sequences in our sample. 
 
-<img src="{{site.baseurl}}/assets/img/tutorials/skyline-week4/gtr-site-model.png" alt="Setting up the GTR site model" width="600" height="400">
+<img src="{{site.baseurl}}/assets/img/tutorials/skyline-week4/gtr-site-model.png" alt="Setting up the GTR site model" width="600" height="300">
 
-Next click the ***Clock Model*** tab to set up the molecular clock model. Our sequence samples are collected serially over time, so we can estimate the clock rate from the number of substitutions that have accumulated between the root of the tree and the sampling times. We will therefore estimate the clock rate from the sequence data. However, it can take BEAST a while to converge on reasonable clock rates unless we provide a good initial guess. So we will set the initial clock rate at 5.72 X 10^-3 substitutions per site per year, which was previously estimated from a large H3N2 dataset with samples spanning a much longer time period (Rambaut *et al.*, 2008}. Leave the ***Strict Clock*** option selected in the menu at top and type this rate into the ***Clock.rate*** box.
+Next click the ***Clock Model*** tab to set up the molecular clock model. Our sequence samples are collected serially over time, so we can estimate the clock rate from the number of substitutions that have accumulated between the root of the tree and the sampling times. We will therefore estimate the clock rate from the sequence data. However, it can take BEAST a while to converge on reasonable clock rate estimates unless we provide a good initial guess. So we will set the initial clock rate at 5.72 X 10^-3 substitutions per site per year, which was previously estimated from a large H3N2 dataset with samples spanning a much longer time period (Rambaut *et al.*, 2008}. Leave the ***Strict Clock*** option selected in the menu at top and type this rate into the ***Clock.rate*** box.
 
 <img src="{{site.baseurl}}/assets/img/tutorials/skyline-week4/clock-model.png" alt="Setting up the clock model" width="600" height="400">
 
@@ -59,9 +59,9 @@ Now we need to set some priors on our parameters. Under the ***Priors*** tab set
 
 <img src="{{site.baseurl}}/assets/img/tutorials/skyline-week4/clock-rate-priors.png" alt="Setting the prior on the clock rate" width="600" height="500">
 
-Click on the ***MCMC*** tab and set the chain length to ***3-5?*** million. This may not be long enough to obtain highly reliable posterior estimates for all of the model parameters, but is should allow the analysis to run in one or two hours. We can always go back and run the chain for longer! 
+Click on the ***MCMC*** tab and set the chain length to 3 million. This may not be long enough to obtain a high effective sample size from the posterior for all parameters, but it should allow the analysis to run in one or two hours. We can always go back and run the chain for longer! 
 
-Finally go to ***File &rarr; Save*** to save the settings in an XML file named something like *influenzaA_H3N2_NC_2010-2019_skyline.xml*. You can now run BEAST with this XML file. It might take some time for the MCMC to run in BEAST, so while that's happening let's take a minute to think about effective population sizes for infectious pathogens.
+Finally go to ***File &rarr; Save*** to save the settings in an XML file named something like *influenzaA_H3N2_NC_2010-2019_skyline.xml*. You can now run BEAST with this XML file. It might take some time for the MCMC to run, so while that's happening let's take a minute to think about effective population sizes for infectious pathogens.
 
 ### Effective Population Size
 
@@ -85,27 +85,39 @@ where $$I$$ is the size of the infected population and $$\theta$$ is the rate at
 
 ### Exploring the Skyline results
 
-If BEAST is taking a long time to run, you can continue the tutorial using my precooked ***.log*** and ***.trees***.
+If BEAST is taking a long time to run, you can continue the tutorial using my precooked [.log][precooked-log] and [.trees][precooked-trees] files.
 
-Either way, open Tracer and load the *.log* file. To run the Skyline analysis, navigate to ***Analysis &rarr; Bayesian Skyline Reconstruction***. For the *Trees Log File* choose the *.trees* file from your BEAST run. We can also specify the sampling time of the youngest (most recent) tip in the tree so that time will be given in calendar years. To do this, set the *Age of the youngest tip* as 2019.3 -- the sampling time of our most recent sample. Now press the ***Ok*** button and wait a moment while Tracer performs our analysis.
+[precooked-log]: <{{site.baseurl}}/tutorials/skyline-week4/influenzaA_H3N2_NC_2010-2019_aligned.log>
+[precooked-trees]: <{{site.baseurl}}/tutorials/skyline-week4/influenzaA_H3N2_NC_2010-2019_aligned.trees>
+
+
+Either way, open Tracer and load the *.log* file. To run the Skyline analysis, navigate to ***Analysis &rarr; Bayesian Skyline Reconstruction***. For the *Trees Log File* choose the *.trees* file from your BEAST run. We can also specify the sampling time of the youngest (most recent) tip in the tree so that time will be given in calendar years. To do this, set the *Age of the youngest tip* to 2019.3 -- the sampling time of our most recent sample. Now press the ***Ok*** button and wait a moment while Tracer performs our analysis.
 
 <img src="{{site.baseurl}}/assets/img/tutorials/skyline-week4/tracer_skyline_analysis.png" alt="Running the Skyline analysis in Tracer" width="500" height="600">
 
 The output will have the years on the x-axis and the effective population size through time on the y-axis. By default, the y-axis is on a log-scale. 
 
-If everything worked as expected you will at least see a sharp peak corresponding to the 2014-15 flu season. What do you see for the more recent flu seasons?
+If everything worked as expected you should see a sharp peak corresponding to the severe 2014-15 flu season. What do you see for the more recent flu seasons?
 
 <img src="{{site.baseurl}}/assets/img/tutorials/skyline-week4/nc-flu-skyline.png" alt="Reconstructed Skyline plot for influenza H3N2 in NC" width="600" height="400">
 
-The results of the Skyline analysis can either be saved as a PDF or as a tab delimited file. To save it as a tab delimited file, select ***File &rarr; Export Data***. The exported file will have five rows for the time and the estimated mean, median, lower and upper 95% credible intervals. 
+The results of the Skyline analysis can either be saved as a PDF or a tab delimited file. To save it as a tab delimited file, select ***File &rarr; Export Data***. The exported file will have five rows for the time and the estimated mean, median, lower and upper 95% credible intervals. 
 
 To make sense of our results, we can compare the Coalescent Skyline analysis with the reconstructed phylogeny. To get a summary of the posterior set of trees, open TreeAnnotator (packaged with BEAST). For the *Burnin percentage* select 20%, leave the *Target tree type* as *Maximum clade credibility tree* and choose the *.trees* file for the *Input Tree File*. You will also need to choose an *Output File* named something like *mcc.tre*. After running TreeAnnotator, you can open the MCC tree in FigTree. Do the effective population size estimates make sense with respect to the inferred phylogeny?
 
 ### Optional: Custom Skyline plots in Python
 
-Tracer does not allow for much customization of the Skyline plots. Fortunately, we can easily export the data and then plot it other software like R, Matlab, Excel, ect. Here we will plot the Skyline reconstruction using the Matplotlib package in Python. We will also use the Seaborn package, which builds upon Matplotlib to generate more visually appealing figures with almost no extra work.  
+Tracer does not allow for much customization of the Skyline plots. Fortunately, we can easily export the data and then plot it other software like R, Matlab, Excel, ect. Here we will plot the Skyline reconstruction using the [Matplotlib][matplotlib] package in Python. We will also use the [Seaborn][seaborn] package, which builds upon Matplotlib to generate more visually appealing figures with almost no extra work.  
 
-Tracer rather unhelpfully places an extra line of text in the first line of the exported tsv file, which will prevent other programs from properly parsing the data. So first open the tsv file in your favorite text editor and delete this line.
+[matplotlib]: <https://matplotlib.org>
+[seaborn]: <https://seaborn.pydata.org>
+
+Tracer rather unhelpfully places an extra line of text in the first line of the exported *tsv* file above the column names, which will prevent other programs from properly parsing the data. So first open the *tsv* file in your favorite text editor and delete this line.
+
+Download the linked [*plot_skyline.py*][python-script] script and the [*cdc_state_ILI_reports.csv*][cdc-data] data file. Store these files in the same folder/directory as the *nc_flu_skyline_data.tsv* file you exported from Tracer.
+
+[python-script]: <{{site.baseurl}}/tutorials/skyline-week4/plot_skyline.py>
+[cdc-data]: <{{site.baseurl}}/tutorials/skyline-week4/cdc_state_ILI_reports.csv>
 
 The ***plot_skyline.py*** script will plot the Skyline plot, but before running the script let's first walk through the code. The first thing we need to do is import the data Tracer exported from the Skyline analysis. I named the tsv file *nc_flu_skyline_data.tsv*, so change the name of the `tsv_file` variable in the code if you named your file something different. We will then use Pandas to import the data from the tsv file as a dataframe `df`.
 
@@ -115,7 +127,7 @@ tsv_file = 'nc_flu_skyline_data.tsv'
 df = pd.read_table(tsv_file, sep="\t")
 ```
 
-We can then plot our Skyline reconstruction of effective population sizes. First we will plot the median estimate as a line plot using Seaborn. We can then add the 95% credible intervals using Matplotlib's `fill_between` function. We will store the limits of the x-axis as `data_lim` to use later. 
+We can then plot our Skyline reconstruction of effective population sizes. First we will plot the median estimate as a line plot using Seaborn. We can then add the 95% credible intervals using Matplotlib's `fill_between` function. We will store the limits of the x-axis as `date_lim` to use later. 
 
 ```python
 import matplotlib.pyplot as plt
@@ -128,11 +140,11 @@ axs[0].fill_between(df['Time'], df['Lower'], df['Upper'], alpha=.3) # alpha val 
 date_lim = axs[0].get_xlim()
 ```
 
-We can now compare our Skyline reconstructions to the CDC's data on influenza-like illnesses (ILI) in North Carolina. Note that the CDC does not directly track the number of influenza cases, but the percentage of deaths due to pneumonia and influenza during each week of the year. This data is provided by the National Center for Health Statistics Mortality Surveillance System and available on the [FluView webpage][fluview].
+We can now compare our Skyline reconstructions to the CDC's data on influenza-like illnesses (ILI) in North Carolina. Note that the CDC does not directly track the number of influenza cases, but the percentage of deaths due to pneumonia and influenza during each week of the year. This data is provided by the National Center for Health Statistics Mortality Surveillance System and available from the [FluView webpage][fluview].
 
 [fluview]: <https://gis.cdc.gov/grasp/fluview/mortality.html>
 
-The csv file *cdc_state_ILI_reports.csv* contains the ILI data from all US states from 2013 on. We will first load the data as a Pandas dataframe, and then grab all rows in the data from North Carolina using `df[df['SUB AREA'] == 'North Carolina']`. The CDC provides the dates in terms of the calendar week of each flu season. To make this more easily plottable, we will convert calendar weeks into decimal years using the `convert_dates` function contained within the *plot_skyline.py* script.
+The csv file *cdc_state_ILI_reports.csv* contains the ILI data from all US states from 2013 on. We will first load the data as a Pandas dataframe, and then grab all rows in the data from North Carolina using `df[df['SUB AREA'] == 'North Carolina']`. The CDC provides the dates in terms of the calendar week of each flu season. To make this more easily plotable, we will convert calendar weeks into decimal years using the `convert_dates` function contained within the *plot_skyline.py* script.
 
 ```python
 "Read in ILI data from CDC"
@@ -151,13 +163,23 @@ axs[1].set_xlabel('Time')
 axs[1].set_xlim(date_lim) # set xlim so subplots have same x-axis
 ```
 
-Now you can run the *plot_skyline.py* script in Python from the command line:
+Finally we will save the figure as a png file called *nc_flu_skyline_vs_ILI.png*: 
 
-```python get_genbank_records.py```
+```python
+"Save image"
+fig.set_size_inches(6, 6)
+plt.show()
+img_file = 'nc_flu_skyline_vs_ILI.png'
+fig.savefig(img_file, dpi=200)
+```
+
+Now you can run the *plot_skyline.py* script in Python from the command line. But make sure you run the script from the same directory that contains the *cdc_state_ILI_reports.csv* and *nc_flu_skyline_data.tsv* files.
+
+```python plot_skyline.py```
 
 If all goes well, you should now have a plot that looks like this:
 
-<img src="{{site.baseurl}}/assets/img/tutorials/skyline-week4/nc_flu_skyline_vs_ILI.png" alt="Effective population sizes versus influenza-like illnesses in NC" width="600" height="500">
+<img src="{{site.baseurl}}/assets/img/tutorials/skyline-week4/nc_flu_skyline_vs_ILI.png" alt="Effective population sizes versus influenza-like illnesses in NC" width="600" height="600">
 
 What do you think of our reconstructions? Are you impressed? While it seems like we can pick up some of trends in seasonality and major peaks in the 2014-15 and 2017-18 flu seasons, the seasonal fluctuations are overall less dramatic in the Skyline reconstruction. But keep in mind that there are multiple different forces shaping the viral phylogeny other than flu's population dynamics, so Skyline reconstructions will generally not perfectly mirror epidemic dynamics. 
 

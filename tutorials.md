@@ -18,3 +18,8 @@ permalink: /tutorials/
 [Discrete trait phylogeography][week-3] <br>
 
 [week-3]: <{{site.baseurl}}/tutorials/phylogeo-week3/>
+
+### Week 3: Jan 27-31
+[Coalescent Skylines in BEAST][week-4] <br>
+
+[week-4]: <{{site.baseurl}}/tutorials/skyline-week4/>
