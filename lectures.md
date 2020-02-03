@@ -22,5 +22,11 @@ permalink: /lectures/
 
 [lecture3]: <{{site.baseurl}}/lectures/MolEpi.Phylogeography.Lecture3.pdf>
 
+### Week 5: Feb 3-7
+
+[Coalescent theory and the population genetics of molecular evolution][lecture4] <br>
+
+[lecture4]: <{{site.baseurl}}/lectures/MolEpi.CoalescentTheory.Lecture4.pdf>
+
 
 
