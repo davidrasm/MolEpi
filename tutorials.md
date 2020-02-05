@@ -23,3 +23,8 @@ permalink: /tutorials/
 [Coalescent Skylines in BEAST][week-4] <br>
 
 [week-4]: <{{site.baseurl}}/tutorials/skyline-week4/>
+
+### Week 5: Feb 3-7
+[Structured coalescent inference with MASCOT][week-5] <br>
+
+[week-5]: <{{site.baseurl}}/tutorials/mascot-week5/>
