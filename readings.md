@@ -78,4 +78,11 @@ Introduces the Felsenstein pruning algorithm <br>
 
 [wymant2018]: <https://academic.oup.com/mbe/article/35/3/719/4653772>
 
+### Week 8: Feb 24-28
+
+[Hein, J., Schierup, M., & Wiuf, C. (2004). Gene genealogies, variation and evolution: a primer in coalescent theory. Oxford University Press, USA.][hein2004] <br>
+\*\* Chapter 5 presents an excellent overview of recombination and its effect on phylogenies. <br>
+
+[hein2004]: <https://catalog.lib.ncsu.edu/catalog/NCSU1940857>
+
 

@@ -28,3 +28,8 @@ permalink: /tutorials/
 [Structured coalescent inference with MASCOT][week-5] <br>
 
 [week-5]: <{{site.baseurl}}/tutorials/mascot-week5/>
+
+### Week 6: Feb 10-14
+[Transmission tree reconstruction with SCOTTI][week-6] <br>
+
+[week-6]: <{{site.baseurl}}/tutorials/scotti-week6/>
