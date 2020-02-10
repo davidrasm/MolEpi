@@ -28,5 +28,11 @@ permalink: /lectures/
 
 [lecture4]: <{{site.baseurl}}/lectures/MolEpi.CoalescentTheory.Lecture4.pdf>
 
+### Week 6: Feb 10-14
+
+[Inferring transmission trees and who's infecting whom][lecture5] <br>
+
+[lecture5]: <{{site.baseurl}}/lectures/MolEpi.TransmissionTrees.Lecture5.pdf>
+
 
 
