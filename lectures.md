@@ -34,5 +34,11 @@ permalink: /lectures/
 
 [lecture5]: <{{site.baseurl}}/lectures/MolEpi.TransmissionTrees.Lecture5.pdf>
 
+### Week 8: Feb 24-28
+
+[Non-tree like evolution: Recombination, ancestral recombination graphs and clonal frames][lecture6] <br>
+
+[lecture6]: <{{site.baseurl}}/lectures/MolEpi.Recombination.Lecture6.pdf>
+
 
 

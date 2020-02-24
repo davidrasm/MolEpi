@@ -85,4 +85,8 @@ Introduces the Felsenstein pruning algorithm <br>
 
 [hein2004]: <https://catalog.lib.ncsu.edu/catalog/NCSU1940857>
 
+[Boni, M. F., Posada, D., & Feldman, M. W. (2007). An exact nonparametric method for inferring mosaic structure in sequence triplets. Genetics, 176(2), 1035-1047.][boni2007] 
+
+[boni2007]: <https://www.genetics.org/content/176/2/1035.short>
+
 
