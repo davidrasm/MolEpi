@@ -33,3 +33,8 @@ permalink: /tutorials/
 [Transmission tree reconstruction with SCOTTI][week-6] <br>
 
 [week-6]: <{{site.baseurl}}/tutorials/scotti-week6/>
+
+### Week 8: Feb 24-28
+[Detecting recombination in RDP4][week-8] <br>
+
+[week-8]: <{{site.baseurl}}/tutorials/rdp4-week8/>
