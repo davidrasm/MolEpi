@@ -7,6 +7,7 @@ permalink: /tutorials/rdp4-week8/
 ### What you will need:
 
 -[RDP4][rdp4] <br>
+-Optional: Python 2.7 or greater
 
 [rdp4]: <https://web.cbio.uct.ac.za/~darren/rdp.html>
 
@@ -113,9 +114,51 @@ Now that we have accepted or rejected the identified recombination events, we ca
 
 This will produce a set of FASTA files each containing a sub-alignment for a segment of the genome labeled by their corresponding nucleotide positions.   
 
+### Optional: Plotting tanglegrams in Python
+
+One way to visualize recombination is to plot *sequential tanglegrams* which nicely emphasize phylogenetic incongruence between local trees for different regions of the genome. We will use Gytis Dudas' excellent [baltic][balt] package in Python to plot tranglegrams for our coronavirus samples.
+
+[balt]: <https://github.com/evogytis/baltic>
+
+I reconstructed local phylogenetic trees for the first six sub-alignments exported from RDP4. This spans about the first 20kb of the CoV genome. Arguably, it would have been more interesting to look at local trees in the 3' end of the genome which encodes the modular Spike domain involved in host adaptation, but unfortunately the recombination breakpoints in this region are too close together to provide long enough sub-alignments to be able to reconstruct local trees accurately.
+
+I reconstructed maximum likelihood trees for each sub-alignment in RAxML under a GTRGAMMA substitution model, as we did in the first week of class:
+
+```
+raxml -m GTRGAMMA -p 12345 -s sars-like-CoVs-sub_1-2936.fas -n sars-like-CoVs-sub_1-2936 -T 2 
+```
+
+I then used FigTree to midpoint root the best ML tree for each sub-alignment and transformed the branch lengths into a cladogram such that all the tips are equidistant to the root. This will make the tanglegrams look much nicer!
+
+These trees are available in the GitHub [repo][git-repo] for this week as NEXUS files. The ***baltic.py*** and ***PlotTanglegrams.py*** code you will need is also in this repo, so it's probably easiest to just download the entire repo.
+
+[git-repo]: <https://github.com/davidrasm/MolEpi/tree/gh-pages/tutorials/rdp4-week8>
+
+Navigate to the folder with the code and trees you downloaded. From the command line, you can then run the Python script like:
+
+```
+python PlotTanglegrams.py
+```
+
+This should generate a *.png* image file with our coronavirus tanglegram.
+
+<img src="{{site.baseurl}}/assets/img/tutorials/rdp4-week8/CoVSequentialTanglegram.png" alt="Tanglegram showing potential recombination events among the CoV genomes" width="650" height="400"> 
+
+Phylogenetic discordance indicative of possible recombination are displayed as crossing lines connecting tips in neighboring local trees, whereas straight lines between tips indicate the phylogenetic relationships among the sequences has been conserved. As you can see there's potentially quite a bit of recombination going on here.
+
+If you want to expand this analysis to more segments of the CoV genome, you can reconstruct trees in RAxML from the sub-alignments RDP4 generated. To include these in the tanglegrams, you should just need to modify the *segments* list in *PlotTanglegrams.py* specifying the file names for the local tree of each genome segment.
+
+```python
+# Can add more tree files for additional genome segments
+fig_name = 'CoVSequentialTanglegram.png'
+tree_file = "sars-like-CoVs-sub_"
+segments=['1-2936','2937-4936','4937-6870','6871-8473','8474-19706','19707-20428']
+```
 
 
 ### References and further information
+
+[Graham, R. L., & Baric, R. S. (2010). Recombination, reservoirs, and the modular spike: mechanisms of coronavirus cross-species transmission. Journal of Virology, 84(7), 3134-3146.][graham-2010]
 
 [Martin, D. P., Murrell, B., Khoosal, A., & Muhire, B. (2017). Detecting and analyzing genetic recombination using RDP4. In Bioinformatics (pp. 433-460). Humana Press, New York, NY.][martin-2016]
 
