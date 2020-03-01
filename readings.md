@@ -89,4 +89,15 @@ Introduces the Felsenstein pruning algorithm <br>
 
 [boni2007]: <https://www.genetics.org/content/176/2/1035.short>
 
+### Week 9: March 2-6
+
+[Stadler, T., & Bonhoeffer, S. (2013). Uncovering epidemiological dynamics in heterogeneous host populations using phylogenetic methods. Philosophical Transactions of the Royal Society B: Biological Sciences, 368(1614), 20120198.][stadler2013] <br>
+\* Describes the multi-type birth-death model for pathogen phylogenies. <br>
+
+[stadler2013]: <https://doi.org/10.1098/rstb.2012.0198>
+
+[Kühnert, D., Kouyos, R., Shirreff, G., Pečerska, J., Scherrer, A. U., Böni, J., ... & Stadler, T. (2018). Quantifying the fitness cost of HIV-1 drug resistance mutations through phylodynamics. PLoS Pathogens, 14(2), e1006895.][kuhnert2018] 
+
+[kuhnert2018]: <https://doi.org/10.1371/journal.ppat.1006895>
+
 
