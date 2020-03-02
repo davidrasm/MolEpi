@@ -40,5 +40,11 @@ permalink: /lectures/
 
 [lecture6]: <{{site.baseurl}}/lectures/MolEpi.Recombination.Lecture6.pdf>
 
+### Week 9: March 2-6
+
+[Multi-type birth-death models and adaptive molecular evolution][lecture7] <br>
+
+[lecture7]: <{{site.baseurl}}/lectures/MolEpi.BirthDeathModels.Lecture7.pdf>
+
 
 
