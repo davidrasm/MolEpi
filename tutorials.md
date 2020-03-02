@@ -18,3 +18,23 @@ permalink: /tutorials/
 [Discrete trait phylogeography][week-3] <br>
 
 [week-3]: <{{site.baseurl}}/tutorials/phylogeo-week3/>
+
+### Week 4: Jan 27-31
+[Coalescent Skylines in BEAST][week-4] <br>
+
+[week-4]: <{{site.baseurl}}/tutorials/skyline-week4/>
+
+### Week 5: Feb 3-7
+[Structured coalescent inference with MASCOT][week-5] <br>
+
+[week-5]: <{{site.baseurl}}/tutorials/mascot-week5/>
+
+### Week 6: Feb 10-14
+[Transmission tree reconstruction with SCOTTI][week-6] <br>
+
+[week-6]: <{{site.baseurl}}/tutorials/scotti-week6/>
+
+### Week 8: Feb 24-28
+[Detecting recombination in RDP4][week-8] <br>
+
+[week-8]: <{{site.baseurl}}/tutorials/rdp4-week8/>

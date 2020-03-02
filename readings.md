@@ -60,3 +60,44 @@ Introduces the Felsenstein pruning algorithm <br>
 
 [demaio2015]: <https://doi.org/10.1371/journal.pgen.1005421>
 
+[Rasmussen, D. A., Boni, M. F., & Koelle, K. (2014). Reconciling phylodynamics with epidemiology: the case of dengue virus in southern Vietnam. Molecular Biology and Evolution, 31(2), 258-271.][rasmussen2014]
+
+[rasmussen2014]: <https://doi.org/10.1093/molbev/mst203>
+
+### Week 6: Feb 10-14
+
+[Jombart, T., Cori, A., Didelot, X., Cauchemez, S., Fraser, C., & Ferguson, N. (2014). Bayesian reconstruction of disease outbreaks by combining epidemiologic and genomic data. PLoS Computational Biology, 10(1)][jombart2014]
+
+[jombart2014]: <https://journals.plos.org/ploscompbiol/article/file?type=printable&id=10.1371/journal.pcbi.1003457>
+
+[De Maio, N., Wu, C. H., & Wilson, D. J. (2016). SCOTTI: efficient reconstruction of transmission within outbreaks with the structured coalescent. PLoS Computational Biology, 12(9).][demaio2016]
+
+[demaio2016]: <https://doi.org/10.1371/journal.pcbi.1005130>
+
+[Wymant, C., Hall, M., Ratmann, O., Bonsall, D., Golubchik, T., de Cesare, M., ... and The BEEHIVE Collaboration. (2018). PHYLOSCANNER: inferring transmission from within-and between-host pathogen genetic diversity. Molecular Biology and Evolution, 35(3), 719-733.][wymant2018]
+
+[wymant2018]: <https://academic.oup.com/mbe/article/35/3/719/4653772>
+
+### Week 8: Feb 24-28
+
+[Hein, J., Schierup, M., & Wiuf, C. (2004). Gene genealogies, variation and evolution: a primer in coalescent theory. Oxford University Press, USA.][hein2004] <br>
+\*\* Chapter 5 presents an excellent overview of recombination and its effect on phylogenies. <br>
+
+[hein2004]: <https://catalog.lib.ncsu.edu/catalog/NCSU1940857>
+
+[Boni, M. F., Posada, D., & Feldman, M. W. (2007). An exact nonparametric method for inferring mosaic structure in sequence triplets. Genetics, 176(2), 1035-1047.][boni2007] 
+
+[boni2007]: <https://www.genetics.org/content/176/2/1035.short>
+
+### Week 9: March 2-6
+
+[Stadler, T., & Bonhoeffer, S. (2013). Uncovering epidemiological dynamics in heterogeneous host populations using phylogenetic methods. Philosophical Transactions of the Royal Society B: Biological Sciences, 368(1614), 20120198.][stadler2013] <br>
+\* Describes the multi-type birth-death model for pathogen phylogenies. <br>
+
+[stadler2013]: <https://doi.org/10.1098/rstb.2012.0198>
+
+[Kühnert, D., Kouyos, R., Shirreff, G., Pečerska, J., Scherrer, A. U., Böni, J., ... & Stadler, T. (2018). Quantifying the fitness cost of HIV-1 drug resistance mutations through phylodynamics. PLoS Pathogens, 14(2), e1006895.][kuhnert2018] 
+
+[kuhnert2018]: <https://doi.org/10.1371/journal.ppat.1006895>
+
+

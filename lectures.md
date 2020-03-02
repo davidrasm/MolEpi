@@ -16,5 +16,35 @@ permalink: /lectures/
 
 [lecture2]: <{{site.baseurl}}/lectures/MolEpi.StatisticalUnderpinnings.Lecture2.pdf>
 
+### Week 4: Jan 27-31
+
+[Exploring the origin and spread of epidemics with phylogeography][lecture3] <br>
+
+[lecture3]: <{{site.baseurl}}/lectures/MolEpi.Phylogeography.Lecture3.pdf>
+
+### Week 5: Feb 3-7
+
+[Coalescent theory and the population genetics of molecular evolution][lecture4] <br>
+
+[lecture4]: <{{site.baseurl}}/lectures/MolEpi.CoalescentTheory.Lecture4.pdf>
+
+### Week 6: Feb 10-14
+
+[Inferring transmission trees and who's infecting whom][lecture5] <br>
+
+[lecture5]: <{{site.baseurl}}/lectures/MolEpi.TransmissionTrees.Lecture5.pdf>
+
+### Week 8: Feb 24-28
+
+[Non-tree like evolution: Recombination, ancestral recombination graphs and clonal frames][lecture6] <br>
+
+[lecture6]: <{{site.baseurl}}/lectures/MolEpi.Recombination.Lecture6.pdf>
+
+### Week 9: March 2-6
+
+[Multi-type birth-death models and adaptive molecular evolution][lecture7] <br>
+
+[lecture7]: <{{site.baseurl}}/lectures/MolEpi.BirthDeathModels.Lecture7.pdf>
+
 
 
