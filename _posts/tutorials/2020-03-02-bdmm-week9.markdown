@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Estimating the fitness of drug resistance mutations
+title: Estimating the fitness of antimicrobial resistance mutations
 permalink: /tutorials/bdmm-week9/
 ---
 
@@ -14,30 +14,32 @@ permalink: /tutorials/bdmm-week9/
 [tracer]: <https://github.com/beast-dev/tracer/releases/tag/v1.7.1>
 [figtree]: <http://tree.bio.ed.ac.uk/software/figtree/>
 
-### Estimating the fitness of drug resistance mutations in *bdmm*
+### Estimating the fitness of antimicrobial resistance mutations in *bdmm*
 
-Antimicrobial resistance (AMR) is a growing problem for many microbial pathogens. While it is generally assumed that AMR carries a fitness cost in terms of reduced transmission potential or competitiveness in drug-free environments, the continued spread of AMR strains suggests that resistance may not in fact carry a large cost a large cost. A major question surrounding the evolution of AMR is therefore the relative fitness of resistant versus sensitive strains at the host-population level. 
+Antimicrobial resistance (AMR) is a growing problem for many microbial pathogens. While it is generally assumed that AMR carries a fitness cost in terms of reduced transmission potential or competitiveness in drug-free environments, the continued spread of AMR strains suggests that resistance may not in fact carry a large fitness cost. A major question surrounding the evolution of AMR is therefore the relative fitness of resistant versus sensitive strains at the host-population level. 
 
-While within-host fitness can often be experimentally measured, determining fitness at the population-level is much more challenging. Nevertheless, it is the transmission potential of AMR strains at the population-level that will ultimately determine whether or not AMR spreads. [Kühnert *et al.*, (2018)][kuhnert-2018] developed a simple but elegant multi-type birth-death (MTBD) model for estimating the transmission fitness of HIV drug resistance mutations from phylogenies. In their model, a pathogen is allowed to transition between resistant and sensitive genotypes, with each genotype having its own transmission rate $$\lambda_{S}$$ or $$\lambda_{R}$$. Fitting the MTBD to HIV phylogenies thereby allowed the authors to estimate the relative transmission fitness of different resistance mutations.
+While it is the transmission potential of AMR strains at the population-level that ultimately determines whether or not AMR spreads, measuring pathogen fitness at the population-level is a major challenge. [Kühnert *et al.*, (2018)][kuhnert-2018] developed a simple but elegant multi-type birth-death (MTBD) model for estimating the transmission fitness of HIV drug resistance mutations from phylogenies. In their model, a pathogen is allowed to transition between resistant and sensitive genotypes, with each genotype having its own transmission rate, $$\lambda_{S}$$ or $$\lambda_{R}$$. Fitting the MTBD to HIV phylogenies thereby allowed the authors to estimate the relative transmission fitness of different resistance mutations.
 
 <img src="{{site.baseurl}}/assets/img/tutorials/bdmm-week9/two-strain-model.png" alt="Birth-death model with sensitive and resistant pathogen genotypes" width="300" height="300">
 
-In this tutorial, we will use *bdmm*, a BEAST2 package for phylodynamic inference using multi-type birth-death models [(Kühnert *et al.*, 2016)][kuhnert-2016]. Specifically, we will adapt the MTBD model of Kühnert *et al.* (2018) to estimate the fitness of resistant and sensitive genotypes from phylogenies.
+In this tutorial, we will use *bdmm*, a BEAST2 package for phylodynamic inference using multi-type birth-death models [(Kühnert *et al.*, 2016)][kuhnert-2016], to estimate the fitness of resistant and sensitive genotypes from phylogenies.
 
 [kuhnert-2016]: <https://doi.org/10.1093/molbev/msw064>
 [kuhnert-2018]: <https://doi.org/10.1371/journal.ppat.1006895>
 
 ### The simulated data
 
-We will analyze simulated data to see if we can estimate the true fitness values used to simulate the sequence data. I simulated a pathogen phylogeny under a simple two-strain birth-death model. I then generated mock sequence data by simulating sequence evolution along each branch of the phylogeny using [pyvolve][pyvolve]. The simulated phylogeny and script I used to generate the sequence data are available [here][git-repo] if you're interested. You can download the simulated sequence data as a FASTA file using the link below:
+We will analyze a simulated data set containing both sensitive and resistant genotypes of a generic pathogen. This will allow us to test whether we can estimate the true fitness of each genotype known from the simulations. 
+
+I first simulated a pathogen phylogeny under a simple two-strain birth-death model. I then generated mock sequence data by simulating sequence evolution along each branch of the phylogeny using [pyvolve][pyvolve]. The sequence data was assumed to evolve neutrally and independently of the resistance genotype. The simulated phylogeny and script I used to generate the sequence data are available [here][git-repo] if you're interested. 
+
+You can download the simulated sequence data as a FASTA file using the link below:
 
 * [Simulated AMR sequence data][amr-seqs]
 
 [amr-seqs]: <{{site.baseurl}}/tutorials/bdmm-week9/AMR-seqsim.fasta>
 [git-repo]: <https://github.com/davidrasm/MolEpi/tree/gh-pages/tutorials/bdmm-week9>
 [pyvolve]: <https://github.com/sjspielman/pyvolve>
-
-Each sample is designated as Resistant or Sensitive. Independent of the sequence data, which is assumed to have evolved under a neutral model of evolution.
 
 ### Installing *bdmm*
 
@@ -48,7 +50,7 @@ Open BEAUTi and select ***File &rarr; Manage packages***. Select *bdmm* and then
 
 Once you reopen BEAUTi, go to ***File &rarr; Template*** and then select ***MultiTypeBirthDeath***. This will let BEAUTi know that you want to use this template to generate the XML input for BEAST.
 
-Load in the *AMR-seqsim.fasta* alignment file you downloaded through ***File &rarr; Add Alignment***. Under ***Tip Dates*** select *'Use tip dates'* and then hit ***Auto-configure***. The sampling dates are encoded in the sample names after the last underscore, so select *'use everything'*, *'after last'*, '\_'. Then hit OK.
+Load in the *AMR-seqsim.fasta* alignment file you downloaded through ***File &rarr; Add Alignment***. Under ***Tip Dates*** select *'Use tip dates'* and then hit ***Auto-configure***. The sampling dates are encoded in the sample names after the last underscore, so select *'use everything'*, *'after last'*, '\_'. Then hit ***OK***.
 
 <img src="{{site.baseurl}}/assets/img/tutorials/bdmm-week9/guess-dates.png" alt="Guessing the tip dates" width="500" height="450">
 
@@ -56,44 +58,50 @@ Next go to the ***Tip Locations*** panel and select ***Guess***. In the Guess lo
 
 <img src="{{site.baseurl}}/assets/img/tutorials/bdmm-week9/guess-locations.png" alt="Guessing the tip locations" width="500" height="400">
 
+The genotype of each sample should then be displayed under *'Location'* as either sensitive or resistant:
+
+<img src="{{site.baseurl}}/assets/img/tutorials/bdmm-week9/tip-locations.png" alt="The tip locations" width="600" height="400">
+
 ### Setting up the Site and Clock Model
 
-Select the ***Site Model*** panel. I simulated the sequence data under a HKY model with no rate heterogeneity across sites, so in this case we know the exact substitution model. Because there is no rate heterogeneity we can set *Gamma Category Count* to zero. For the substitution model, select HKY. It might be interesting to see if we can correctly estimate the correct kappa transition-transversion ratio I used to simulate the sequences, so select *estimate* next to Kappa. The true value is 2.75.
+Select the ***Site Model*** panel. I simulated the sequence data under a HKY model with no rate heterogeneity across sites, so in this case we know the exact substitution model. Because there is no rate heterogeneity we can set *Gamma Category Count* to zero. For the substitution model, select HKY. It might be interesting to see if we can correctly estimate the correct *Kappa* transition-transversion ratio I used to simulate the sequences, so select *estimate* next to *Kappa*. The true value is 2.75.
 
 <img src="{{site.baseurl}}/assets/img/tutorials/bdmm-week9/subst-model.png" alt="Setting up the Site Model" width="600" height="450">
 
-Under the ***Clock Model*** panel, select *Strict Clock* and check the *estimate* box next to *Clock.rate*. The true value I used in the simulations is 0.005 substitutions per site per year.
+Under the ***Clock Model*** panel, select *Strict Clock* and check the *estimate* box next to *Clock.rate*. The true value I used in the simulations is 0.005 substitutions per site per year. You may want to initialize the *Clock.rate* closer to this value so that the BEAST MCMC converges quicker.
 
 <img src="{{site.baseurl}}/assets/img/tutorials/bdmm-week9/clock-model.png" alt="Setting up the Clock Model" width="600" height="450">
 
 ### Setting up the *bdmm* tree model
 
-That should have all seemed rather familiar by now. Next, we will set up the multi-type birth-death model itself. Go to the ***Priors*** panel and you should see the MTBD model parameters at top. Note that the BEAUTi interface assumes that the *types* in the model are different locations, and refers to these as "*demes*". This isn't a problem, we just need to think of the demes as the sensitive and resistant genotypes in our model. 
+That should have all seemed rather familiar by now. Next, we will set up the multi-type birth-death model itself. Go to the ***Priors*** panel and you should see the MTBD model parameters at top. Note that the BEAUTi interface assumes that the *types* in the model are different locations, and refers to these as *demes*. This isn't a problem, we just need to think of the *demes* as the different genotypes in our model. Under ***Number of demes*** make sure there are two demes. 
 
-Under *Number of demes* make sure we have two selected. In our analysis, we are mainly interested in estimating the *Reproduction number per type*, which is the $$R_{0}$$ value for each genotype. You can keep the initial values at 2. 
+In our analysis, we are mainly interested in estimating the ***Reproduction number per type***, which is the $$R_{0}$$ value for each genotype. You can keep the initial values at 2. 
 
-Remember that under a birth-death model we cannot jointly estimate the transmission/birth rate, death rate and sampling proportion together. We can only estimate two of these parameters. Because we are already estimating $$R_{0}$$ and we do not know the true sampling proportion, we will have to provide the death rate. In BEAUTi, the death rate is called the *BecomeUninfectiousRate* (catchy, huh?). The reciprocal of this value gives the average duration of infection. In my simulations, hosts stayed infected for an average of two years, regardless of the pathogen genotype, so the true *BecomeUninfectiousRate* is 0.5. We could fix this parameter at its true value, but we will adopt a more refined Bayesian approach and specify an informative prior on the *BecomeUninfectiousRate* below. For now, we can change the initial values for both types to 0.5
+Remember that under a birth-death model we cannot jointly estimate the transmission rate, death rate and sampling proportion together. We can only estimate two of these parameters. Because we do not know the true sampling proportion and are interested in estimating the transmission rates in terms of $$R_{0}$$, we will provide the death rate. In BEAUTi, the death rate is called the ***BecomeUninfectiousRate*** (catchy, huh?). The reciprocal of this value gives the average duration of infection. In my simulations, hosts stayed infected for an average of two years, regardless of the pathogen genotype, so the true *BecomeUninfectiousRate* is 0.5. We could fix this parameter at its true value, but we will adopt a more refined Bayesian approach and specify an informative prior on the *BecomeUninfectiousRate* below. For now, we can change the initial values for both types to 0.5.
+
+Let's skip ahead to the ***Sampling change time*** parameter, which allows the sampling proportion to change at a given point in time. The default configuration allows the sampling proportion to change at one point in time because it is recommended by the developers of *bdmm* that the sampling fraction be set to zero before the time of the first sample. This turns out to be a very sensible thing to do because we know *ipso facto* that the sampling proportion must be zero before the first sample, and there may be a very long period of time separating the root from the first sampling event. Thus, our estimates of the sampling proportion would likely be biased downwards if we did not account for no sampling before the first sampling event. 
+
+The time of the earliest sample is 7.29999 years in the past, which can be verified by looking at the tip heights under the ***Tip Dates*** panel. *bdmm* expects times to be specified in time since the present, so will set the *Sampling change time* to 7.3. Rounding up here ensures that this change point occurs earlier (further in the past) than the first sampling event.
+
 ___
 
 ***Note: Time-varying parameters*** <br>
 
-In our analysis we let the sampling proportion change through time. But actually any of the MTBD parameters can be made to vary over time in a piecewise constant manner. Unfortunately though, this cannot be done in BEAUTi but has to be set up manually in the XML file. So we will not consider other time-varying parameters here.
+In our analysis we let the sampling proportion change through time. But actually any of the MTBD parameters can be made to vary over time in a piecewise constant manner. Unfortunately, this cannot be done in BEAUTi and needs to be set up manually in the XML file. So we will not consider other time-varying parameters for now.
 
 ___
 
-Let's skip ahead to the *Sampling change time* parameter, which allows the sampling proportion to change at a given point in time. The default configuration allows the sampling proportion to change at one point in time because it is recommended by the developers of *bdmm* that the sampling fraction be set to zero before the time of the first sample. This turns out to be a very sensible thing to do because we know *ipso facto* that the sampling proportion must be zero before the first sample, and there may be a very long period of time separating the root from the first sampling event. Thus, our estimates of the sampling proportion would likely be biased downwards if we did not account for no sampling before the first sampling event. 
 
-The time of the earliest sample is 7.29999 years in the past, which can be verified by looking at the tip heights under the ***Tip Dates*** panel. *bdmm* expects times to be specified in time since the present, so will set the *Sampling change time* to 7.3. Rounding up here ensures that the first sampling event occurs after the change to a non-zero sampling proportion.  
+Now we will return to the actual ***SamplingProportion per type*** parameter. There are four values listed here, the first two values correspond to the two sampling time intervals for the first type, and the third and fourth values correspond to the two sampling time intervals for the second type. Make sure the first sampling interval for each type (i.e. the first and third values) is set to zero. The default value of 0.01 is fine for the sampling proportion after the *Sampling change time*.
 
-Now we will return to the actual *SamplingProportion per type* parameter. There are four values listed here, the first two values correspond to the two sampling time intervals for the first type, and the the third and fourth values correspond to the two sampling time intervals for the second type. Make sure we set the first sampling interval for each type (i.e. the first and third values) to zero. The default value of 0.01 is fine for the sampling proportion after the *Sampling change time*.
-
-The *Migration rates* here correspond to the mutation rates between resistant and sensitive genotypes. We can leave these at their default values. The ***Priors*** panel should now look like this:
+The ***Migration rates*** correspond to the mutation rates between resistant and sensitive genotypes. We can leave these at their default values. The ***Priors*** panel should now look like this:
 
 <img src="{{site.baseurl}}/assets/img/tutorials/bdmm-week9/bdmm-priors.png" alt="Setting the prior on R0" width="700" height="350">
 
 ### Setting up the prior distributions
 
-Now we need to specify a prior distribution on all model parameters. You can click the right facing arrow next to each variable in the ***Priors*** panel to access a drop down menu in which you can specify the prior values. 
+Now we need to specify a prior distribution on all model parameters. You can click the right facing arrow next to each variable in the ***Priors*** panel to see a drop down menu in which you can specify the prior values. 
 
 For $$R_{0}$$, I recommend a fairly uninformative prior since we truly do not know the $$R_{0}$$ for each genotype, and do not want our prior to strongly influence our estimates. I set a Log Normal prior with mean (*M*) = 1.0 and a standard deviation (*S*) = 2.0. Make sure *'Mean in Real Space'* is checked so that we are not specifying the mean on a log scale. This places most of the prior probability between 0 and 3, which is reasonable because only extremely infectious pathogens will have a $$R_{0}$$ above 3. 
 
@@ -105,9 +113,9 @@ On the other hand, we will use a highly informative prior for the *becomeUninfec
 
 For the *clockRate* prior, I used an Exponential prior, with a mean of 0.01. An Exponential prior is a reasonable choice whenever parameter values need to be positive (like for rates), but we have reason to believe that higher parameter values become increasingly less probable. For *kappa* I kept the default Log Normal prior.
 
-The *rateMatrix* priors are for the transition rates in the MTBD model. I used an Exponential prior with the default mean value of one.
+The *rateMatrix* priors are for the mutation rates in the MTBD model. I used an Exponential prior with the default mean value of one.
 
-Finally, for the prior on the *samplingProportions* I used a Beta prior. The beta distribution is a natural choice for parameters like frequencies or proportions that are constrained to values between zero and one. The alpha parameter of the beta distribution controls the overall shape of the distribution, including how flat or peaked it is. The beta parameter controls the skew of the distribution towards 0 or 1. I set alpha = 2.0 and beta = 4.0 to indicate my belief that *samplingProportions* below 0.5 are more probable, with the distribution centered around 0.25. We can leave the *'X include'* values as *[false true false true]*. This just tells BEAST that we don't want to estimate the *samplingProportion* in the first sampling time interval before the first sampling event.
+Finally, for the prior on the *samplingProportions* I used a Beta prior. The Beta distribution is a natural choice for parameters like frequencies or proportions that are constrained to values between zero and one. The *alpha* parameter of the Beta distribution controls the overall shape of the distribution, including how flat or peaked it is. The *beta* parameter controls the skew of the distribution towards 0 or 1. I set *alpha* = 2.0 and *beta* = 4.0 to indicate my prior belief that *samplingProportions* below 0.5 are more probable than values above 0.5, with the distribution centered around 0.25. We can leave the *'X include'* values as *[false true false true]*. This just tells BEAST that we don't want to estimate the *samplingProportions* in the time interval before the first sampling event.
 
 <img src="{{site.baseurl}}/assets/img/tutorials/bdmm-week9/samplingProportion-prior.png" alt="Setting the prior on the samplingProportions" width="700" height="200">
 
@@ -117,52 +125,54 @@ In the MCMC panel, set the *Chain Length* to 2,500,000 iterations. Then navigate
 
 ### Posterior analysis in Tracer
 
-The MCMC run will probably not finish running before the end of class. It took about two hours to run on my laptop. So you may want to download my pre-cooked [.log][precooked-log] and [.trees][precooked-trees] files.
+The MCMC run will probably not finish before the end of class. It took about two hours to run on my laptop. So you may want to download my pre-cooked [.log][precooked-log] and [.trees][precooked-trees] files.
 
 [precooked-log]: <{{site.baseurl}}/tutorials/bdmm-week9/AMR-sim.log>
-[precooked-trees]: <{{site.baseurl}}/tutorials/bdmm-week9/AMR.typedNode.tree>
+[precooked-trees]: <{{site.baseurl}}/tutorials/bdmm-week9/AMR.typedNode.trees>
 
-Open the *.log* file in Tracer so we can examine our posterior estimates of the MTBD model parameters.
+Open the *.log* file in Tracer so we can examine our posterior estimates of the MTBD and substitution model parameters.
 
-First let's look at the estimate $$R_{0}$$ values for the sensitive and resistant genotypes. Select the two $$R_{0}$$ parameters in the window on the left and then look at the *Marginal Prob Distribution*. The first R0 value is for the resistant genotype and the second is for the sensitive genotype. We can see that the R0 for the sensitive genotype is more than twice that of the resistant genotype. The true ratio I used for lambda_S/lambda_r was 2.0. So are median estimates are not far off from the truth.
+First let's look at the estimated $$R_{0}$$ values for the sensitive and resistant genotypes. Select the two $$R_{0}$$ parameters in the window on the left and then look at the *Marginal Prob Distribution*. The first value is for the resistant genotype and the second is for the sensitive genotype. We can see that the $$R_{0}$$ for the sensitive genotype is more than twice that of the resistant genotype. In the simulations, the true ratio of $$\frac{\lambda_{S}}{\lambda_{R}}$$ was 2.0, so the estimated ratio of $$R_{0}$$ values is not far off from the truth.
 
 <img src="{{site.baseurl}}/assets/img/tutorials/bdmm-week9/est-R0-ratio.png" alt="Estimated posterior distributions for the R0 of each type" width="700" height="400">
 
-The posterior estimates for the becomeUninfectiousRates are centered around 0.5 and were clearly constrained by the prior, as they remained within the 0.4 to 0.6.
+The posterior estimates for the *becomeUninfectiousRates* are centered around 0.5 and remained within the 0.4 to 0.6 interval, so were clearly constrained by our prior, as expected.
 
-The median estimate for the sampling proportion is 0.36 and 0.31. The true sampling proportion was 0.25 for both genotypes, so again our estimates are not far off.
+The median posterior estimates for the *samplingProportions* are 0.36 and 0.31 for the resistant and sensitive genotypes, respectively. The true sampling proportion was 0.25 for both genotypes, so again the estimates are not far off.
 
 <img src="{{site.baseurl}}/assets/img/tutorials/bdmm-week9/est-sampling-ratio.png" alt="Estimated posterior distributions for the sampling proportions" width="700" height="400">
 
-We can also look at the rateMatrix estimates, which are the transition rate between resistant and sensitive strains. The true mutation rate was 0.2 in both directions, so we've over estimated these rates by a quite a bit, but there is also substantial uncertainty surrounding the estimates.
+Next we can examine the rateMatrix estimates for the mutation rates between resistant and sensitive genotypes. The true mutation rates were 0.2 in both directions, so we overestimated these rates, but there is also substantial uncertainty surrounding our estimates.
 
 <img src="{{site.baseurl}}/assets/img/tutorials/bdmm-week9/est-rates-ratio.png" alt="Estimated posterior distributions for the mutation rates" width="700" height="400">
 
-Finally, we can look at our estimates for the parameters in the substitution model. We can also go back and see if we correctly estimated the HKY kappa parameter and clock rate. 
+Finally, we can examine our estimates of the substitution model parameters, *kappa* and the molecular *clockRate*. The true values I used to simulate the sequence data were *kappa* = 2.75 with a *clockRate* of 0.005, so it appears we very accurately and precisely estimated these parameters.
 
 
 ### Visualizing ancestral type trees
 
-Just like in the phylogeographic and structured coalescent methods we've looked, we can also look at the ancesteral states/types reconstructed by bdmm.
+We can also look at the ancestral types *bdmm* reconstructed for the nodes and branches in the inferred phylogenetic tree.
 
-In TreeAnnotator...
+Open TreeAnnotator and for *Burnin percentage* choose 10%, for *Target tree type* select *Maximum clade credibility tree* and for *Node Heights* select *Mean heights*. For the *Input Tree File* select the *.trees* file with *typedNodes* in the name. These are the trees BEAST sampled with ancestral types mapped onto the tree nodes. Choose an *Output File* name and then hit ***Run***. 
 
-Go to Appearance > Colour by > type. You can also select gradient.
+<img src="{{site.baseurl}}/assets/img/tutorials/bdmm-week9/tree-annotator.png" alt="Tree annotator" width="500" height="400">
 
-We can also get posterior probabilities on the ancestral types. Go to Node Labels > Display > and selct type.prob. This will display the posterior probabilities of each node being in the first type - sensitive.
+Open the resulting MCC tree in FigTree. Go to ***Appearance &rarr; Colour by &rarr; type*** to color the tree by the reconstructed ancestral genotypes. To get posterior probabilities on the ancestral types, go to ***Node Labels &rarr; Display &rarr; type.prob***. This will display the posterior probability of each node having the sensitive genotype.
 
-### Setting up the bdmm priors
+<img src="{{site.baseurl}}/assets/img/tutorials/bdmm-week9/colored-tree.png" alt="Visualizing ancestral genotypes" width="700" height="500">
 
- In this dataset we have strains from 2 different locations, New Zealand and Hong Kong, so the Number of demes should be set to 2, which also is the default value. Next, bdmm lets you estimate the Reproduction number per type and the BecomeUninfectiousRate per type. This will let us see the differences in reproduction fitness and speed of recovery between the two locations, so we leave the estimate checkboxes checked. We can leave the starting values at default as it will not influence the inference a lot.
-
- Set sampling proportions to 0 before first sample.
-
+We can see that most of the transmission/branching events in the tree involved sensitive genotypes and that the resistant genotypes are mainly restricted to single tips or cherries in the tree. Its therefore not too surprising that we estimated the sensitive genotype to have much higher fitness than the resistant genotype.
 
 ### References and further information
+
+This tutorial was partially based on an earlier [BEAST2 bdmm tutorial][TtB-tutorial] by Denise Kühnert and Jūlija Pečerska.
 
 [Kühnert, D., Stadler, T., Vaughan, T. G., & Drummond, A. J. (2016). Phylodynamics with migration: a computational framework to quantify population structure from genomic data. Molecular Biology and Evolution, 33(8), 2102-2116.][kuhnert-2016]
 
 [Kühnert, D., Kouyos, R., Shirreff, G., Pečerska, J., Scherrer, A. U., Böni, J., ... & Stadler, T. (2018). Quantifying the fitness cost of HIV-1 drug resistance mutations through phylodynamics. PLoS Pathogens, 14(2), e1006895.][kuhnert-2018]
+
+
+[TtB-tutorial]: <https://taming-the-beast.org/tutorials/Structured-birth-death-model/>
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 

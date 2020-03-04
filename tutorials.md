@@ -38,3 +38,8 @@ permalink: /tutorials/
 [Detecting recombination in RDP4][week-8] <br>
 
 [week-8]: <{{site.baseurl}}/tutorials/rdp4-week8/>
+
+### Week 9: March 2-6
+[Estimating the fitness of antimicrobial resistance mutations][week-9] <br>
+
+[week-9]: <{{site.baseurl}}/tutorials/bdmm-week9/>
