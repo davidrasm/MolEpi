@@ -6,8 +6,6 @@ categories: jekyll update
 permalink: /syllabus/
 ---
 
-Please note that this is only a draft.
-
 ### Week 1: Jan 6-10
 **Lecture:** Introduction: Phylogenetic insights into infectious disease dynamics <br>
 **Lab:** Wrangling and aligning sequence data, building ML phylogenies 
@@ -46,26 +44,23 @@ Please note that this is only a draft.
 **Lecture:** Multi-type birth-death models and adaptive molecular evolution <br>
 **Lab:** Estimating the fitness of drug resistance mutations in BDMM
 
-**March 9 - 13: SPRING BREAK** 
+**March 9 - 20: SPRING BREAK (EXTENDED)** 
 
-### Week 10: March 16 - 20
+### Week 10: March 23 - 27
 **Lecture:** Modeling transmission dynamics with SIR models <br>
 **Lab:** SIR model practical; simulating epidemics in Python/Jupyter
 
-### Week 11:  March 23 - 27
+### Week 11:  March 30 - April 3
 **Lecture:** Modeling and simulating evolution with generative tree models <br>
 **Lab:** How good is BEAST? Simulating trees and sequence data to test our algorithms
 
-### Week 12:  March 30 - April 3
+### Week 12:  April 6 - 10
 **Lecture:** Putting it all together with phylodynamics: phylogenetics meets epidemic modeling <br>
 **Lab:** Fitting SIR models to phylogenies
 
-### Week 13: April 6 - 10
+### Week 13: April 13 - 17
 **Lecture:** Predicting the (very near) future: Forecasting pathogen evolution <br> 
 **Lab:** Discussion of Lusckza and Lassig (Nature, 2015) and Morris *et al.* (Trends in Micro, 2018) 
 
-### Week 14: April 13 - 17
+### Week 14: April 20-24
 **Both sessions:** Team presentations
-
-### Week 15: April 20-24
-Go forth and save the world! Responding to simulated epidemic threats
