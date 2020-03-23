@@ -46,5 +46,11 @@ permalink: /lectures/
 
 [lecture7]: <{{site.baseurl}}/lectures/MolEpi.BirthDeathModels.Lecture7.pdf>
 
+### Week 10: March 23-27
+
+[Modeling transmission dynamics with SIR models][lecture8] <br>
+
+[lecture8]: <{{site.baseurl}}/lectures/MolEpi.EpiModels.Lecture8.pdf>
+
 
 
