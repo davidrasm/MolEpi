@@ -100,4 +100,20 @@ Introduces the Felsenstein pruning algorithm <br>
 
 [kuhnert2018]: <https://doi.org/10.1371/journal.ppat.1006895>
 
+### Week 10: March 23-27
+
+[Keeling, M. J., & Rohani, P. (2011). Modeling infectious diseases in humans and animals. Princeton University Press.][keeling2011] <br>
+\*\* Chapters 2 and 3 give an amazing introduction to SIR-type models. Unfortunately not available online but well worth it if you can get your hands on a copy. <br>
+
+[keeling2011]: <https://catalog.lib.ncsu.edu/catalog/NCSU2255422>
+
+[Ferrari, M. J., Grais, R. F., Bharti, N., Conlan, A. J., Bjørnstad, O. N., Wolfson, L. J., ... & Grenfell, B. T. (2008). The dynamics of measles in sub-Saharan Africa. Nature, 451(7179), 679-684.][ferrari2008] <br>
+
+[ferrari2008]: <https://www.nature.com/articles/nature06509>
+
+[Gilligan, C. A., & van den Bosch, F. (2008). Epidemiological models for invasion and persistence of pathogens. Annu. Rev. Phytopathol., 46, 385-418.][gilligan2008] <br>
+\* Review exploring many different applications of epidemiological modeling to plant pathogens <br>
+
+[gilligan2008]: <https://www.annualreviews.org/doi/abs/10.1146/annurev.phyto.45.062806.094357>
+
 
