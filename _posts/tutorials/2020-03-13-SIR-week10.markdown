@@ -14,7 +14,9 @@ In this tutorial we will work with SIR models using Python in an interactive Jup
 
 There are two ways you can run these notebooks:
 
-***1)*** If you have previously installed the [Anaconda][anaconda] distribution of Python, then you should already have Jupyter and the other dependencies required for theses exercises. You can download the *SIR.ipynb* from [this GitHub repo][git-repo]. You can then run the notebook from the command line by executing:
+### 1) Running Python/Jupyter on your own machine 
+
+If you have previously installed the [Anaconda][anaconda] distribution of Python, then you should already have Jupyter and the other dependencies required for theses exercises. You can download the *SIR.ipynb* from [this GitHub repo][git-repo]. You can then run the notebook from the command line by executing:
 
 ```
 jupyter notebook /path_to_file/SIR.ipynb
@@ -23,14 +25,11 @@ jupyter notebook /path_to_file/SIR.ipynb
 [anaconda]: <https://www.anaconda.com/distribution/>
 [git-repo]: <https://github.com/davidrasm/SIR-binder.git>
 
-***2)*** If you do not have Python or Jupyter installed, no worries, you can just use the Binder link below to run the *SIR.ipynb* notebook in a virtual environment that already has all of the Python dependencies installed.
+### 2) Running a virtual environment with Binder
+
+If you do not have Python or Jupyter installed, no worries, you can just use the Binder link below to run the *SIR.ipynb* notebook in a virtual environment that already has all of the Python dependencies installed.
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/davidrasm/SIR-binder.git/master?filepath=SIR.ipynb)
-
-
-### References and further information
-
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
 
 
