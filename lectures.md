@@ -52,5 +52,11 @@ permalink: /lectures/
 
 [lecture8]: <{{site.baseurl}}/lectures/MolEpi.EpiModels.Lecture8.pdf>
 
+### Week 11: March 30-April 3
+
+[Stochastic models for simulation and inference][lecture9] <br>
+
+[lecture9]: <{{site.baseurl}}/lectures/MolEpi.StochasticModels.Lecture9.pdf>
+
 
 

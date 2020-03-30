@@ -1,0 +1,33 @@
+<beast version='2.0' namespace='master:master.model:master.steppers:master.conditions:master.postprocessors:master.outputs'>
+
+    <run spec='Trajectory'
+         simulationTime='50'>
+
+        <model spec='Model' id='model'>
+		      <population spec='Population' id='S' populationName='S'/>
+		      <population spec='Population' id='E' populationName='E'/>
+		      <population spec='Population' id='I' populationName='I'/>
+		      <population spec='Population' id='R' populationName='R'/>
+		      
+		      <reaction spec='Reaction' reactionName="Infection" rate="0.05">
+				S + I -> I + E
+		      </reaction>
+		      <reaction spec='Reaction' reactionName="Incubation" rate="0.4">
+				E -> I
+		      </reaction>
+		      <reaction spec='Reaction' reactionName="Recovery" rate="0.2">
+				I -> R
+		      </reaction>
+		</model>
+		    
+		<initialState spec='InitState'>
+			<populationSize spec='PopulationSize' population='@S' size='199'/>
+			<populationSize spec='PopulationSize' population='@E' size='0'/>
+			<populationSize spec='PopulationSize' population='@I' size='1'/>
+		</initialState>
+
+	    <output spec='JsonOutput' fileName='Documents/GitHub/MolEpi/tutorials/master-week10/SEIR_output.json'/>
+
+    </run>
+
+</beast>

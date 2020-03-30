@@ -1,0 +1,163 @@
+<!--
+force of infection: max(0, a*t + b )
+-->
+
+<beast beautitemplate='Standard' beautistatus='' namespace="phydyn.model:phydyn.distribution:phydyn.loggers:phydyn.operators:beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood" version="2.0">
+
+<map name="Uniform">beast.math.distributions.Uniform</map>
+<map name="Exponential">beast.math.distributions.Exponential</map>
+<map name="LogNormal">beast.math.distributions.LogNormalDistributionModel</map>
+<map name="Normal">beast.math.distributions.Normal</map>
+<map name="Beta">beast.math.distributions.Beta</map>
+<map name="Gamma">beast.math.distributions.Gamma</map>
+<map name="LaplaceDistribution">beast.math.distributions.LaplaceDistribution</map>
+<map name="prior">beast.math.distributions.Prior</map>
+<map name="InverseGamma">beast.math.distributions.InverseGamma </map>
+
+
+<data id="sequences" name="alignment">
+ 
+
+</data>
+	
+	<model spec='PopModelODE' id='seirmodel' evaluator="compiled"
+	     popParams='@initValues' modelParams='@rates'>
+		
+		<definition spec='Definition'>
+			beta = max(0.0, a*t + b) <!-- remove? -->
+		</definition>
+		
+		<matrixeq spec='MatrixEquation' type="migration" origin="E" destination="Il">
+			gamma0*E*(1-p_h) <!-- we will call this eta_l -->
+		</matrixeq> 
+		
+		<matrixeq spec='MatrixEquation' type="migration" origin="E" destination="Ih">
+			gamma0*E*p_h <!-- we will call this eta_h -->
+		</matrixeq> 
+		
+		
+		<matrixeq spec='MatrixEquation' type="birth"  origin="Il" destination="E"> 
+			beta*Il
+		 </matrixeq> 
+		
+		<matrixeq spec='MatrixEquation' type="birth"  origin="Ih" destination="E"> 
+			beta*Ih*tau
+		 </matrixeq> 
+		
+		<matrixeq spec='MatrixEquation' type="death" origin="Il">
+			gamma1*Il <!-- just call this gamma -->
+		</matrixeq> 
+		
+		<matrixeq spec='MatrixEquation' type="death" origin="Ih">
+			gamma1*Ih <!-- just call this gamma -->
+		</matrixeq> 
+			
+		<matrixeq spec='MatrixEquation' type="nondeme" origin="R"> 
+			gamma1*(Il + Ih) <!-- just call this gamma -->
+		</matrixeq>
+	</model>
+	
+	<rates spec="ModelParameters" id='rates'>	
+<!--
+		11.4 day incubation
+		5 day infectiousness 
+-->
+		<param spec='ParamValue' names='gamma0' values='32.01754'/> <!-- just need one gamma -->
+		<param spec='ParamValue' names='gamma1' values='73.0'/>
+		<param spec='ParamValue' names='p_h' values='0.20'/> <!-- replace with eta high/low -->
+		<param spec='ParamValue' names='a' values='@a'/> <!-- replace with beta only -->
+		<param spec='ParamValue' names='b' values='@b'/> <!-- replace with beta only -->
+		<param spec='ParamValue' names='tau' values='@tau'/>
+	</rates>
+	
+<!--
+t1="1.8000765516"
+-->
+<!--
+	<trajparams id='initValues' spec='TrajectoryParameters' method="classicrk" 
+	            integrationSteps="1000" rTol="0.001" aTol="1.0e-6" order="3" t0="0.0" t1="1.95" >
+-->	            
+
+	<trajparams id='initValues' spec='TrajectoryParameters' method="classicrk" 
+	            integrationSteps="1000" t0="-0.001" >
+
+	        <initialValue spec="ParamValue" names='E' values='@initI0'  />
+			<initialValue spec="ParamValue" names='Il' values='1.0'  />
+			<initialValue spec="ParamValue" names='Ih' values='1.0'  />
+			<initialValue spec="ParamValue" names='R' values='0.0'  />
+	</trajparams>
+	
+	<!-- Define tree outside state -->
+	<init spec="beast.util.TreeParser" id="tree"
+			taxa="@sequences" 
+			adjustTipHeights="false"
+			IsLabelledNewick="true"
+			newick=""> <!-- insert tree here ! -->
+	</init>
+	
+	<run id="mcmc" spec="MCMC" chainLength="100">
+		<state id="state" storeEvery="100">
+			<parameter id="initI0" lower="0.0" upper="140" name="stateNode">16.31705804083015</parameter>
+			<parameter id="b" lower="0.0" upper="Infinity" name="stateNode">67.19745324723135</parameter>
+			<parameter id="a" lower="-Infinity" upper="Infinity" name="stateNode">-25.050218168022802</parameter>
+			<parameter id="tau" lower="-Infinity" upper="Infinity" name="stateNode">6.594857810472015</parameter>
+		</state>
+	 	
+ 		<distribution id="posterior" spec="util.CompoundDistribution">
+			<distribution id="prior" spec="util.CompoundDistribution">
+				<prior id="initI0prior" name="distribution" x="@initI0">
+					<LogNormal id="LogNormal:initI0" M="0" S="1" name="distr" />
+				</prior>
+				<prior id="tauPrior" name="distribution" x="@tau">
+					<LogNormal id="LogNormal:tau" M="1" S="1" name="distr" />
+				</prior>
+				<prior id="bPrior" name="distribution" x="@b">
+					<LogNormal id="LogNormal:b" M="4.6" S="1" name="distr" />
+				</prior>
+				<prior id="aPrior" name="distribution" x="@a">
+					<Normal id="Normal:a" mean="0.0" sigma="40.0" name="distr" />
+				</prior>
+			</distribution>	
+			
+			<distribution id="likelihood" spec="util.CompoundDistribution">
+				 <distribution spec='STreeLikelihoodODE' id = 'stlikelihood'
+             	 useStateName='true' 
+             	 approxLambda='false' finiteSizeCorrections='false'
+             	 solvePL='false'
+             	 forgiveY='true'
+             	 forgiveAgtY='1.0'
+             	 stepSize='.0001'
+                 popmodel='@seirmodel'  >
+                 
+                 <treeIntervals spec="STreeIntervals" tree='@tree'> </treeIntervals>
+                 
+    			</distribution>
+			</distribution>
+		</distribution>
+		
+		<operator id="rwoperator:tau" spec="RealRandomWalkOperator" windowSize="0.1" parameter="@tau" useGaussian='true' weight="1" />
+		<operator id="rwoperator:b" spec="RealRandomWalkOperator" windowSize="0.150" parameter="@b" useGaussian='true' weight="1" />
+		<operator id="rwoperator:a" spec="RealRandomWalkOperator" windowSize="0.150" parameter="@a" useGaussian='true' weight="1" />
+		<operator id="rwoperator:initI0" spec="RealRandomWalkOperator" windowSize="1.50" parameter="@initI0" useGaussian='true' weight="1" />
+		
+		<logger id="tracelog" fileName="$(filebase).log" logEvery="1" model="@posterior" sanitiseHeaders="true" sort="smart">
+			<log idref="tau"/>
+			<log idref="b"/>
+			<log idref="a"/>
+			<log idref="initI0"/>
+			<log idref="prior"/>
+			<log idref="posterior"/>
+		</logger>
+		<logger id="screenlog" logEvery="1">
+			<log idref="tau"/>
+			<log idref="b"/>
+			<log idref="a"/>
+			<log idref="initI0"/>
+			<log idref="prior"/>
+			<log idref="posterior"/>
+		</logger>
+		<logger id = "popModelLogger" fileName="$(filebase).traj" logEvery="100">
+			<log id="trajectoryLogger" spec="TrajectoryLogger" popModel="@seirmodel" pointFrequency="1"></log>
+		</logger>
+	</run>
+</beast>

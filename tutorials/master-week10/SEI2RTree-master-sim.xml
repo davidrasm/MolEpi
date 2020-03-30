@@ -1,0 +1,58 @@
+<beast version='2.0' namespace='master:master.model:master.steppers:master.conditions:master.postprocessors:master.outputs'>
+
+  <run spec='InheritanceTrajectory'
+       samplePopulationSizes="true"
+       simulationTime='100'>
+
+        <model spec='Model' id='model'>
+		      <population spec='Population' id='S' populationName='S'/>
+		      <population spec='Population' id='E' populationName='E'/>
+		      <population spec='Population' id='Il' populationName='Il'/>
+		      <population spec='Population' id='Ih' populationName='Ih'/>
+		      <population spec='Population' id='R' populationName='R'/>
+		      
+		      <reaction spec='Reaction' reactionName="Infection" rate="0.005">
+				S + Il:1 -> Il + E:1
+		      </reaction>
+		      <reaction spec='Reaction' reactionName="Infection" rate="0.025">
+				S + Ih:1 -> Ih + E:1
+		      </reaction>
+		      <reaction spec='Reaction' reactionName="IncubationLow" rate="0.32">
+				E:1 -> Il:1
+		      </reaction>
+		      <reaction spec='Reaction' reactionName="IncubationHigh" rate="0.08">
+				E:1 -> Ih:1
+		      </reaction>
+		      <reaction spec='Reaction' reactionName="Recovery" rate="0.2">
+				Il -> R
+		      </reaction>
+		      <reaction spec='Reaction' reactionName="Recovery" rate="0.2">
+				Ih -> R
+		      </reaction>
+		</model>
+		    
+		<initialState spec='InitState'>
+			<populationSize spec='PopulationSize' population='@S' size='199'/>
+			<populationSize spec='PopulationSize' population='@E' size='0'/>
+			<populationSize spec='PopulationSize' population='@Il' size='0'/>
+			<populationSize spec='PopulationSize' population='@Ih' size='1'/>
+			<lineageSeed spec='Individual' population='@Ih'/>
+		</initialState>
+
+		<lineageEndCondition spec='LineageEndCondition' nLineages="0"/>
+
+		<inheritancePostProcessor spec='LineageSampler'
+        	pSample="0.1">
+    	</inheritancePostProcessor>
+
+<!--     	<inheritancePostProcessor spec='LineageSampler'
+        	nSamples="INTEGER">
+    	</inheritancePostProcessor> -->
+
+		<output spec='NewickOutput' fileName='Documents/GitHub/MolEpi/tutorials/master-week10/SEI2RTree_sim2_output.newick'/>
+		<output spec='NexusOutput' fileName='Documents/GitHub/MolEpi/tutorials/master-week10/SEI2RTree_sim2_output.nexus'/>
+	    <output spec='JsonOutput' fileName='Documents/GitHub/MolEpi/tutorials/master-week10/SEI2RTree_sim2_output.json'/>
+
+    </run>
+
+</beast>

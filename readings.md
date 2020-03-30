@@ -116,4 +116,13 @@ Introduces the Felsenstein pruning algorithm <br>
 
 [gilligan2008]: <https://www.annualreviews.org/doi/abs/10.1146/annurev.phyto.45.062806.094357>
 
+### Week 11: March 30-April 3
 
+[Keeling, M. J., & Rohani, P. (2011). Modeling infectious diseases in humans and animals. Princeton University Press.][keeling2011] <br>
+\*\* Chapter 6 gives a great overview of the types of stochastic models used in epidemiology. <br>
+
+[keeling2011]: <https://catalog.lib.ncsu.edu/catalog/NCSU2255422>
+
+[Vaughan, T. G., & Drummond, A. J. (2013). A stochastic simulator of birth–death master equations with application to phylodynamics. Molecular Biology and Evolution, 30(6), 1480-1493.][vaughan2013] <br>
+
+[vaughan2013]: <https://doi.org/10.1093/molbev/mst057>
