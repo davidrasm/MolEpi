@@ -10,7 +10,7 @@
 		      <population spec='Population' id='I' populationName='I'/>
 		      <population spec='Population' id='R' populationName='R'/>
 		      
-		      <reaction spec='Reaction' reactionName="Infection" rate="0.05">
+		      <reaction spec='Reaction' reactionName="Infection" rate="0.01">
 				S + I:1 -> I + E:1
 		      </reaction>
 		      <reaction spec='Reaction' reactionName="Incubation" rate="0.4">
@@ -34,13 +34,13 @@
         	pSample="0.2">
     	</inheritancePostProcessor>
 
-<!--     	<inheritancePostProcessor spec='LineageSampler'
+<!--    <inheritancePostProcessor spec='LineageSampler'
         	nSamples="INTEGER">
     	</inheritancePostProcessor> -->
 
-		<output spec='NewickOutput' fileName='Documents/GitHub/MolEpi/tutorials/master-week10/SEIRTree_output.newick'/>
-		<output spec='NexusOutput' fileName='Documents/GitHub/MolEpi/tutorials/master-week10/SEIRTree_output.nexus'/>
-	    <output spec='JsonOutput' fileName='Documents/GitHub/MolEpi/tutorials/master-week10/SEIRTree_output.json'/>
+<!-- 	<output spec='NewickOutput' fileName='Desktop/SEIRTree_output.newick'/> -->
+		<output spec='NexusOutput' fileName='Desktop/SEIRTree_output.nexus'/>
+	    <output spec='JsonOutput' fileName='Desktop/SEIRTree_output.json'/>
 
     </run>
 

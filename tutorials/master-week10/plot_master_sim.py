@@ -65,4 +65,5 @@ if plotIh:
 ax.set_xlabel('Time')
 ax.set_ylabel('Count')
 ax.legend()
+fig.tight_layout()
 fig.savefig(png_file, dpi=200)

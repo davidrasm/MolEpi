@@ -11,10 +11,10 @@
 		      <population spec='Population' id='Ih' populationName='Ih'/>
 		      <population spec='Population' id='R' populationName='R'/>
 		      
-		      <reaction spec='Reaction' reactionName="Infection" rate="0.005">
+		      <reaction spec='Reaction' reactionName="InfectionLow" rate="0.005">
 				S + Il:1 -> Il + E:1
 		      </reaction>
-		      <reaction spec='Reaction' reactionName="Infection" rate="0.025">
+		      <reaction spec='Reaction' reactionName="InfectionHigh" rate="0.025">
 				S + Ih:1 -> Ih + E:1
 		      </reaction>
 		      <reaction spec='Reaction' reactionName="IncubationLow" rate="0.32">
@@ -23,16 +23,16 @@
 		      <reaction spec='Reaction' reactionName="IncubationHigh" rate="0.08">
 				E:1 -> Ih:1
 		      </reaction>
-		      <reaction spec='Reaction' reactionName="Recovery" rate="0.2">
+		      <reaction spec='Reaction' reactionName="RecoveryLow" rate="0.2">
 				Il -> R
 		      </reaction>
-		      <reaction spec='Reaction' reactionName="Recovery" rate="0.2">
+		      <reaction spec='Reaction' reactionName="RecoveryHigh" rate="0.2">
 				Ih -> R
 		      </reaction>
 		</model>
 		    
 		<initialState spec='InitState'>
-			<populationSize spec='PopulationSize' population='@S' size='199'/>
+			<populationSize spec='PopulationSize' population='@S' size='999'/>
 			<populationSize spec='PopulationSize' population='@E' size='0'/>
 			<populationSize spec='PopulationSize' population='@Il' size='0'/>
 			<populationSize spec='PopulationSize' population='@Ih' size='1'/>
@@ -42,16 +42,14 @@
 		<lineageEndCondition spec='LineageEndCondition' nLineages="0"/>
 
 		<inheritancePostProcessor spec='LineageSampler'
-        	pSample="0.1">
+        	pSample="0.2">
     	</inheritancePostProcessor>
 
-<!--     	<inheritancePostProcessor spec='LineageSampler'
-        	nSamples="INTEGER">
-    	</inheritancePostProcessor> -->
-
-		<output spec='NewickOutput' fileName='Documents/GitHub/MolEpi/tutorials/master-week10/SEI2RTree_sim2_output.newick'/>
-		<output spec='NexusOutput' fileName='Documents/GitHub/MolEpi/tutorials/master-week10/SEI2RTree_sim2_output.nexus'/>
-	    <output spec='JsonOutput' fileName='Documents/GitHub/MolEpi/tutorials/master-week10/SEI2RTree_sim2_output.json'/>
+<!-- 		<output spec='NewickOutput' fileName='Desktop/SEI2RTree_sim3_output.newick'/> -->
+		<output spec='NexusOutput' fileName='Desktop/SEI2RTree_output.nexus'/>
+    	<output spec='NexusOutput' fileName='Desktop/SEI2RTree_TreeForBEAST.nexus'
+            collapseSingleChildNodes='true'/>
+	    <output spec='JsonOutput' fileName='Desktop/SEI2RTree_output.json'/>
 
     </run>
 

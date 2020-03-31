@@ -43,3 +43,13 @@ permalink: /tutorials/
 [Estimating the fitness of antimicrobial resistance mutations][week-9] <br>
 
 [week-9]: <{{site.baseurl}}/tutorials/bdmm-week9/>
+
+### Week 10: March 23-27
+[SIR epidemiological models][week-10] <br>
+
+[week-10]: <{{site.baseurl}}/tutorials/SIR-week10/>
+
+### Week 11: March 30-April 3
+[Simulating epidemics and trees with MASTER][week-11] <br>
+
+[week-11]: <{{site.baseurl}}/tutorials/master-week11/>
