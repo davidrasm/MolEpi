@@ -45,7 +45,6 @@
         	pSample="0.2">
     	</inheritancePostProcessor>
 
-<!-- 		<output spec='NewickOutput' fileName='Desktop/SEI2RTree_sim3_output.newick'/> -->
 		<output spec='NexusOutput' fileName='Desktop/SEI2RTree_output.nexus'/>
     	<output spec='NexusOutput' fileName='Desktop/SEI2RTree_TreeForBEAST.nexus'
             collapseSingleChildNodes='true'/>

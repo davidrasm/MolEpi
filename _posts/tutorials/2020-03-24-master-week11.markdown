@@ -20,7 +20,7 @@ permalink: /tutorials/master-week11/
 
 In lecture this week, we learned how the stochastic simulation algorithm (SSA) can be used to simulate stochastic epidemic dynamics and transmission trees. In this week's tutorial, we will use Tim Vaughan's [MASTER][master] package to simulate epidemic dynamics and trees in BEAST 2 [(Vaughan and Drummond, 2013)][vaughan-2013]. MASTER is quite versatile and can be used to simulate stochastic dynamics under almost any continuous-time, discrete-state Markov model. Here, we will simulate epidemics and trees under a stochastic SEIR model, which extends the basic SIR model by adding an exposed compartment for infected hosts who are not yet infectious. This model is commonly used for diseases where the incubation period (i.e. the time spent in the exposed class) is not so short relative to the duration of infection that it can simply be ignored.   
 
-The goal for this week is to simulate epidemic dynamics and trees under the SEIR model, and then simulate molecular evolution along the lineages of the tree to generate mock sequence data. We will then be able to use this simulated data next week to test our implementation of the SEIR model in BEAST by seeing if we can estimate the epidemiological parameters we use in our simulations back from the phylogenetic trees! 
+The goal for this week is to simulate epidemic dynamics and trees under the SEIR model, and then simulate molecular evolution along the lineages of the tree to generate mock sequence data. We will then be able to use this simulated data next week to test our implementation of the SEIR model in BEAST by seeing if we can estimate the epidemiological parameters we used in our simulations back from the phylogenetic trees! 
 
 [master]: <http://tgvaughan.github.io/MASTER/>
 [vaughan-2013]: <https://doi.org/10.1093/molbev/mst057>
@@ -59,9 +59,9 @@ XML files have a hierarchical structure in which individual XML *elements* are n
 
 Here, we have set up a single simulation (called a Trajectory) with a length of 50 time units, which we will think of as days.
 
-Within the ```run``` element, we specify our model. The ```population``` elements indicate what types of individuals are in the model. We have four types corresponding to susceptible (S), exposed (E), infected (I) and recovered (R) hosts.
+Within the ```run``` element, we specify our model. The ```population``` elements indicate what types of individuals are in the model. We have four types corresponding to susceptible ($$S$$), exposed ($$E$$), infected ($$I$$) and recovered ($$R$$) hosts.
 
-Below the ```population``` elements, we set up the different types of events that can occur, which MASTER refers to as reactions. Each ```reaction``` element has both a *reactionName* and a *rate* parameter that sets the rate at which the reaction occurs. For our SEIR model there are three types of reactions: infections (i.e. transmission events), incubations and recoveries. We specify what exactly happens at each reaction event within the ```reaction``` element. For example, at a transmission event a S and a I host react to create an infected (I) host and a new exposed (E) host. Some reactions may only involve one host. For example, an incubation reaction converts an exposed (E) host into an infected (I) host:   
+Below the ```population``` elements, we set up the different types of events that can occur, which MASTER refers to as reactions. Each ```reaction``` element has both a *reactionName* and a *rate* parameter that sets the rate at which the reaction occurs. For our SEIR model there are three types of reactions: infections (i.e. transmission events), incubations and recoveries. We specify what exactly happens at each reaction event within the ```reaction``` element. For example, at a transmission event a $$S$$ and a $$I$$ host react to create an infected ($$I$$) host and a new exposed ($$E$$) host. Some reactions may only involve one host. For example, an incubation reaction converts an exposed ($$E$$) host into an infected ($$I$$) host:   
 
 ```xml
 <model spec='Model' id='model'>
@@ -82,7 +82,7 @@ Below the ```population``` elements, we set up the different types of events tha
 </model>
 ```
 
-All of this can be copied and pasted within the ```run``` element, although don't worry too much about constructing the whole XML right now because you can download a full version below.
+All of this can be copied and pasted within the ```run``` element, although don't worry too much about constructing the whole XML right now because you can download the full version below.
 
 A quick note on the rates, for reactions with a single type of reactant (e.g. incubations), these are the per-capita rates. MASTER will automatically multiply the rate by the total number of reactants to get the total reaction rate in the population. For reactions involving a pair of reactants (e.g. infections), the rate is scaled by the number of possible reaction pairs.
 
@@ -200,7 +200,7 @@ We need to make a few changes in the ```model``` element in order to implement t
 
 We also need to split the infection, incubation and recovery reactions into two types of reactions corresponding to the high and low risk groups. For the infection reactions, we will set the transmission rate for the ```InfectionHigh``` reaction to five times higher than the transmission rate for the ```InfectionLow``` reaction to generate some transmission heterogeneity between risk groups.
 
-The incubation reactions require a little more thought. Previously, we had the incubation rate for the $$E$$ to $$I$$ reaction set to 0.4. I propose that we follow the "80/20" rule of infectious disease epidemiology and let 80% of exposed hosts incubate into the low risk group and the other 20% incubate into the high risk group. How can we specify this in terms of the reaction rates? We can set the *IncubationLow* reaction rate four times higher than *the IncubationHigh* rate. So we will set the *IncubationLow* reaction rate to 0.32 and the *IncubationHigh* rate to 0.08 so the incubation rates still sum to an overall incubation rate of 0.4. Now, the relative probability that an exposed individual incubates into the low risk group will be $$\frac{0.32}{0.4} = 0.8$$, and for the high risk group $$\frac{0.08}{0.4} = 0.2$$.   
+The incubation reactions require a little more thought. Previously, we had the incubation rate for the $$E$$ to $$I$$ reaction set to 0.4. I propose that we follow the "80/20" rule of infectious disease epidemiology and let 80% of exposed hosts incubate into the low risk group and the other 20% incubate into the high risk group. How can we specify this in terms of the reaction rates? We can set the *IncubationLow* reaction rate four times higher than *the IncubationHigh* rate. So we will set the *IncubationLow* reaction rate to 0.32 and the *IncubationHigh* rate to 0.08 so the incubation rates still sum to an overall incubation rate of 0.4. Now we can think of the two types of incubations as competing or dueling reactions, so the relative probability that an exposed individual incubates into the low risk group will be $$\frac{0.32}{0.32+0.08} = 0.8$$, and for the high risk group $$\frac{0.08}{0.32+0.08} = 0.2$$.   
 
 We will leave the recovery rates equal for high and low risk individuals. 
 
@@ -285,7 +285,7 @@ Please also download my *sim_tree_seqs.py* Python script and the baltic package,
 [sim-tree-seqs]: <{{site.baseurl}}/tutorials/master-week10/sim_tree_seqs.py>
 [baltic]: <{{site.baseurl}}/tutorials/master-week10/baltic.py>
 
-You can run the *sim_tree_seqs.py* Python script like this:
+You can run the *sim_tree_seqs.py* script like this:
 ```
 python sim_tree_seqs.py SEI2RTree_TreeForBEAST.nexus
 ```
