@@ -126,3 +126,15 @@ Introduces the Felsenstein pruning algorithm <br>
 [Vaughan, T. G., & Drummond, A. J. (2013). A stochastic simulator of birth–death master equations with application to phylodynamics. Molecular Biology and Evolution, 30(6), 1480-1493.][vaughan2013] <br>
 
 [vaughan2013]: <https://doi.org/10.1093/molbev/mst057>
+
+### Week 12: April 6-10
+
+[Volz, E. M., Pond, S. L. K., Ward, M. J., Brown, A. J. L., & Frost, S. D. (2009). Phylodynamics of infectious disease epidemics. Genetics, 183(4), 1421-1430.][volz2009] <br>
+\* This paper first derived a coalescent model for SIR-type epidemiological models. <br>
+
+[volz2009]: <https://doi.org/10.1534/genetics.109.106021>
+
+[Volz, E. M., & Siveroni, I. (2018). Bayesian phylodynamic inference with complex models. PLoS Computational Biology, 14(11), e1006546.][phydyn] <br>
+
+[phydyn]: <https://doi.org/10.1371/journal.pcbi.1006546>
+
