@@ -58,5 +58,11 @@ permalink: /lectures/
 
 [lecture9]: <{{site.baseurl}}/lectures/MolEpi.StochasticModels.Lecture9.pdf>
 
+### Week 12: April 6-10
+
+[Phylodynamics: phylogenetics meets epidemiological modeling][lecture10] <br>
+
+[lecture10]: <{{site.baseurl}}/lectures/MolEpi.Phylodynamics.Lecture10.pdf>
+
 
 
