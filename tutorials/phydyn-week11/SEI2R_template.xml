@@ -1,7 +1,3 @@
-<!--
-force of infection: max(0, a*t + b )
--->
-
 <beast beautitemplate='Standard' beautistatus='' namespace="phydyn.model:phydyn.distribution:phydyn.loggers:phydyn.operators:beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood" version="2.0">
 
 <map name="Uniform">beast.math.distributions.Uniform</map>
@@ -16,25 +12,23 @@ force of infection: max(0, a*t + b )
 
 
 <data id="sequences" name="alignment">
- 
-
+        
 </data>
 	
 	<model spec='PopModelODE' id='seirmodel' evaluator="compiled"
 	     popParams='@initValues' modelParams='@rates'>
-		
-		<definition spec='Definition'>
-			beta = max(0.0, a*t + b) <!-- remove? -->
-		</definition>
+
+        <matrixeq spec='MatrixEquation' type="nondeme" origin="S">  
+                - (beta*Il + beta*Ih*tau) * S  
+        </matrixeq> 
 		
 		<matrixeq spec='MatrixEquation' type="migration" origin="E" destination="Il">
-			gamma0*E*(1-p_h) <!-- we will call this eta_l -->
+			E*eta_l
 		</matrixeq> 
 		
 		<matrixeq spec='MatrixEquation' type="migration" origin="E" destination="Ih">
-			gamma0*E*p_h <!-- we will call this eta_h -->
+			E*eta_h
 		</matrixeq> 
-		
 		
 		<matrixeq spec='MatrixEquation' type="birth"  origin="Il" destination="E"> 
 			beta*Il
@@ -45,118 +39,230 @@ force of infection: max(0, a*t + b )
 		 </matrixeq> 
 		
 		<matrixeq spec='MatrixEquation' type="death" origin="Il">
-			gamma1*Il <!-- just call this gamma -->
+			gamma*Il
 		</matrixeq> 
 		
 		<matrixeq spec='MatrixEquation' type="death" origin="Ih">
-			gamma1*Ih <!-- just call this gamma -->
+			gamma*Ih
 		</matrixeq> 
 			
 		<matrixeq spec='MatrixEquation' type="nondeme" origin="R"> 
-			gamma1*(Il + Ih) <!-- just call this gamma -->
+			gamma*(Il + Ih)
 		</matrixeq>
 	</model>
 	
 	<rates spec="ModelParameters" id='rates'>	
-<!--
-		11.4 day incubation
-		5 day infectiousness 
--->
-		<param spec='ParamValue' names='gamma0' values='32.01754'/> <!-- just need one gamma -->
-		<param spec='ParamValue' names='gamma1' values='73.0'/>
-		<param spec='ParamValue' names='p_h' values='0.20'/> <!-- replace with eta high/low -->
-		<param spec='ParamValue' names='a' values='@a'/> <!-- replace with beta only -->
-		<param spec='ParamValue' names='b' values='@b'/> <!-- replace with beta only -->
+		<param spec='ParamValue' names='eta_h' values='0.08'/>
+        <param spec='ParamValue' names='eta_l' values='0.32'/>
+		<param spec='ParamValue' names='gamma' values='0.2'/>
+		<param spec='ParamValue' names='beta' values='@beta'/>
 		<param spec='ParamValue' names='tau' values='@tau'/>
-	</rates>
-	
-<!--
-t1="1.8000765516"
--->
-<!--
-	<trajparams id='initValues' spec='TrajectoryParameters' method="classicrk" 
-	            integrationSteps="1000" rTol="0.001" aTol="1.0e-6" order="3" t0="0.0" t1="1.95" >
--->	            
+	</rates>         
 
 	<trajparams id='initValues' spec='TrajectoryParameters' method="classicrk" 
-	            integrationSteps="1000" t0="-0.001" >
-
-	        <initialValue spec="ParamValue" names='E' values='@initI0'  />
-			<initialValue spec="ParamValue" names='Il' values='1.0'  />
-			<initialValue spec="ParamValue" names='Ih' values='1.0'  />
+	            integrationSteps="400" t0="-0.001"> <!--t1="37.85"-->
+	        <initialValue spec="ParamValue" names='S' values='999.0'  />
+            <initialValue spec="ParamValue" names='E' values='0.0'  />
+			<initialValue spec="ParamValue" names='Il' values='0.0'  />
+			<initialValue spec="ParamValue" names='Ih' values='@initI0'/>
 			<initialValue spec="ParamValue" names='R' values='0.0'  />
 	</trajparams>
 	
+	<run id="mcmc" spec="MCMC" chainLength="100000">
+		<state id="state" storeEvery="100">
+			<tree id="tree" name="stateNode">
+            	<trait id="dateTrait.tree" spec="beast.evolution.tree.TraitSet" traitname="date"
+                	value="">
+              	<taxa id="TaxonSet.tree" spec="TaxonSet">
+                	<alignment idref="sequences"/>
+                </taxa>
+            	</trait>
+            	<taxonset idref="TaxonSet.tree"/>
+        	</tree>
+
+        	<!-- Substitution model parameters -->
+	        <parameter id="clockRate" lower="0.001" name="stateNode" upper="0.01">0.005</parameter>
+	        <parameter id="kappa" lower="0.0" name="stateNode">2.0</parameter>
+	        <parameter id="mutationRate" name="stateNode">1.0</parameter>
+	        <parameter id="proportionInvariant" lower="0.0" name="stateNode" upper="1.0">0.5</parameter>
+	        <parameter id="gammaShape" name="stateNode">1.0</parameter>
+	        <parameter id="freqParameter" dimension="4" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
+
+        	<!-- Epi params in SEI2R model -->
+			<parameter id="initI0" lower="0.0" upper="100" name="stateNode">1.0</parameter>
+            <parameter id="beta" lower="0.0" upper="Infinity" name="stateNode">1.0</parameter>
+			<parameter id="tau" lower="-Infinity" upper="Infinity" name="stateNode">5.0</parameter>
+
+		</state>
+	 	
 	<!-- Define tree outside state -->
-	<init spec="beast.util.TreeParser" id="tree"
+	<init spec="beast.util.TreeParser"
 			taxa="@sequences" 
 			adjustTipHeights="false"
 			IsLabelledNewick="true"
-			newick=""> <!-- insert tree here ! -->
+			initial="@tree"
+			newick="">
 	</init>
-	
-	<run id="mcmc" spec="MCMC" chainLength="100">
-		<state id="state" storeEvery="100">
-			<parameter id="initI0" lower="0.0" upper="140" name="stateNode">16.31705804083015</parameter>
-			<parameter id="b" lower="0.0" upper="Infinity" name="stateNode">67.19745324723135</parameter>
-			<parameter id="a" lower="-Infinity" upper="Infinity" name="stateNode">-25.050218168022802</parameter>
-			<parameter id="tau" lower="-Infinity" upper="Infinity" name="stateNode">6.594857810472015</parameter>
-		</state>
-	 	
+
  		<distribution id="posterior" spec="util.CompoundDistribution">
 			<distribution id="prior" spec="util.CompoundDistribution">
 				<prior id="initI0prior" name="distribution" x="@initI0">
-					<LogNormal id="LogNormal:initI0" M="0" S="1" name="distr" />
+					<LogNormal id="LogNormal:initI0" meanInRealSpace="true" M="0" S="1" name="distr" />
 				</prior>
 				<prior id="tauPrior" name="distribution" x="@tau">
-					<LogNormal id="LogNormal:tau" M="1" S="1" name="distr" />
+					<LogNormal id="LogNormal:tau" meanInRealSpace="true" M="5.0" S="1" name="distr" />
 				</prior>
-				<prior id="bPrior" name="distribution" x="@b">
-					<LogNormal id="LogNormal:b" M="4.6" S="1" name="distr" />
+				<prior id="betaPrior" name="distribution" x="@beta">
+					<LogNormal id="LogNormal:b" meanInRealSpace="true" M="5.0" S="1" name="distr" />
 				</prior>
-				<prior id="aPrior" name="distribution" x="@a">
-					<Normal id="Normal:a" mean="0.0" sigma="40.0" name="distr" />
-				</prior>
+
+	            <prior id="ClockPrior" name="distribution" x="@clockRate">
+	                <LogNormal id="LogNormalDistributionModel.1" meanInRealSpace="true" name="distr">
+	                    <parameter id="parameter.hyperLogNormalDistributionModel-M-ClockPrior" estimate="false" name="M">0.005</parameter>
+	                    <parameter id="RealParameter.4" estimate="false" lower="0.0" name="S" upper="5.0">1.25</parameter>
+	                </LogNormal>
+	            </prior>
+	            <prior id="GammaShapePrior" name="distribution" x="@gammaShape">
+	                <Exponential id="Exponential.0" name="distr">
+	                    <parameter id="RealParameter.0" estimate="false" name="mean">1.0</parameter>
+	                </Exponential>
+	            </prior>
+	            <prior id="KappaPrior" name="distribution" x="@kappa">
+	                <LogNormal id="LogNormalDistributionModel.0" name="distr">
+	                    <parameter id="RealParameter.1" estimate="false" name="M">1.0</parameter>
+	                    <parameter id="RealParameter.2" estimate="false" name="S">1.25</parameter>
+	                </LogNormal>
+	            </prior>
+	            <prior id="PropInvariantPrior" name="distribution" x="@proportionInvariant">
+	                <Uniform id="Uniform.2" name="distr"/>
+	            </prior>
+
 			</distribution>	
 			
 			<distribution id="likelihood" spec="util.CompoundDistribution">
 				 <distribution spec='STreeLikelihoodODE' id = 'stlikelihood'
              	 useStateName='true' 
              	 approxLambda='false' finiteSizeCorrections='false'
-             	 solvePL='false'
+                 equations='QL'
              	 forgiveY='true'
              	 forgiveAgtY='1.0'
-             	 stepSize='.0001'
+             	 stepSize='.1'
                  popmodel='@seirmodel'  >
                  
                  <treeIntervals spec="STreeIntervals" tree='@tree'> </treeIntervals>
-                 
     			</distribution>
-			</distribution>
+
+	            <distribution id="treeLikelihood" spec="ThreadedTreeLikelihood" data="@sequences" tree="@tree">
+	                <siteModel id="SiteModel" spec="SiteModel" gammaCategoryCount="4" mutationRate="@mutationRate" proportionInvariant="@proportionInvariant" shape="@gammaShape">
+	                    <substModel id="hky" spec="HKY" kappa="@kappa">
+	                        <frequencies id="estimatedFreqs" spec="Frequencies" frequencies="@freqParameter"/>
+	                    </substModel>
+	                </siteModel>
+	                <branchRateModel id="StrictClock" spec="beast.evolution.branchratemodel.StrictClockModel" clock.rate="@clockRate"/>
+	            </distribution>
+	        </distribution>
+
+
 		</distribution>
 		
-		<operator id="rwoperator:tau" spec="RealRandomWalkOperator" windowSize="0.1" parameter="@tau" useGaussian='true' weight="1" />
-		<operator id="rwoperator:b" spec="RealRandomWalkOperator" windowSize="0.150" parameter="@b" useGaussian='true' weight="1" />
-		<operator id="rwoperator:a" spec="RealRandomWalkOperator" windowSize="0.150" parameter="@a" useGaussian='true' weight="1" />
-		<operator id="rwoperator:initI0" spec="RealRandomWalkOperator" windowSize="1.50" parameter="@initI0" useGaussian='true' weight="1" />
+		<!-- Operators on epi model params -->
+		<operator id="rwoperator:beta" spec="RealRandomWalkOperator" windowSize="0.150" parameter="@beta" useGaussian='true' weight="1" />
+        <operator id="rwoperator:tau" spec="RealRandomWalkOperator" windowSize="0.1" parameter="@tau" useGaussian='true' weight="1" />
+        <operator id="updownBetaTau" scaleFactor="0.75" spec="UpDownOperator" weight="2.0">
+                <up idref="beta"/>
+                <down idref="tau"/>
+        </operator>
+		<!-- <operator id="rwoperator:initI0" spec="RealRandomWalkOperator" windowSize="1.50" parameter="@initI0" useGaussian='true' weight="1" /> -->
+
+
+
+
+		<!-- Operators on tree -->
+
+<!-- 	
+		<operator id="strictClockUpDownOperator" spec="UpDownOperator" scaleFactor="0.75" weight="3.0">
+		    <up idref="clockRate"/>
+		    <down idref="tree"/>
+		</operator>
+
+		<operator id="TreeScaler" spec="ScaleOperator" scaleFactor="0.5" tree="@tree" weight="3.0"/>
+
+		<operator id="TreeRootScaler" spec="ScaleOperator" rootOnly="true" scaleFactor="0.5" tree="@tree" weight="3.0"/>
+
+    	<operator id="UniformOperator" spec="Uniform" tree="@tree" weight="30.0"/>
+
+    	<operator id="SubtreeSlide" spec="SubtreeSlide" tree="@tree" weight="15.0"/>
+
+    	<operator id="Narrow" spec="Exchange" tree="@tree" weight="15.0"/>
+
+    	<operator id="Wide" spec="Exchange" isNarrow="false" tree="@tree" weight="3.0"/>
+
+    	<operator id="WilsonBalding" spec="WilsonBalding" tree="@tree" weight="3.0"/> 
+-->
+
+
+
+
+    	<!-- Operators on subst model params -->
+
+		<operator id="StrictClockRateScaler" spec="ScaleOperator" parameter="@clockRate" scaleFactor="0.75" weight="3.0"/>
+
+		<operator id="KappaScaler" spec="ScaleOperator" parameter="@kappa" scaleFactor="0.5" weight="0.1"/>
+
+		<operator id="FixMeanMutationRatesOperator" spec="DeltaExchangeOperator" delta="0.75" weight="2.0">
+		    <parameter idref="mutationRate"/>
+		    <weightvector id="weightparameter" spec="parameter.IntegerParameter" estimate="false" lower="0" upper="0">1701</weightvector>
+		</operator>
+
+		<operator id="proportionInvariantScaler" spec="ScaleOperator" parameter="@proportionInvariant" scaleFactor="0.5" weight="0.1"/>
+
+		<operator id="gammaShapeScaler" spec="ScaleOperator" parameter="@gammaShape" scaleFactor="0.5" weight="0.1"/>
+
+	    <operator id="FrequenciesExchanger" spec="DeltaExchangeOperator" delta="0.01" weight="0.1">
+	        <parameter idref="freqParameter"/>
+	    </operator>
 		
-		<logger id="tracelog" fileName="$(filebase).log" logEvery="1" model="@posterior" sanitiseHeaders="true" sort="smart">
+		<logger id="tracelog" fileName="$(filebase).log" logEvery="10" model="@posterior" sanitiseHeaders="true" sort="smart">
+			
 			<log idref="tau"/>
-			<log idref="b"/>
-			<log idref="a"/>
-			<log idref="initI0"/>
+			<log idref="beta"/>
+			<!-- <log idref="initI0"/> -->
+			
+			<log idref="posterior"/>
+			<log idref="likelihood"/>
+        	<log idref="stlikelihood"/>
+        	<log idref="prior"/>
+
+		    <log idref="treeLikelihood"/>
+		    <log id="TreeHeight" spec="beast.evolution.tree.TreeHeightLogger" tree="@tree"/>
+		    <log idref="clockRate"/>
+		    <log idref="kappa"/>
+		    <log idref="mutationRate"/>
+		    <log idref="proportionInvariant"/>
+		    <log idref="gammaShape"/>
+		    <log idref="freqParameter"/>
+
+		</logger>
+		<logger id="screenlog" logEvery="10">
+			<log idref="tau"/>
+			<log idref="beta"/>
+
+			<log idref="clockRate"/>
+			<log idref="kappa"/>
+			
+			<!-- <log idref="initI0"/> -->
+			<log idref="stlikelihood"/>
+			<log idref="likelihood"/>
 			<log idref="prior"/>
 			<log idref="posterior"/>
+			<log id="ESS.0" spec="util.ESS" arg="@posterior"/>
 		</logger>
-		<logger id="screenlog" logEvery="1">
-			<log idref="tau"/>
-			<log idref="b"/>
-			<log idref="a"/>
-			<log idref="initI0"/>
-			<log idref="prior"/>
-			<log idref="posterior"/>
+
+		<logger id="treelog" fileName="$(filebase).trees" logEvery="10000" mode="tree">
+		    <log id="TreeWithMetaDataLogger" spec="beast.evolution.tree.TreeWithMetaDataLogger" tree="@tree"/>
 		</logger>
-		<logger id = "popModelLogger" fileName="$(filebase).traj" logEvery="100">
+
+		<logger id = "popModelLogger" fileName="$(filebase).traj" logEvery="1000">
 			<log id="trajectoryLogger" spec="TrajectoryLogger" popModel="@seirmodel" pointFrequency="1"></log>
 		</logger>
 	</run>

@@ -142,15 +142,10 @@ force of infection: max(0, a*t + b )
 	
 	<model spec='PopModelODE' id='seirmodel' evaluator="compiled"
 	     popParams='@initValues' modelParams='@rates'>
-		
-		<definition spec='Definition'>
-			<!--  beta = max(0.0, a*t + b) remove? -->
-                        beta = beta * 1.0
-		</definition>
 
-                <matrixeq spec='MatrixEquation' type="nondeme" origin="S">  
-                        - (beta*Il + beta*Ih*tau) * S  
-                </matrixeq> 
+        <matrixeq spec='MatrixEquation' type="nondeme" origin="S">  
+                - (beta*Il + beta*Ih*tau) * S  
+        </matrixeq> 
 		
 		<matrixeq spec='MatrixEquation' type="migration" origin="E" destination="Il">
 			E*eta_l
@@ -191,15 +186,15 @@ force of infection: max(0, a*t + b )
 	</rates>         
 
 	<trajparams id='initValues' spec='TrajectoryParameters' method="classicrk" 
-	            integrationSteps="400" t0="-0.001" t1="37.85">
-	                <initialValue spec="ParamValue" names='S' values='999.0'  />
-                        <initialValue spec="ParamValue" names='E' values='0.0'  />
+	            integrationSteps="400" t0="-0.001"> <!-- t1="37.85" -->
+	        <initialValue spec="ParamValue" names='S' values='999.0'  />
+            <initialValue spec="ParamValue" names='E' values='0.0'  />
 			<initialValue spec="ParamValue" names='Il' values='0.0'  />
 			<initialValue spec="ParamValue" names='Ih' values='@initI0'/>
 			<initialValue spec="ParamValue" names='R' values='0.0'  />
 	</trajparams>
 	
-	<run id="mcmc" spec="MCMC" chainLength="10000">
+	<run id="mcmc" spec="MCMC" chainLength="100000">
 		<state id="state" storeEvery="100">
 			<tree id="tree" name="stateNode">
             	<trait id="dateTrait.tree" spec="beast.evolution.tree.TraitSet" traitname="date"
@@ -210,8 +205,18 @@ force of infection: max(0, a*t + b )
             	</trait>
             	<taxonset idref="TaxonSet.tree"/>
         	</tree>
-			<parameter id="initI0" lower="0.0" upper="140" name="stateNode">1.0</parameter>
-                        <parameter id="beta" lower="0.0" upper="10" name="stateNode">1.0</parameter>
+
+        	<!-- Substitution model parameters -->
+	        <parameter id="clockRate" lower="0.001" name="stateNode" upper="0.01">0.005</parameter>
+	        <parameter id="kappa" lower="0.0" name="stateNode">2.0</parameter>
+	        <parameter id="mutationRate" name="stateNode">1.0</parameter>
+	        <parameter id="proportionInvariant" lower="0.0" name="stateNode" upper="1.0">0.5</parameter>
+	        <parameter id="gammaShape" name="stateNode">1.0</parameter>
+	        <parameter id="freqParameter" dimension="4" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
+
+        	<!-- Epi params in SEIR model -->
+			<parameter id="initI0" lower="0.0" upper="100" name="stateNode">1.0</parameter>
+            <parameter id="beta" lower="0.0" upper="Infinity" name="stateNode">1.0</parameter>
 			<parameter id="tau" lower="-Infinity" upper="Infinity" name="stateNode">5.0</parameter>
 		</state>
 	 	
@@ -230,11 +235,33 @@ force of infection: max(0, a*t + b )
 					<LogNormal id="LogNormal:initI0" M="0" S="1" name="distr" />
 				</prior>
 				<prior id="tauPrior" name="distribution" x="@tau">
-					<LogNormal id="LogNormal:tau" M="1.6" S="1" name="distr" />
+					<LogNormal id="LogNormal:tau" meanInRealSpace="true" M="5.0" S="1" name="distr" />
 				</prior>
 				<prior id="betaPrior" name="distribution" x="@beta">
-					<LogNormal id="LogNormal:b" M="1.6" S="1" name="distr" />
+					<LogNormal id="LogNormal:b" meanInRealSpace="true" M="5.0" S="1" name="distr" />
 				</prior>
+
+	            <prior id="ClockPrior" name="distribution" x="@clockRate">
+	                <LogNormal id="LogNormalDistributionModel.1" meanInRealSpace="true" name="distr">
+	                    <parameter id="parameter.hyperLogNormalDistributionModel-M-ClockPrior" estimate="false" name="M">0.005</parameter>
+	                    <parameter id="RealParameter.4" estimate="false" lower="0.0" name="S" upper="5.0">1.25</parameter>
+	                </LogNormal>
+	            </prior>
+	            <prior id="GammaShapePrior" name="distribution" x="@gammaShape">
+	                <Exponential id="Exponential.0" name="distr">
+	                    <parameter id="RealParameter.0" estimate="false" name="mean">1.0</parameter>
+	                </Exponential>
+	            </prior>
+	            <prior id="KappaPrior" name="distribution" x="@kappa">
+	                <LogNormal id="LogNormalDistributionModel.0" name="distr">
+	                    <parameter id="RealParameter.1" estimate="false" name="M">1.0</parameter>
+	                    <parameter id="RealParameter.2" estimate="false" name="S">1.25</parameter>
+	                </LogNormal>
+	            </prior>
+	            <prior id="PropInvariantPrior" name="distribution" x="@proportionInvariant">
+	                <Uniform id="Uniform.2" name="distr"/>
+	            </prior>
+
 			</distribution>	
 			
 			<distribution id="likelihood" spec="util.CompoundDistribution">
@@ -249,9 +276,22 @@ force of infection: max(0, a*t + b )
                  
                  <treeIntervals spec="STreeIntervals" tree='@tree'> </treeIntervals>
     			</distribution>
-			</distribution>
+
+	            <distribution id="treeLikelihood" spec="ThreadedTreeLikelihood" data="@sequences" tree="@tree">
+	                <siteModel id="SiteModel" spec="SiteModel" gammaCategoryCount="4" mutationRate="@mutationRate" proportionInvariant="@proportionInvariant" shape="@gammaShape">
+	                    <substModel id="hky" spec="HKY" kappa="@kappa">
+	                        <frequencies id="estimatedFreqs" spec="Frequencies" frequencies="@freqParameter"/>
+	                    </substModel>
+	                </siteModel>
+	                <branchRateModel id="StrictClock" spec="beast.evolution.branchratemodel.StrictClockModel" clock.rate="@clockRate"/>
+	            </distribution>
+	        </distribution>
+
+
 		</distribution>
 		
+		<!-- Operators on epi model params -->
+
 		<operator id="rwoperator:beta" spec="RealRandomWalkOperator" windowSize="0.150" parameter="@beta" useGaussian='true' weight="1" />
                 <operator id="rwoperator:tau" spec="RealRandomWalkOperator" windowSize="0.1" parameter="@tau" useGaussian='true' weight="1" />
                 <operator id="updownBetaTau" scaleFactor="0.75" spec="UpDownOperator" weight="2.0">
@@ -259,22 +299,91 @@ force of infection: max(0, a*t + b )
                         <down idref="tau"/>
                 </operator> 
 		<!-- <operator id="rwoperator:initI0" spec="RealRandomWalkOperator" windowSize="1.50" parameter="@initI0" useGaussian='true' weight="1" /> -->
+
+
+		<!-- Operators on tree -->
+
+<!-- 		<operator id="strictClockUpDownOperator" spec="UpDownOperator" scaleFactor="0.75" weight="3.0">
+		    <up idref="clockRate"/>
+		    <down idref="tree"/>
+		</operator>
+
+		<operator id="TreeScaler" spec="ScaleOperator" scaleFactor="0.5" tree="@tree" weight="3.0"/>
+
+		<operator id="TreeRootScaler" spec="ScaleOperator" rootOnly="true" scaleFactor="0.5" tree="@tree" weight="3.0"/>
+
+    	<operator id="UniformOperator" spec="Uniform" tree="@tree" weight="30.0"/>
+
+    	<operator id="SubtreeSlide" spec="SubtreeSlide" tree="@tree" weight="15.0"/>
+
+    	<operator id="Narrow" spec="Exchange" tree="@tree" weight="15.0"/>
+
+    	<operator id="Wide" spec="Exchange" isNarrow="false" tree="@tree" weight="3.0"/>
+
+    	<operator id="WilsonBalding" spec="WilsonBalding" tree="@tree" weight="3.0"/> -->
+
+
+
+    	<!-- Operators on subst model params -->
+
+		<operator id="StrictClockRateScaler" spec="ScaleOperator" parameter="@clockRate" scaleFactor="0.75" weight="3.0"/>
+
+		<operator id="KappaScaler" spec="ScaleOperator" parameter="@kappa" scaleFactor="0.5" weight="0.1"/>
+
+		<operator id="FixMeanMutationRatesOperator" spec="DeltaExchangeOperator" delta="0.75" weight="2.0">
+		    <parameter idref="mutationRate"/>
+		    <weightvector id="weightparameter" spec="parameter.IntegerParameter" estimate="false" lower="0" upper="0">1701</weightvector>
+		</operator>
+
+		<operator id="proportionInvariantScaler" spec="ScaleOperator" parameter="@proportionInvariant" scaleFactor="0.5" weight="0.1"/>
+
+		<operator id="gammaShapeScaler" spec="ScaleOperator" parameter="@gammaShape" scaleFactor="0.5" weight="0.1"/>
+
+	    <operator id="FrequenciesExchanger" spec="DeltaExchangeOperator" delta="0.01" weight="0.1">
+	        <parameter idref="freqParameter"/>
+	    </operator>
 		
 		<logger id="tracelog" fileName="$(filebase).log" logEvery="10" model="@posterior" sanitiseHeaders="true" sort="smart">
+			
 			<log idref="tau"/>
 			<log idref="beta"/>
 			<!-- <log idref="initI0"/> -->
-			<log idref="prior"/>
+			
 			<log idref="posterior"/>
+			<log idref="likelihood"/>
+        	<log idref="stlikelihood"/>
+        	<log idref="prior"/>
+
+		    <log idref="treeLikelihood"/>
+		    <log id="TreeHeight" spec="beast.evolution.tree.TreeHeightLogger" tree="@tree"/>
+		    <log idref="clockRate"/>
+		    <log idref="kappa"/>
+		    <log idref="mutationRate"/>
+		    <log idref="proportionInvariant"/>
+		    <log idref="gammaShape"/>
+		    <log idref="freqParameter"/>
+
 		</logger>
 		<logger id="screenlog" logEvery="10">
 			<log idref="tau"/>
 			<log idref="beta"/>
+
+			<log idref="clockRate"/>
+			<log idref="kappa"/>
+			
 			<!-- <log idref="initI0"/> -->
+			<log idref="stlikelihood"/>
+			<log idref="likelihood"/>
 			<log idref="prior"/>
 			<log idref="posterior"/>
+			<log id="ESS.0" spec="util.ESS" arg="@posterior"/>
 		</logger>
-		<logger id = "popModelLogger" fileName="$(filebase).traj" logEvery="100">
+
+		<logger id="treelog" fileName="$(filebase).trees" logEvery="10000" mode="tree">
+		    <log id="TreeWithMetaDataLogger" spec="beast.evolution.tree.TreeWithMetaDataLogger" tree="@tree"/>
+		</logger>
+
+		<logger id = "popModelLogger" fileName="$(filebase).traj" logEvery="1000">
 			<log id="trajectoryLogger" spec="TrajectoryLogger" popModel="@seirmodel" pointFrequency="1"></log>
 		</logger>
 	</run>

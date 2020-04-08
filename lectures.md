@@ -49,20 +49,26 @@ permalink: /lectures/
 ### Week 10: March 23-27
 
 [Modeling transmission dynamics with SIR models][lecture8] <br>
+[Video link][video-lecture8] <br>
 
 [lecture8]: <{{site.baseurl}}/lectures/MolEpi.EpiModels.Lecture8.pdf>
+[video-lecture8]: <https://youtu.be/oU3wdcx5W5Q>
 
 ### Week 11: March 30-April 3
 
 [Stochastic models for simulation and inference][lecture9] <br>
+[Video link][video-lecture9] <br>
 
 [lecture9]: <{{site.baseurl}}/lectures/MolEpi.StochasticModels.Lecture9.pdf>
+[video-lecture9]: <https://youtu.be/qyomLyVh3hQ>
 
 ### Week 12: April 6-10
 
 [Phylodynamics: phylogenetics meets epidemiological modeling][lecture10] <br>
+[Video link][video-lecture10] <br>
 
 [lecture10]: <{{site.baseurl}}/lectures/MolEpi.Phylodynamics.Lecture10.pdf>
+[video-lecture10]: <https://youtu.be/R2YqOXDuNMM>
 
 
 
