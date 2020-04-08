@@ -53,3 +53,8 @@ permalink: /tutorials/
 [Simulating epidemics and trees with MASTER][week-11] <br>
 
 [week-11]: <{{site.baseurl}}/tutorials/master-week11/>
+
+### Week 12: April 6-10
+[Fitting SIR models to phylogenies using PhyDyn][week-12] <br>
+
+[week-12]: <{{site.baseurl}}/tutorials/phydyn-week12/>
