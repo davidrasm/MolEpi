@@ -70,5 +70,11 @@ permalink: /lectures/
 [lecture10]: <{{site.baseurl}}/lectures/MolEpi.Phylodynamics.Lecture10.pdf>
 [video-lecture10]: <https://youtu.be/R2YqOXDuNMM>
 
+### Week 12: April 13-17
+
+[Predicting the (very near) future: forecasting pathogen evolution][lecture11] <br>
+
+[lecture11]: <{{site.baseurl}}/lectures/MolEpi.PredictingPathogenEvolution.Lecture11.pdf>
+
 
 
