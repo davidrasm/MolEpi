@@ -38,6 +38,11 @@ Introduces the Felsenstein pruning algorithm <br>
 
 [yang2014]: <https://catalog.lib.ncsu.edu/catalog/DUKE006146449>
 
+[McElreath, R. (2018). Statistical rethinking: A Bayesian course with examples in R and Stan. Chapman and Hall/CRC][mcelreath2018] <br>
+\* Chapter 9 gives an excellent an intuitive introduction to MCMC. <br>
+
+[mcelreath2018]: <https://catalog.lib.ncsu.edu/catalog/NCSU4798187>
+
 ### Week 4: Jan 31 - Feb 4
 
 [Lemey, P., Rambaut, A., Drummond, A. J., & Suchard, M. A. (2009). Bayesian phylogeography finds its roots. PLoS Computational Biology, 5(9), e1000520.][lemey2009] <br>
