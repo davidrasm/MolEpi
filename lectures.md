@@ -26,7 +26,7 @@ Bioinformatic pipelines for next-generation sequencing data <br>
 
 [Exploring the origin and spread of epidemics with phylogeography][lecture3] <br>
 
-[lecture3]: <{{site.baseurl}}/lectures/MolEpi.Phylogeography.Lecture3.pdf>
+[lecture3]: <{{site.baseurl}}/lectures/MolEpi.Phylogeography.2022.Lecture3.pdf>
 
 #### Week 5: Feb 7 - 11
 
