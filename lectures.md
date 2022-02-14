@@ -38,7 +38,7 @@ Bioinformatic pipelines for next-generation sequencing data <br>
 
 [Inferring transmission trees and who's infecting whom][lecture5] <br>
 
-[lecture5]: <{{site.baseurl}}/lectures/MolEpi.TransmissionTrees.Lecture5.pdf>
+[lecture5]: <{{site.baseurl}}/lectures/MolEpi.TransmissionTrees.2022.Lecture5.pdf>
 
 #### Week 7: Feb 21 - 25
 
