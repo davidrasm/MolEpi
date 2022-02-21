@@ -44,7 +44,7 @@ Bioinformatic pipelines for next-generation sequencing data <br>
 
 [Non-tree like evolution: Recombination, ancestral recombination graphs and clonal frames][lecture6] <br>
 
-[lecture6]: <{{site.baseurl}}/lectures/MolEpi.Recombination.Lecture6.pdf>
+[lecture6]: <{{site.baseurl}}/lectures/MolEpi.Recombination.2022.Lecture6.pdf>
 
 #### Week 8: Feb 28 - March 4
 
