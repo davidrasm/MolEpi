@@ -9,7 +9,7 @@ permalink: /tutorials/rdp4-week8/
 -[RDP4][rdp4] <br>
 -Optional: Python 2.7 or greater
 
-[rdp4]: <https://web.cbio.uct.ac.za/~darren/rdp.html>
+[rdp4]: <http://web.cbio.uct.ac.za/~darren/rdp.html>
 
 ### Detecting recombination using RDP4
 
@@ -35,16 +35,16 @@ The sequence data include 14 coronavirus reference genomes, including SARS and t
 
 ### Installing RDP4
 
-You can download RDP4 [here][rdp4]. Make sure you download using the link to ***the most up to date stable version of the program*** (RDP4.99).
+You can download RDP4 [here][rdp4]. Make sure you download using the link to ***the most up to date stable version of the program*** (RDP4.101).
 
 ---
 **Note for Mac Users:**
 
-RDP4 is distributed as a Windows executable file. To run in Mac OS, you will also need to download and install the [PlayOnMac][playonmac] emulator. Once you have PlayOnMac installed, you should be able to launch the RDP4 executable (.exe) file. The first time you open RDP4, PlayOnMac will also try to install XQuartz. I needed to manually download and install [XQuartz][xquartz] first, otherwise the download step during installation would time out.
+RDP4 is distributed as a Windows executable file. To run in Mac OS, you will also need to download and install the [PlayOnMac][playonmac] emulator. Once you have PlayOnMac installed, you should be able to launch the RDP4 executable (.exe) file. The first time you open RDP4, PlayOnMac will also try to install XQuartz. You might need to manually download and install [XQuartz][xquartz] first, otherwise the download step during installation would time out.
 
 ---   
 
-[playonmac]: <https://www.playonmac.com/en/>
+[playonmac]: <https://www.playonmac.com/en/download.html>
 [xquartz]: <https://www.xquartz.org>
 
 ### Automating detection in RDP4
@@ -80,6 +80,10 @@ We will therefore analyze each event one-by-one in the order they are listed in 
 The RDP4 user guide recommends RECSCAN, 3SEQ, MAXCHI, and CHIMAERA as the best methods for pinpointing the precise location of recombination breakpoints. If you click on ***Matrices*** above the *Recombination info* window, a heat map showing the most probable location of the left and right breakpoints according to MAXCHI is displayed. 
 
 <img src="{{site.baseurl}}/assets/img/tutorials/rdp4-week8/maxchi-breakpoint-matrix.png" alt="MaxChi breakpoint heatmap" width="400" height="350">   
+
+Let's look at the 3SEQ diagnostics using ***Check by &rarr; 3seq*** in the lower left panel. You should see three colored lines corresponding to the analysis run with each sequence in the triplet as the (possibly recombinant) child sequence. These lines correspond to the "random walk" we discussed in lecture where up steps indicate a mutation shared in common with the top parent and down steps a mutation shared in common with the bottom parent. Recall that a rapid rise/fall with many sequential steps in the same direction indicate a potential recombination event that is unlikely to have evolved randomly by mutation alone without recombination. The colored shaded regions give the credible intervals: if the lines fall outside of these regions the observed order of mutations is unlikely to have occurred by chance and so we can conclude there is strong support for the child being a recombinant. In this case, the lines for all three potential children fall outside of the shaded intervals, strongly supporting a recombination event in the region between genomic coordinates 21498 and 25811. Note though that in this case the minor parent is unknown, suggesting that all three of these sequences may have acquired this region of their genome from a shared but unsampled parent lineage.
+
+<img src="{{site.baseurl}}/assets/img/tutorials/rdp4-week8/3seq-random-walk.png" alt="3SEQ visual test"> 
 
 We can also consider phylogenetic evidence for whether or not recombination has been correctly identified. Continue on to the second recombination event by selecting it in the *Recombination info* window. Selecting ***Trees*** will produce a new window with two trees side-by-side, one inferred from the portion of the alignment outside of the recombinant region and a second inferred from the portion between the identified breakpoints. Here we can see that there is strong evidence for the recombination event based on phylogenetic discordance: in the first tree the recombinant sequence's nearest neighbor is the potential major parent but in the other tree, the recombinant sequence clusters with the minor parent. This discordance in the relationship among the recombinant sequence and the major and minor parents can be considered as strong additional evidence for the recombination event.     
 
@@ -142,7 +146,7 @@ python PlotTanglegrams.py
 
 This should generate a *.png* image file with our coronavirus tanglegram.
 
-<img src="{{site.baseurl}}/assets/img/tutorials/rdp4-week8/CoVSequentialTanglegram.png" alt="Tanglegram showing potential recombination events among the CoV genomes" width="650" height="400"> 
+<img src="{{site.baseurl}}/assets/img/tutorials/rdp4-week8/CoVSequentialTanglegram.png" alt="Tanglegram showing potential recombination events among the CoV genomes"> 
 
 Phylogenetic discordance indicative of possible recombination are displayed as crossing lines connecting tips in neighboring local trees, whereas straight lines between tips indicate the phylogenetic relationships among the sequences has been conserved. As you can see there's potentially quite a bit of recombination going on here.
 

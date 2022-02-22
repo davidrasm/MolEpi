@@ -15,10 +15,35 @@ from matplotlib.gridspec import GridSpec
 from io import StringIO as sio
 from io import BytesIO as csio
 
+def add_tree_label(ax,tree,label_str,cumulative_displace):
+    
+    """
+        Add a label to tree
+    """
+    
+    curr_min_x = np.Inf
+    curr_max_x = -np.Inf
+    curr_min_y = np.Inf
+    curr_max_y = -np.Inf
+    for k in tree.Objects:
+        if k.x > curr_max_x:
+            curr_max_x = k.x
+        if k.x < curr_min_x:
+            curr_min_x = k.x
+        if k.y > curr_max_y:
+            curr_max_y = k.y
+        if k.y < curr_min_y:
+            curr_min_y = k.y
+    x_text_pos = cumulative_displace + (curr_max_x - curr_min_x) / 2
+    y_text_pos = curr_max_y + (curr_max_y - curr_min_y) * 0.05
+    ax.text(x_text_pos,y_text_pos,label_str,horizontalalignment='center',fontsize=10)
+
 # Can add more tree files for additional genome segments
 fig_name = 'CoVSequentialTanglegram.png'
 tree_file = "sars-like-CoVs-sub_"
 segments=['1-2936','2937-4936','4937-6870','6871-8473','8474-19706','19707-20428']
+tree_labels = segments
+branch_width = 4
 
 "Load trees into tree dict"
 trees={} ## dict
@@ -114,7 +139,7 @@ for t,tr in enumerate(tree_names): ## iterate over trees
     x_attr=lambda k: k.height+cumulative_displace
     #x_attr=lambda k: (k.height*(max_height/cur_tree.treeHeight))+cumulative_displace
     
-    b_func=lambda k: 4
+    b_func=lambda k: branch_width
     s_func=lambda k: 30
     su_func=lambda k: 60
     ct_func=lambda k: cmap(tip_positions[ref_tree][k.name][1]/float(cur_tree.ySpan))
@@ -122,6 +147,11 @@ for t,tr in enumerate(tree_names): ## iterate over trees
     z_func=lambda k: 100
     zu_func=lambda k: 99
     
+    # For tip naming
+    text_func = lambda k: k.name.replace('_',' ')
+    target_func = lambda k: k.is_leaf()
+    position_func = lambda k: (k.height+cumulative_displace+0.3, k.y)
+
     def colour_func(node):
         #if traitName in node.traits:
         #    return 'indianred' if node.traits[traitName]=='V' else 'steelblue'
@@ -133,6 +163,10 @@ for t,tr in enumerate(tree_names): ## iterate over trees
     cur_tree.plotTree(ax,x_attr=x_attr,branchWidth=b_func,colour_function=cn_func)
     cur_tree.plotPoints(ax,x_attr=x_attr,size_function=s_func,colour_function=ct_func,zorder_function=z_func)
     cur_tree.plotPoints(ax,x_attr=x_attr,size_function=su_func,colour_function=cu_func,zorder_function=zu_func)
+
+    # Add tip label if at last tree
+    if t == len(tree_names) - 1: # last_tree
+        cur_tree.addText(ax, text=text_func, position=position_func,fontsize=8)
     
     for k in cur_tree.Objects: ## iterate over branches
         if isinstance(k,bt.leaf): ## if leaf...
@@ -146,6 +180,9 @@ for t,tr in enumerate(tree_names): ## iterate over trees
                 nextIncrement=cumulative_displace+cur_tree.treeHeight
                 ax.plot([x_attr(k),nextIncrement+0.05*displaceAmount,nextIncrement+0.95*displaceAmount,next_x],[y,y,next_y,next_y],lw=1,ls='-',color=cmap(frac_pos),zorder=0) ## connect current tip with same tip in the next tree
     
+    if tree_labels:
+        add_tree_label(ax,cur_tree,tree_labels[t],cumulative_displace)
+
     cumulative_displace+=cur_tree.treeHeight+displaceAmount ## increment displacement by the height of the tree
 
 [ax.spines[loc].set_visible(False) for loc in ['top','right','left','bottom']]
@@ -159,6 +196,7 @@ ax.set_ylim(-1,cur_tree.ySpan+1) ## set y limits
 ax.set_xlim(-5,cumulative_displace+5)
 
 plt.savefig(fig_name, dpi=300)
+
 
 
 
