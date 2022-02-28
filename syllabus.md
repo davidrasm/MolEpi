@@ -38,7 +38,7 @@ permalink: /syllabus/
 **Lab:** Detecting recombination in RDP4 and clonalFrameML or ARGWeaver
 
 ### Week 8: Feb 28 - March 4
-**Lecture:** Evolve slowly but recombine often: Genome evolution in bacterial and eukaryotic pathogens <br>
+**Lecture:** Recombine often or perish: Genome evolution in bacterial and eukaryotic pathogens <br>
 **Lab:** WGS pipelines for SNP-based phylogenomics
 
 ### Week 9: March 7 - 11
