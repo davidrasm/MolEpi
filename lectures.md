@@ -56,7 +56,7 @@ Bioinformatic pipelines for next-generation sequencing data <br>
 
 [Multi-type birth-death models and adaptive molecular evolution][lecture8] <br>
 
-[lecture8]: <{{site.baseurl}}/lectures/MolEpi.BirthDeathModels.Lecture7.pdf>
+[lecture8]: <{{site.baseurl}}/lectures/MolEpi.BirthDeathModels.2022.Lecture8.pdf>
 
 #### Week 10: March 21 - 25
 
