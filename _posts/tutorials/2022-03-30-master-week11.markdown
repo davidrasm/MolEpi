@@ -29,7 +29,7 @@ The goal for this week is to simulate epidemic dynamics and trees under the SEIR
 
 We can install the MASTER package just as we installed other BEAST add-ons using the Package Manager in BEAUTi.
 
-***Note:*** you may already have MASTER installed from the BDMM tutorial we did way back in week nine in the before times. <br>
+***Note:*** you may already have MASTER installed from the BDMM tutorial. <br>
 
 Open BEAUTi and select ***File &rarr; Manage packages***. Select *MASTER* and then hit ***Install/Upgrade***.
 
@@ -37,7 +37,7 @@ Open BEAUTi and select ***File &rarr; Manage packages***. Select *MASTER* and th
 
 ### Specifying the MASTER XML file
 
-First, we need a XML file that we can input into BEAST to run our simulations. This XML file will specify the stochastic model we want to simulate under. However, unlike in previous weeks where we used BEAUTi to generate XML files, we will create this XML file ourselves.  
+First, we need a XML input file for BEAST to run our simulations. This XML file will specify the stochastic model we want to simulate under. However, unlike in previous weeks where we used BEAUTi to generate XML files, we will create this XML ourselves.  
 
 Open a blank document in your favorite text editor. The first thing we need to add is a standard XML element that lets BEAST know that this is a valid input and where to find the MASTER plug-ins. You can copy and paste the following code block directly into your XML document:
 
@@ -334,7 +334,7 @@ The simulated sequences will be saved to the ```fastaFile``` we defined above. Y
 
 [seq-file]: <{{site.baseurl}}/tutorials/master-week10/SEI2RTree_TreeForBEAST.fasta>
 
-That is pretty much all for this week. Next week we will see if we can estimate the SEIR model parameters back from the simulated trees and/or sequence data in BEAST. In the meantime, you can always set up a BEAST run (as in week 2) to see if you can reconstruct the tree and estimate the molecular evolutionary parameters we simulated under.
+That is pretty much all for this week. Next week we will see if we can estimate the SEIR model parameters back from the simulated trees and/or sequence data in BEAST. In the meantime, you can always set up a BEAST run (as in week 3) to see if you can reconstruct the tree and estimate the molecular evolutionary parameters we simulated under.
 
 ### References and Acknowledgments
 
