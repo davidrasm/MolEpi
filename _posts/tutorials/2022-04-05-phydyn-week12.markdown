@@ -24,6 +24,8 @@ permalink: /tutorials/phydyn-week12/
 
 We will implement a SEIR model with transmission heterogeneity (high and low risk groups) in PhyDyn. This is the same model we used to simulate transmission trees using MASTER in [last week's tutorial][master-tutorial], which will allow us to test our implementation of the model in PhyDyn by checking to see if we can estimate the true epidemiological parameters back from the simulated phylogenies. Once we are sure our model is working correctly, we will then apply it to real SARS-CoV-2 sequences from Washington state to estimate key epidemiological parameters for Covid-19 such as $$R_{0}$$ and the extent of transmission heterogeneity.
 
+[master-tutorial]: <{{site.baseurl}}/tutorials/master-week11/>
+
 ### Installing PhyDyn
 
 We can install PhyDyn just as we installed other BEAST add-ons using the Package Manager in BEAUTi.
@@ -131,7 +133,7 @@ In order to compute the likelihood of our tree under the SEI2R model, we need to
 
 There is a lot of other stuff going on in the XML template, but so we don't get lost in the weeds I just want to draw your attention towards a few other features that you may wish to modify.
 
-First, let's look inside the `state` element, which determines what parameters are included as state variables in the MCMC, and will therefore be estimated. Included amongst these are the three parameters in our epidemic model that we will infer. Here it possible to set lower and upper limits on each parameter as well as their initial parameter values between the `>` and `<` arrows. 
+First, let's look inside the `state` element, which determines what parameters are included as state variables in the MCMC, and will therefore be estimated. Included among these are the three parameters in our epidemic model that we will infer. Its possible to set lower and upper limits on each parameter as well as their initial parameter values between the `>` and `<` arrows. 
 
 ```xml
   <!-- Epi params in SEI2R model -->
