@@ -79,18 +79,20 @@ Bioinformatic pipelines for next-generation sequencing data <br>
 [Phylodynamics: phylogenetics meets epidemiological modeling][lecture11] <br>
 [Video link][video-lecture11] <br>
 
-[lecture11]: <{{site.baseurl}}/lectures/MolEpi.Phylodynamics.2022.Lecture10.pdf>
+[lecture11]: <{{site.baseurl}}/lectures/MolEpi.Phylodynamics.2022.Lecture11.pdf>
 [video-lecture11]: <https://youtu.be/R2YqOXDuNMM>
 
 #### Week 13: April 11 - 15
 
-After the data deluge: scaling strategies for massive genomic datasets <br>
+[After the data deluge: scaling strategies for massive genomic datasets][lecture12] <br>
+
+[lecture12]: <{{site.baseurl}}/lectures/MolEpi.FasterMethods.2022.Lecture12.pdf>
 
 #### Week 14: April 18 - 22
 
-[Predicting the (very near) future: forecasting pathogen evolution][lecture12] <br>
+[Predicting the (very near) future: forecasting pathogen evolution][lecture13] <br>
 
-[lecture12]: <{{site.baseurl}}/lectures/MolEpi.PredictingPathogenEvolution.Lecture11.pdf>
+[lecture13]: <{{site.baseurl}}/lectures/MolEpi.PredictingPathogenEvolution.Lecture11.pdf>
 
 
 
