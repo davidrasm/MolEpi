@@ -92,7 +92,7 @@ Bioinformatic pipelines for next-generation sequencing data <br>
 
 [Predicting the (very near) future: forecasting pathogen evolution][lecture13] <br>
 
-[lecture13]: <{{site.baseurl}}/lectures/MolEpi.PredictingPathogenEvolution.Lecture11.pdf>
+[lecture13]: <{{site.baseurl}}/lectures/MolEpi.PredictingPathogenEvolution.2022.Lecture13.pdf>
 
 
 

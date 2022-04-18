@@ -65,4 +65,6 @@ WGS pipelines for SNP-based phylogenomics <br>
 [week-12]: <{{site.baseurl}}/tutorials/phydyn-week12/>
 
 ### Week 13: April 11 - 15
-What to do with 6 million SARS-CoV-2 genomes? <br>
+[Tracking SARS-CoV-2 imports using massive genomic datasets][week-13] <br>
+
+[week-13]: <{{site.baseurl}}/tutorials/faster-methods-week13/>
