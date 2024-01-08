@@ -8,7 +8,7 @@ permalink: /lectures/
 
 [Phylogenetic insights into infectious disease epidemiology][lecture1] <br>
 
-[lecture1]: <{{site.baseurl}}/lectures/MolEpi.PhyloInsights.2022.Lecture1.pdf>
+[lecture1]: <{{site.baseurl}}/lectures/MolEpi.PhyloInsights.2024.Lecture1.pdf>
 
 #### Week 2: Jan 15 - 19
 
