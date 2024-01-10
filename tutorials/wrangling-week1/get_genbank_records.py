@@ -31,7 +31,7 @@ def rename_seqs(records,df):
 fasta_out = "influenzaA_H3N2_NC_2010-2019.fasta"
 
 "We'll use Pandas to import our list of sequences" 
-df = pd.read_csv('influenzaA_H3N2_NC_2010-2019.tsv','\t')
+df = pd.read_csv('influenzaA_H3N2_NC_2010-2019.tsv',sep='\t') # was df = pd.read_csv('influenzaA_H3N2_NC_2010-2019.tsv','\t')
 seq_list = df['Sequence Accession'] # get the seq accessions from the dataframe
 seq_str = ",".join(seq_list) # a comma seperated list of all sequence accessions
 
