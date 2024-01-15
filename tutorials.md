@@ -10,7 +10,9 @@ permalink: /tutorials/
 [week-1]: <{{site.baseurl}}/tutorials/wrangling-week1/>
 
 ### Week 2: Jan 15 - 19
-Bioinformatic pipelines for next-generation sequencing data <br>
+[Bioinformatic pipelines for genomic sequencing data][week-2] <br>
+
+[week-2]: <{{site.baseurl}}/tutorials/bioinfo-week2/>
 
 ### Week 3: Jan 22 - 26
 [MCMC in BEAST 2][week-3] <br>
