@@ -28,7 +28,7 @@ Most modern sequencing platforms like Illumina and PacBio produce a large number
 
 [alignment]: <https://sandbox.bio/tutorials/bowtie2-intro>
 
-***Brain stretcher:*** For most well-studied pathogens we generally have access to previously assembled reference genomes. But what would would we do if we were sequencing a pathogen *de novo* for the first time?
+***Brain stretcher:*** For most well-studied pathogens we generally have access to previously assembled reference genomes. But what would we do if we were sequencing a pathogen *de novo* for the first time?
 
 ### Working with SAM/BAM files
 
@@ -49,7 +49,7 @@ samtools depth <sorted_bam_file.bam> > <log_file.tsv>
 
 ### Variant calling
 
-After aligning our sequencing reads, we typically want to know how our reads differ one another and the reference sequence. For instance, we may want to discover variants like single nucleotide polymorphisms (SNPs) for building phylogenetic trees. The [Variant Calling tutorial][variants] will walk you through how you can call variants and distinguish real variants from sequencing errors using bcftools. Then you will get to combine what you’ve learned to decode a secret message in the sequenced DNA!!
+After aligning our sequencing reads, we typically want to know how our reads differ from one another and the reference sequence. For instance, we may want to discover variants like single nucleotide polymorphisms (SNPs) for building phylogenetic trees. The [Variant Calling tutorial][variants] will walk you through how you can call variants and distinguish real variants from sequencing errors using bcftools. Then you will get to combine what you’ve learned to decode a secret message in the sequenced DNA!!
 
 [variants]: <https://sandbox.bio/tutorials/dna-secrets>
 
@@ -63,6 +63,6 @@ The [Viral Amplicon Sequencing tutorial][amplicon] demonstrates how to add quali
 
 [amplicon]: <https://sandbox.bio/tutorials/viral-amplicon>
 
-If you really want to get advanced, you can check out the [Genomic intervals with bedtools tutorial][bedtools] to see how to locate and annotate specific genomic features like genes and primer binding sites in genomes
+If you really want to get advanced, you can check out the [Genomic intervals with bedtools tutorial][bedtools] to see how to locate and annotate specific genomic features like genes and primer binding sites within a genome sequence.
 
 [bedtools]: <https://sandbox.bio/tutorials/bedtools-intro>
