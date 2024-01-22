@@ -1,0 +1,29 @@
+---
+layout: page
+title: MCMC in BEAST 2
+permalink: /tutorials/beast-week2/
+---
+
+### What you will need:
+
+-[BEAST 2.7.0][beast] or greater <br>
+-[Tracer 1.7.0][tracer] or greater <br>
+-[FigTree][figtree] <br>
+
+[beast]: <http://www.beast2.org/>
+[tracer]: <https://github.com/beast-dev/tracer/releases/tag/v1.7.1>
+[figtree]: <http://tree.bio.ed.ac.uk/software/figtree/>
+
+### Taming the BEAST
+
+This week we are going to get familiar with setting up an analysis in BEAST 2. A very good introductory tutorial already exists on the [Taming the Beast][TtB] website. Please follow along with this [tutorial][introtutorial].
+
+[TtB]: <https://taming-the-beast.org>
+
+[introtutorial]: <https://taming-the-beast.org/tutorials/Introduction-to-BEAST2/>
+
+The tutorial will walk you through setting up your first BEAST MCMC run using a primate mitochondrial DNA example. If you prefer, you can use the [influenza H3N2 sequences][fluseqs] we aligned in the first week. If you use the flu sequences, the alignment is not partitioned so you can just ignore the parts about linking partitions. Also note that for the flu sequences, we do not have a fossil calibration point, but the sequences were collected serially over time so it should be possible to estimate the molecular clock based on the sampling times in the sample names. You can add the sampling times in the Tip Dates panel by selecting ***Use tip dates*** and then clicking the ***Auto-configure*** button. Then select ***use everything*** after first underscore.
+
+[fluseqs]: <{{site.baseurl}}/tutorials/wrangling-week1/influenzaA_H3N2_NC_2010-2019_aligned.fasta>
+
+

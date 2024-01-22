@@ -20,7 +20,7 @@ Bioinformatic pipelines for next-generation sequencing data <br>
 
 [The statistical underpinnings of maximum likelihood and Bayesian inference][lecture2] <br>
 
-[lecture2]: <{{site.baseurl}}/lectures/MolEpi.StatisticalUnderpinnings.2022.Lecture2.pdf>
+[lecture2]: <{{site.baseurl}}/lectures/MolEpi.StatisticalUnderpinnings.2024.Lecture2.pdf>
 
 #### Week 4: Jan 29 - Feb 2
 
