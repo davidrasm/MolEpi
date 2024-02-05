@@ -32,7 +32,7 @@ Bioinformatic pipelines for next-generation sequencing data <br>
 
 [Coalescent theory and the population genetics of molecular evolution][lecture4] <br>
 
-[lecture4]: <{{site.baseurl}}/lectures/MolEpi.CoalescentTheory.2022.Lecture4.pdf>
+[lecture4]: <{{site.baseurl}}/lectures/MolEpi.CoalescentTheory.2024.Lecture4.pdf>
 
 #### Week 6: Feb 12 - 16
 
