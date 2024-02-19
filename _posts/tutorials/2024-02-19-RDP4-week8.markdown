@@ -25,9 +25,7 @@ One big reason why we care about recombination is that it can create new pathoge
 
 [graham-2010]: <https://jvi.asm.org/content/84/7/3134.short>
 
-While early reports that the newly emerging COVID-19 virus may have arisen from a recombinant bat-snake virus appear to be unfounded, recombination between coronaviruses following cross-species host jumps does occur. Here, we will explore the history of recombination events between coronaviruses sampled from humans and bats. 
-
-The sequence data include 14 coronavirus reference genomes, including SARS and the new COVID-19 virus from Wuhan. I downloaded these reference genomes from GenBank and then aligned the sequences using MAFFT. A FASTA file containing the aligned viral genomes can be downloaded using the link below:
+Here, we will explore the history of recombination events between coronaviruses sampled from humans and bats. The sequence data include 14 coronavirus reference genomes, including SARS-CoV and the SARS-CoV-2 reference sampled from Wuhan back in 2019. I downloaded these reference genomes from GenBank and then aligned the sequences using MAFFT. A FASTA file containing the aligned viral genomes can be downloaded using the link below:
 
 * [SARS-like CoV genome alignment][CoV-seqs]
 
@@ -108,7 +106,7 @@ The figure below shows the recombination events I accepted in red.
 ---
 **Saving results**
 
-There are a couple of different ways to save results from a recombination analyses in RDP4. You can *"Save recombination results to a .rdp project file"* if you want to be able to reload your analysis in RDP4. Alternatively, you can *"Save results to an excel readable .csv file"* if you just want a record of the recombination events, parent sequences and breakpoints the program identified. 
+There are a couple of different ways to save results from a recombination analyses in RDP4. You can *"Save recombination results to a .rdp project file"* if you want to be able to reload your analysis into RDP4. Alternatively, you can *"Save results to an excel readable .csv file"* if you just want a record of the recombination events, parent sequences and breakpoints the program identified. 
 
 ---   
 
@@ -120,7 +118,7 @@ This will produce a set of FASTA files each containing a sub-alignment for a seg
 
 ### Optional: Plotting tanglegrams in Python
 
-One way to visualize recombination is to plot *sequential tanglegrams* which nicely emphasize phylogenetic incongruence between local trees for different regions of the genome. We will use Gytis Dudas' excellent [baltic][balt] package in Python to plot tranglegrams for our coronavirus samples.
+One way to visualize recombination is to plot *sequential tanglegrams* which nicely emphasize phylogenetic discordance between local trees for different regions of the genome. We will use Gytis Dudas' excellent [baltic][balt] package in Python to plot tanglegrams for our coronavirus samples.
 
 [balt]: <https://github.com/evogytis/baltic>
 
