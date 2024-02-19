@@ -42,9 +42,9 @@ Bioinformatic pipelines for next-generation sequencing data <br>
 
 #### Week 7: Feb 19 - 23
 
-[Non-tree like evolution: Recombination, ancestral recombination graphs and clonal frames][lecture6] <br>
+[Non-tree like evolution: Detecting and accounting for recombination][lecture6] <br>
 
-[lecture6]: <{{site.baseurl}}/lectures/MolEpi.Recombination.2022.Lecture6.pdf>
+[lecture6]: <{{site.baseurl}}/lectures/MolEpi.Recombination.2024.Lecture6.pdf>
 
 #### Week 8: Feb 26 - March 1
 
