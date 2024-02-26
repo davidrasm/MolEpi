@@ -50,7 +50,7 @@ Bioinformatic pipelines for next-generation sequencing data <br>
 
 [Recombine often or perish: Genome evolution in bacterial and eukaryotic pathogens][lecture7] <br>
 
-[lecture7]: <{{site.baseurl}}/lectures/MolEpi.GenomeEvolution2022.Lecture7.pdf>
+[lecture7]: <{{site.baseurl}}/lectures/MolEpi.GenomeEvolution.2024.Lecture7.pdf>
 
 #### Week 9: March 4 - 8
 

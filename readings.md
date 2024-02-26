@@ -97,7 +97,7 @@ Introduces the Felsenstein pruning algorithm <br>
 ### Week 8: Feb 26 - March 1
 
 [Shapiro, B. J. (2016). How clonal are bacteria over time?. Current Opinion in Microbiology, 31, 116-123.][shapiro2016]
-\*\* Reading for in class discussion on Feb 28th.
+\* Suggested reading based on in-class discussion of clonality.
 
 [shapiro2016]: https://doi.org/10.1016/j.mib.2016.03.013
 

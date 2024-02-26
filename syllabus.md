@@ -41,7 +41,7 @@ permalink: /syllabus/
 
 ### Week 8: Feb 26 - March 1
 **Lecture:** Recombine often or perish: Genome evolution in bacterial and eukaryotic pathogens <br>
-**Lab:** WGS pipelines for SNP-based phylogenomics
+**Lab:** Organize mini research projects
 
 ### Week 9: March 4 - 8
 **Lecture:** Multi-type birth-death models and adaptive molecular evolution <br>
