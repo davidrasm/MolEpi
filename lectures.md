@@ -63,7 +63,7 @@ Bioinformatic pipelines for next-generation sequencing data <br>
 [Modeling transmission dynamics with SIR models][lecture9] <br>
 [Video link][video-lecture9] <br>
 
-[lecture9]: <{{site.baseurl}}/lectures/MolEpi.EpiModels.2022.Lecture9.pdf>
+[lecture9]: <{{site.baseurl}}/lectures/MolEpi.EpiModels.2024.Lecture9.pdf>
 [video-lecture9]: <https://youtu.be/oU3wdcx5W5Q>
 
 #### Week 11: March 25 - 29

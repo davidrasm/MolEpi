@@ -29,6 +29,9 @@ jupyter notebook /path_to_file/SIR.ipynb
 
 If you do not have Python or Jupyter installed, no worries, you can just use the Binder link below to run the *SIR.ipynb* notebook in a virtual environment that already has all of the Python dependencies installed.
 
+**Note:** It may take up to a few minutes for the Binder environment to load.
+
+
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/davidrasm/SIR-binder.git/master?filepath=SIR.ipynb)
 
 
