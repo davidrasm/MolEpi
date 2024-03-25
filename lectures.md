@@ -71,7 +71,7 @@ Bioinformatic pipelines for next-generation sequencing data <br>
 [Stochastic models for simulation and inference][lecture10] <br>
 [Video link][video-lecture10] <br>
 
-[lecture10]: <{{site.baseurl}}/lectures/MolEpi.StochasticModels.2022.Lecture10.pdf>
+[lecture10]: <{{site.baseurl}}/lectures/MolEpi.StochasticModels.2024.Lecture10.pdf>
 [video-lecture10]: <https://youtu.be/qyomLyVh3hQ>
 
 #### Week 12: April 1 - 5
