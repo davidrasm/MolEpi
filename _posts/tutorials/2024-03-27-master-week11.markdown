@@ -269,13 +269,19 @@ Open the *SEI2RTree_output.nexus* tree in FigTree. To color the transmission tre
 
 Because these are stochastic simulations, there will be stochastic variation in the size of the epidemic and the resulting transmission tree between runs. We would like a tree that is large enough to allow for estimation of our epidemic parameters but not so large that BEAST will take a long time to run. I recommend aiming for a tree with between 100 and 200 sampled lineages. If your tree is outside this range, you can always run another simulation in BEAST using the same XML file.  
 
-### Simulating sequences using Pyvolve
+### Advanced: Simulating sequences using Pyvolve
 
 To finish up, we would now like to simulate sequence data that we can use to test BEAST next week. We will use the [pyvolve][pyvolve] Python package to simulate molecular evolution along the branches of the transmission tree we just simulated.
 
 You will first need to install pyvolve, which in turn requires Biopython. If you would rather not install all these packages feel free to just follow along and download the pre-cooked sequences I simulated using the link below. If you want to follow along and run the simulations yourself, you can install pyvolve from the command line using conda:
 ```
 conda install -c bioconda pyvolve
+```
+
+***WARNING:*** Older versions of pyvolve (<1.1) no longer seem to work with Biopython. If you have an older version of pyvolve installed, you can uninstall pyvolve and then re-install the new 1.1 version using pip:
+```
+conda remove pyvolve
+pip install pyvolve==1.1
 ```
 
 Please also download my *sim_tree_seqs.py* Python script and the baltic package, which we will use to process our trees:
