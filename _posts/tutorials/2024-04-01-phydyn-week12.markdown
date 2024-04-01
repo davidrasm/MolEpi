@@ -6,13 +6,21 @@ permalink: /tutorials/phydyn-week12/
 
 ### What you will need:
 
--[BEAST 2.5.0][beast] or greater <br>
+-[BEAST 2.5.\*][beast]<br>
 -[Tracer 1.7.0][tracer] or greater <br>
 -[FigTree][figtree] <br>
 
 [beast]: <http://www.beast2.org/>
 [figtree]: <http://tree.bio.ed.ac.uk/software/figtree/>
 [tracer]: <https://github.com/beast-dev/tracer/releases/tag/v1.7.1>
+
+---
+
+***Important note:*** Since originally writing this tutorial in 2020, many BEAST class names have changed between BEAST 2.5.\* and newer 2.7.\* versions. To ensure that the XML templates provided here work correctly, please use an older 2.5.\* version available to download [here][older-releases]. I tested this on April 1st, 2024 with BEAST v. 2.5.2 and PhyDyn v. 1.3.3 and everything seemed to work correctly.
+
+[older-releases]: <https://github.com/CompEvol/beast2/releases>
+
+---
 
 
 ### Phylodynamic inference using PhyDyn 
