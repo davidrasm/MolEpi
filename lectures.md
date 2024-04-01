@@ -79,7 +79,7 @@ Bioinformatic pipelines for next-generation sequencing data <br>
 [Phylodynamics: phylogenetics meets epidemiological modeling][lecture11] <br>
 [Video link][video-lecture11] <br>
 
-[lecture11]: <{{site.baseurl}}/lectures/MolEpi.Phylodynamics.2022.Lecture11.pdf>
+[lecture11]: <{{site.baseurl}}/lectures/MolEpi.Phylodynamics.2024.Lecture11.pdf>
 [video-lecture11]: <https://youtu.be/R2YqOXDuNMM>
 
 #### Week 13: April 8 - 12
