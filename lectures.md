@@ -86,7 +86,7 @@ Bioinformatic pipelines for next-generation sequencing data <br>
 
 [After the data deluge: scaling strategies for massive genomic datasets][lecture12] <br>
 
-[lecture12]: <{{site.baseurl}}/lectures/MolEpi.FasterMethods.2022.Lecture12.pdf>
+[lecture12]: <{{site.baseurl}}/lectures/MolEpi.FasterMethods.2024.Lecture12.pdf>
 
 #### Week 14: April 15 - 19
 
