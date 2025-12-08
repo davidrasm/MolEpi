@@ -6,7 +6,9 @@ categories: jekyll update
 permalink: /syllabus/
 ---
 
-## Spring 2024
+## Spring 2026
+
+**Syllabus in progress**
 
 ### Week 1: Jan 8 - 12
 **Lecture:** Introduction: Phylogenetic insights into infectious disease dynamics <br>
