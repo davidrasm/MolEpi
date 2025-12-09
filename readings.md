@@ -8,20 +8,21 @@ permalink: /readings/
 \*\* Denotes a highly recommended reading
 
 
-### Week 1: Jan 8 - 12
+### Week 1: Jan 12 - 16
 
 [Volz, E. M., Koelle, K., & Bedford, T. (2013). Viral phylodynamics. PLoS Computational Biology, 9(3), e1002947.][volz2013] <br>
 \* Provides a bird's-eye overview of phylodynamics <br>
 
 [volz2013]: <https://doi.org/10.1371/journal.pcbi.1002947>
 
-### Week 2: Jan 15 - 19
+### Week 2: Jan 19 - 23
 
-[Pereira, R., Oliveira, J., & Sousa, M. (2020). Bioinformatics and Computational Tools for Next-Generation Sequencing Analysis in Clinical Genetics. Journal of Clinical Medicine, 9(1), 132.][pereira2020] <br>
+[Yang, Z. (2014). Molecular evolution: a statistical approach. Oxford University Press.][yang2014] <br>
+\* Chapter 1 gives a great overview of the substitution models used in molecular evolution. <br>
 
-[pereira2020]: https://www.mdpi.com/2077-0383/9/1/132/htm
+[yang2014]: <https://catalog.lib.ncsu.edu/catalog/DUKE006146449>
 
-### Week 3: Jan 22 - 26
+### Week 3: Jan 26 - 230
 
 [Felsenstein , J. (1981). Evolutionary trees from DNA sequences: A maximum likelihood approach. J. Mol. Evol., 17(6) 368-376.][felsenstein1981] <br>
 Introduces the Felsenstein pruning algorithm <br>
@@ -33,17 +34,13 @@ Introduces the Felsenstein pruning algorithm <br>
 
 [holder2003]: <http://cgl.bioinfo.uqam.ca/bif7001/articles/BIF7001-Phylo-NatureReviewsGenetics4a.pdf>
 
-[Yang, Z. (2014). Molecular evolution: a statistical approach. Oxford University Press.][yang2014] <br>
-\* Chapter 1 gives a great overview of the substitution models used in molecular evolution. <br>
-
-[yang2014]: <https://catalog.lib.ncsu.edu/catalog/DUKE006146449>
 
 [McElreath, R. (2018). Statistical rethinking: A Bayesian course with examples in R and Stan. Chapman and Hall/CRC][mcelreath2018] <br>
-\* Chapter 9 gives an excellent an intuitive introduction to MCMC. <br>
+\*\* Chapter 9 gives an excellent an intuitive introduction to MCMC. <br>
 
 [mcelreath2018]: <https://catalog.lib.ncsu.edu/catalog/NCSU4798187>
 
-### Week 4: Jan 29 - Feb 2
+### Week 4: Feb 2 - 6
 
 [Lemey, P., Rambaut, A., Drummond, A. J., & Suchard, M. A. (2009). Bayesian phylogeography finds its roots. PLoS Computational Biology, 5(9), e1000520.][lemey2009] <br>
 
@@ -53,7 +50,7 @@ Introduces the Felsenstein pruning algorithm <br>
 
 [pybus2012]: <https://doi.org/10.1073/pnas.1206598109>
 
-### Week 5: Feb 5 - 9
+### Week 5: Feb 9 - 13
 
 [Rosenberg, N. A., & Nordborg, M. (2002). Genealogical trees, coalescent theory and the analysis of genetic polymorphisms. Nature Reviews Genetics, 3(5), 380-390.][rosenberg2002] <br>
 \* Provides a great conceptual overview of coalescent theory <br>
@@ -69,7 +66,7 @@ Introduces the Felsenstein pruning algorithm <br>
 
 [demaio2015]: <https://doi.org/10.1371/journal.pgen.1005421>
 
-### Week 6: Feb 12 - 16
+### Week 6: Feb 16 - 20
 
 [Jombart, T., Cori, A., Didelot, X., Cauchemez, S., Fraser, C., & Ferguson, N. (2014). Bayesian reconstruction of disease outbreaks by combining epidemiologic and genomic data. PLoS Computational Biology, 10(1)][jombart2014]
 
@@ -83,7 +80,7 @@ Introduces the Felsenstein pruning algorithm <br>
 
 [wymant2018]: <https://academic.oup.com/mbe/article/35/3/719/4653772>
 
-### Week 7: Feb 19 - 23
+### Week 7: Feb 23 - 27
 
 [Hein, J., Schierup, M., & Wiuf, C. (2004). Gene genealogies, variation and evolution: a primer in coalescent theory. Oxford University Press, USA.][hein2004] <br>
 \*\* Chapter 5 presents an excellent overview of recombination and its effect on phylogenies. <br>
@@ -94,14 +91,14 @@ Introduces the Felsenstein pruning algorithm <br>
 
 [boni2007]: <https://www.genetics.org/content/176/2/1035.short>
 
-### Week 8: Feb 26 - March 1
+### Week 8: March 2 - 6
 
 [Shapiro, B. J. (2016). How clonal are bacteria over time?. Current Opinion in Microbiology, 31, 116-123.][shapiro2016]
 \* Suggested reading based on in-class discussion of clonality.
 
 [shapiro2016]: https://doi.org/10.1016/j.mib.2016.03.013
 
-### Week 9: March 4 - 8
+### Week 9: March 9 - 13
 
 [Stadler, T., & Bonhoeffer, S. (2013). Uncovering epidemiological dynamics in heterogeneous host populations using phylogenetic methods. Philosophical Transactions of the Royal Society B: Biological Sciences, 368(1614), 20120198.][stadler2013] <br>
 \* Describes the multi-type birth-death model for pathogen phylogenies. <br>
@@ -112,7 +109,7 @@ Introduces the Felsenstein pruning algorithm <br>
 
 [kuhnert2018]: <https://doi.org/10.1371/journal.ppat.1006895>
 
-### Week 10: March 18 - 22
+### Week 10: March 23 - 27
 
 [Keeling, M. J., & Rohani, P. (2011). Modeling infectious diseases in humans and animals. Princeton University Press.][keeling2011] <br>
 \*\* Chapters 2 and 3 give an amazing introduction to SIR-type models. Unfortunately not available online but well worth it if you can get your hands on a copy. <br>
@@ -128,7 +125,7 @@ Introduces the Felsenstein pruning algorithm <br>
 
 [gilligan2008]: <https://www.annualreviews.org/doi/abs/10.1146/annurev.phyto.45.062806.094357>
 
-### Week 11: March 25 - 29
+### Week 11: March 30 - April 3
 
 [Keeling, M. J., & Rohani, P. (2011). Modeling infectious diseases in humans and animals. Princeton University Press.][keeling2011] <br>
 \*\* Chapter 6 gives a great overview of the types of stochastic models used in epidemiology. <br>
@@ -139,7 +136,7 @@ Introduces the Felsenstein pruning algorithm <br>
 
 [vaughan2013]: <https://doi.org/10.1093/molbev/mst057>
 
-### Week 12: April 1 - 5
+### Week 12: April 6 - 10
 
 [Volz, E. M., Pond, S. L. K., Ward, M. J., Brown, A. J. L., & Frost, S. D. (2009). Phylodynamics of infectious disease epidemics. Genetics, 183(4), 1421-1430.][volz2009] <br>
 \* This paper first derived a coalescent model for SIR-type epidemiological models. <br>
@@ -154,13 +151,13 @@ Introduces the Felsenstein pruning algorithm <br>
 
 [phydyn]: <https://doi.org/10.1371/journal.pcbi.1006546>
 
-### Week 13: April 8 - 12
+### Week 13: April 13 - 17
 
 [Didelot, X., & Parkhill, J. (2021). A scalable analytical approach from bacterial genomes to epidemiology. bioRxiv][didelot2021]
 
 [didelot2021]: https://doi.org/10.1101/2021.11.19.469232
 
-### Week 14: April 15 - 19
+### Week 14: April 20 - 24
 
 [Łuksza, M., & Lässig, M. (2014). A predictive fitness model for influenza. Nature, 507(7490), 57-61.][luksza2014] <br>
 
