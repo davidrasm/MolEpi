@@ -181,10 +181,14 @@ Alternatively, sometimes I move commonly used programs directly to my /usr/local
 ```
 cp /Applications/raxml-ng_v1.2.1_macos_x86_64/raxml-ng /usr/local/bin
 ```
+
+***Note for Mac users:*** Mac OS may initially block you from opening the RAxML executable the first time you try to run the application. You can work around this by going to ***System Preferences &rarr; Privacy & Security &rarr; Security*** and then clicking ***Allow Anyway*** next to the message that says RAxML was blocked from opening.
+
+***View &rarr; Show as translation***
 ___
 <br>
 
-Now we can build some trees! Go to the command line and run RAxML with our influenza alignment. Two important things to note before you do: ***1)*** You will need to be in the same directory where you installed RAxML unless you moved it to /usr/local/bin/ as shown in the Hint above. ***2)*** You will need to provide the full path to the alignment file ***influenzaA_H3N2_NC_2010-2019_aligned.fasta***, i.e. you will need to replace the *path_to_file* stand-in below: 
+Now we can build some trees! From the command line we can now run RAxML with our influenza alignment. Two important things to note before you do: ***1)*** You will need to be in the same directory where you installed RAxML unless you added into to your ENV path or moved it to /usr/local/bin/ as shown in the Hint above. ***2)*** If you are not working from the directory with the alignment file, you will need to provide the full path to the alignment file ***influenzaA_H3N2_NC_2010-2019_aligned.fasta***, i.e. you will need to replace the *path_to_file* stand-in below: 
 
 ```
 raxml-ng --search1 --msa /path_to_file/influenzaA_H3N2_NC_2010-2019_aligned.fasta --model GTR+G

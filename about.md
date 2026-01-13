@@ -10,7 +10,7 @@ Welcome to the course website for *Molecular Epidemiology of Infectious Diseases
 
 **Listing:** PP 590/790
 
-**Schedule:** Mondays and Wednesdays, 1:30-2:45pm in Williams Hall 2321
+**Schedule:** Mondays and Wednesdays, 1:30-2:45pm in Williams Hall 2312
 
 **Structure:** The course will meet twice per week. The first session will generally be a lecture. The second session will be tutorial-based and will give you the opportunity to apply methods to real data.  While no programming experience is assumed or required, a few tutorials will give you the option of writing your own code to analyze data and visualize results. Students will be evaluated based on in-class participation and a short written report based on an independent, team-based project analyzing a dataset of your choice.
 
