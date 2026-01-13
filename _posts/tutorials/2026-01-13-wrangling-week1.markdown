@@ -183,8 +183,6 @@ cp /Applications/raxml-ng_v1.2.1_macos_x86_64/raxml-ng /usr/local/bin
 ```
 
 ***Note for Mac users:*** Mac OS may initially block you from opening the RAxML executable the first time you try to run the application. You can work around this by going to ***System Preferences &rarr; Privacy & Security &rarr; Security*** and then clicking ***Allow Anyway*** next to the message that says RAxML was blocked from opening.
-
-***View &rarr; Show as translation***
 ___
 <br>
 
