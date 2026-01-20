@@ -16,10 +16,10 @@ permalink: /syllabus/
 
 ### Week 2: Jan 19 - 23
 **No class Jan 19th: MLK Day** <br>
-**Lecture:** The statistical underpinnings of Bayesian and ML inference: Part I 
+**Lecture:** The statistical underpinnings of Bayesian and ML inference 
 
 ### Week 3: Jan 26 - 30
-**Lecture:** The statistical underpinnings of Bayesian and ML inference: Part II <br> 
+**Lecture:** Bayesian phylogenetic inference <br> 
 **Lab:** MCMC in BEAST: priors, posteriors, mixing, convergence, ect.
 
 ### Week 4: Feb 2 - 6
