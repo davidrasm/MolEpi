@@ -22,7 +22,7 @@ permalink: /lectures/
 
 [Bayesian phylogenetic inference][lecture3] <br>
 
-[lecture3]: <{{site.baseurl}}/lectures/MolEpi.BayesianPhylogenetics.2026.Lecture2.pdf>
+[lecture3]: <{{site.baseurl}}/lectures/MolEpi.BayesianPhylogenetics.2026.Lecture3.pdf>
 
 #### Week 4: Feb 2 - 6
 
