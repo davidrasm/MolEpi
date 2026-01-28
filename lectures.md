@@ -27,8 +27,10 @@ permalink: /lectures/
 #### Week 4: Feb 2 - 6
 
 [Exploring the origin and spread of epidemics with phylogeography][lecture4] <br>
+[Video link][video-lecture4] <br>
 
-[lecture4]: <{{site.baseurl}}/lectures/MolEpi.Phylogeography.2024.Lecture3.pdf>
+[lecture4]: <{{site.baseurl}}/lectures/MolEpi.Phylogeography.2026.Lecture4.pdf>
+[video-lecture4]: <https://youtu.be/mHPPNIigJFc>
 
 #### Week 5: Feb 9 - 13
 
