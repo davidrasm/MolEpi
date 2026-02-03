@@ -148,7 +148,7 @@ The MCC tree shown above for my analysis of the PITG gene seems to support a roo
 
 Download [Spread][spread] if you haven't already. Unfortunately, the Mac version does not seem to work on newer versions of Mac OS, but you can download the .jar file provided for Windows/Linux users using the link above. 
 
-The jar file can then be launched from the command line:
+It may then be possible to launch the jar file can from the command line:
 
 ```
 java -jar SPREAD\ v1.0.7.jar
