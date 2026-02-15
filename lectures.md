@@ -42,7 +42,7 @@ permalink: /lectures/
 
 [Inferring transmission trees and who's infecting whom][lecture6] <br>
 
-[lecture6]: <{{site.baseurl}}/lectures/MolEpi.TransmissionTrees.2024.Lecture5.pdf>
+[lecture6]: <{{site.baseurl}}/lectures/MolEpi.TransmissionTrees.2026.Lecture6.pdf>
 
 #### Week 7: Feb 23 - 27
 
