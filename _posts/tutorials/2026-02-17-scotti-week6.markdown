@@ -28,6 +28,24 @@ I recommend downloading/cloning the entire [repository][git-repo] for the tutori
 
 [git-repo]: <https://github.com/taming-the-beast/SCOTTI-Tutorial>
 
+---
+
+***IMPORTANT NOTE:*** Unfortunately, newer versions of BEAST 2 (>2.7) and the XML files created by the python script in the SCOTTI tutorial are incompatible. However, there are two easy workarounds:
+
+One solution is to run an older version of BEAST 2. Any of the 2.5.x versions should be compatible and are available on the [BEAST 2 releases site][beast-releases]. However, to run these older versions of BEAST 2 you may need to also install an older version of the Java RunTime Environment. 
+
+[beast-releases]: <https://github.com/CompEvol/beast2/releases>
+
+The other solution (recommended) is to download a newer example of the SCOTTI XML input file. You won't be missing out on much if you choose this option, as the original tutorial uses a Python script to generate these XML files for you. Here are links to newer XML files for the FMDV and Klebsiella datasets:
+
+* [New FMDV XML][fmdv-xml] <br>
+* [New Klebsiella XML][kleb-xml] <br>
+
+[fmdv-xml]: <{{site.baseurl}}/tutorials/scotti-week6/SCOTTI_FMDV.xm>
+[kleb-xml]: <{{site.baseurl}}/tutorials/scotti-week6/SCOTTI_KPneu.xml>
+
+---
+
 
 ### Reconstructing a neonatal *Klebsiella pneumoniae* outbreak
 

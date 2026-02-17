@@ -1,0 +1,349 @@
+<beast version='2.0' namespace='beast.base.evolution.alignment:beast.pkgmgmt:
+                     beast.base.core:beast.base.inference:beast.pkgmgmt:
+                     beast.base.core:beast.base.inference.parameter:beast.base.evolution.tree:
+                     beast.base.evolution.tree.coalescent:beast.base.inference.util:beast.base.math:
+                     beast.base.evolution.operator:beast.base.inference.operator:
+                     beast.base.evolution.sitemodel:beast.base.evolution.substitutionmodel:
+                     beast.base.evolution.likelihood:beast.base.evolution.tree:
+                     beast.base.inference.distribution:
+                     scotti.evolution.tree:scotti.distributions:scotti.operators:scotti.util'>
+	
+	<data id="alignmentVar" dataType="nucleotide">
+   <!--alignment spec="beast.base.evolution.alignment.Alignment" id="alignment"  dataType="nucleotide"-->
+
+    <sequence taxon='C00013422' value='GTTCCCTCTAACAGGAGGAGTGTCCTGCGACCCtGtCCGGCAtCATCGGAAAAcaagggg'/>
+
+    <sequence taxon='C00013424' value='GTTACCTCTAACAGGCGGTGTGTCCTGCGACCCtGtCCGGTAtCATCGGAAAAcaagggg'/>
+
+    <sequence taxon='C00013425' value='GTTACCTCTAACAGGCGGTGTGTCCTGCGACCCtGtCCGGTAtCATCGGAAAAcaagggg'/>
+    
+    <sequence taxon='C00013426' value='GTTACCTCTAACAGGCGGTGTGTCCTGCGACCCtGtCCGGTAtCATCGGAAAAcaagggg'/>
+
+    <sequence taxon='C00013427' value='GTTACCTCTAACAGGCGGTGTGTCCTGCGACCCtGtCCGGTAtCATCGGAAAAcaagggg'/>
+    
+    <sequence taxon='C00013428' value='GTTACCTCTAACAGGCGGTGTGTCCTGCGACCCtGtCCGGTAtCATCGGAAAAcaagggg'/>
+        
+    <sequence taxon='C00013429' value='ATTACCTTTAACAGGCGGTGTGTCCTGCGACCCtGtACGGTAtCATCGGAAAGcaagggg'/>
+    
+    <sequence taxon='C00013430' value='GTTACCTCTAACAGGCGGTGTGTCCTGCGACCCtGtCCGGTAtCATCGGAAAAcaagggg'/>
+    
+    <sequence taxon='C00013432' value='GTTACCTCTAACAGGAGGAGTGTCCTGCGACCCtGtCCTGTAtCGTCGGAATAcaagggg'/>
+    
+    <sequence taxon='C00013433' value='GTTACCTCTAACAGGAGGAGTGTCTTGCAACCCtGtCCTGTAtCGTCGGAATAcaagggg'/>
+    
+    <sequence taxon='C00013434' value='GTTACCTCTAACAGGAGGAGTGTCCTGCAACCCtGtCCTGTAtCGTCGGAATAcaagggg'/>
+    
+    <sequence taxon='C00013435' value='GTTACCTCTAACAGGAGGAGTGTCCTGCAACCCtGtCCTGTAtCGTCGGAATAcaagggg'/>
+    
+    <sequence taxon='C00013436' value='GTTACCTCTAACAGGAGGAGTGCCCTGCAACCCtGtCCTGTAtCGTAGGAATAcaagggg'/>
+    
+    <sequence taxon='C00013437' value='GTTACCTCTAACAGGAGGAGTGTCCTGCNNCCCtGtCCTGTAtCGTCGGAATAcaagggg'/>
+    
+    <sequence taxon='C00013438' value='GTTACCTCTAACAGGAGTAGTGTTCTGCGACCCtGtCCTGTAtCGTCGAAAAAcaagggg'/>
+    
+    <sequence taxon='C00013439' value='GTTACCTCTAACAGGAGTAGTGTTCTGCGACCCtAtCCTGTAtCGCCGAAAAAcaagggg'/>
+    
+    <sequence taxon='C00013440' value='GTTACCTCTATCAGGAGTAGTGTTCTGCGACCCtGtCCTGTAtCGTCGAAAAAcaatggg'/>
+    
+    <sequence taxon='C00013441' value='GTTACCTCTCACAGGAGTAGTGTTCTGCGACCCtGtCCTGTAtCGTCGAAAAAcgagggg'/>
+    
+    <sequence taxon='C00013442' value='GTTACCTCTAACAGGAGTAGTGTTCTGCGACAGtGtCCTGTAtCGTCGAAAAAcaagggg'/>
+    
+    <sequence taxon='C00013443' value='GCTACCTCTAACAGGAGTAGTGTTCTGTGACCCtGtCCTGTAtCGTCGAAAAAcaagggg'/>
+    
+    <sequence taxon='C00013444' value='GCTACCTCTAACAGGAGTAGTGTTCTGTGACCCtGtCCTGTAtCGTCGATAAAcaagggg'/>
+    
+    <sequence taxon='C00013447' value='GTTACCTCTAACAGGAGTAGTGTTCTGCGACAGtGtCCTGTAtCGTCGAAAAAcaagggg'/>
+    
+    <sequence taxon='C00013448' value='GTTACCTCTAACAGGAGTAGTGTTCTGCGACAGtGtCCTGTAtCGTCGAAAAAcaagggg'/>
+    	
+    <sequence taxon='C00013449' value='GTTACCTCTAACAGGAGTAGTGTTCTGCGACAGcGtCCTGTAtCGTCGAAAAAcaagggg'/>
+    	
+    <sequence taxon='C00013450' value='GTTACCTCTAACAGGAGTAGTGTTCTGCGACAGtGtCCTGTAtCGTCGAAAAAcaagggg'/>
+    	
+    <sequence taxon='C00013451' value='GTTACCTCTAACAGGAGTAGTGTTCTGCGACAGtGcCCTGTAgCGTCGAAAAAcaagggg'/>
+    
+    <sequence taxon='C00013452' value='GTTACCTCTAACAGGAGTAGTGTTCTGCGACAGtGtCATGTAtCGTCGAAAAAcaagggg'/>
+    
+    <sequence taxon='C00013453' value='GCTACCTCTAACAGGAGTAGTGTTCTGTGACCCtGtCCTGTAtCGTCGAAAAAcaagggg'/>
+    
+    <sequence taxon='C00013454' value='GTTACCTCTAACAGGAGTAGTGTTCTGCGACAGtGtCATGTAtCGTCGAAAAAcaagggg'/>
+    
+    <sequence taxon='C00013455' value='GTTACCTCTAACAGGAGTAGTGTTCTGCGACAGtGtCATGTAtCGTCGAAAAAcaagggg'/>
+    
+    <sequence taxon='C00013456' value='GCTACCTCTAACAGGAGTAGTGTTCTGTGACCCtGtCCTGTAtCGTCGAAAAAcaagggg'/>
+    
+    <sequence taxon='C00013457' value='GCTACCTCTAACAGGAGTAGTGTTCTGTGACCCtGtCCTGTAtCGTCGAAAAAcaagggc'/>
+    
+    <sequence taxon='C00013458' value='GTCCTTCCGAACGACAAGAAGATCCGACGTACCtGtCCGACTtAATCAGAGAAtaggtag'/>
+
+  </data>
+  <!--/alignment-->
+  
+  <data id='alignment' spec='FilteredAlignment' filter='-' data='@alignmentVar' constantSiteWeights='1106262 1493919 1492971 1223849'/>
+
+
+
+
+
+
+
+ 
+   <typeTraitSet spec='TraitSetWithLimits' id='typeTraitSet'
+ 	  traitname="type"
+ 	  value="C00013422=PMK1, C00013424=PMK3, C00013425=PMK4, C00013426=PMK4, C00013427=PMK5, C00013428=PMK5, C00013429=PMK6, C00013430=PMK7, C00013432=PMK9, C00013433=PMK10, C00013434=PMK11, C00013435=PMK12, C00013436=PMK13, C00013437=PMK13, C00013438=PMK14, C00013439=PMK15, C00013440=PMK16, C00013441=PMK17, C00013442=PMK18, C00013443=PMK19, C00013444=PMK20, C00013447=PMK21, C00013448=PMK21, C00013449=PMK21, C00013450=PMK21, C00013451=PMK21, C00013452=PMK22, C00013453=PMK23, C00013454=PMK24, C00013455=PMK25, C00013456=PMK26, C00013457=PMK26, C00013458=H30">
+     <taxa spec='TaxonSet' alignment='@alignment'/>
+   </typeTraitSet>
+
+   <timeTraitSet spec='TraitSetWithLimits' id='timeTraitSet'
+ 	    traitname="date-forward"
+ 	    value="C00013422=0.5, C00013424=96.5, C00013425=96.5, C00013426=116.5, C00013427=99.5, C00013428=103.5, C00013429=97.5, C00013430=103.5, C00013432=126.8, C00013433=183.5, C00013434=185.5, C00013435=199.5, C00013436=195.5, C00013437=197.5, C00013438=236.5, C00013439=233.5, C00013440=250.5, C00013441=259.5, C00013442=280.5, C00013443=266.5, C00013444=277.5, C00013447=283.5, C00013448=286.5, C00013449=289.5, C00013450=299.5, C00013451=308.5, C00013452=311.5, C00013453=315.5, C00013454=313.5, C00013455=313.5, C00013456=315.5, C00013457=319.5, C00013458=99.5">
+     <taxa spec='TaxonSet' alignment='@alignment'/>
+   </timeTraitSet>
+   
+   
+   <endInfectionsTraitSet spec='InfectionTraitSet' id='endInfectionsTraitSet' type='end'
+ 	  traitname="date-forward"
+ 	  value="PMK1=6.9, PMK3=97.9, PMK4=117.9, PMK5=106.9, PMK6=99.9, PMK7=103.9, PMK9=150.9, PMK10=193.9, PMK11=188.9, PMK12=209.9, PMK13=203.9, PMK14=252.9, PMK15=236.9, PMK16=251.9, PMK17=260.9, PMK18=289.9, PMK19=283.9, PMK20=283.9, PMK21=326.9, PMK22=322.9, PMK23=315.9, PMK24=314.9, PMK25=313.9, PMK26=324.9, H30=103.9">
+ 	  <taxaDates idref='timeTraitSet'/>
+ 	  <taxaTypes idref='typeTraitSet'/>
+   </endInfectionsTraitSet>
+   
+   <startInfectionsTraitSet spec='InfectionTraitSet' id='startInfectionsTraitSet' type='start'
+ 	  traitname="date-forward"
+ 	  value="PMK1=-7, PMK3=84, PMK4=87, PMK5=91, PMK6=91, PMK7=100, PMK9=125, PMK10=157, PMK11=170, PMK12=187, PMK13=185, PMK14=227, PMK15=231, PMK16=235, PMK17=255, PMK18=259, PMK19=265, PMK20=268, PMK21=275, PMK22=299, PMK23=308, PMK24=309, PMK25=310, PMK26=311, H30=76">
+ 	  <taxaDates idref='timeTraitSet'/>
+ 	  <taxaTypes idref='typeTraitSet'/>
+   </startInfectionsTraitSet>
+   
+
+   <!-- Substitution model (HKY) -->
+   <siteModel spec="SiteModel" id="siteModel">
+     <mutationRate spec='RealParameter' id="mutationRate" value="1.0"/>
+     <substModel spec="HKY">
+       <kappa spec='RealParameter' id="hky.kappa" value="1.0"/>
+       <frequencies estimate="false" spec='Frequencies'>
+	 <frequencies spec='RealParameter' id="hky.freq" value="0.25 0.25 0.25 0.25"/>
+       </frequencies>
+     </substModel>
+   </siteModel>
+ 
+   <!-- Migration model -->
+   <migrationModelUniform spec='MigrationModelUniform' id='migModel' minDemes='25'>
+     <rate spec='RealParameter' value="0.001" dimension="1" id="rate"/>
+     <popSize spec='RealParameter' value="1.0" dimension="1" id="popSize"/>
+     <numDemes spec='IntegerParameter' value="27" dimension="1" id="numDemes" lower='25' upper='30'/>
+     <trait idref='startInfectionsTraitSet' type='start'/>
+     <trait idref='endInfectionsTraitSet' type='end'/>
+   </migrationModelUniform>
+ 
+   <!-- Parameter priors -->
+   <input spec='CompoundDistribution' id='parameterPriors'>
+     <distribution spec='beast.base.inference.distribution.Prior' x="@mutationRate">
+       <distr spec='LogNormalDistributionModel' M="-3.0" S="6.0"/>
+     </distribution>
+
+     <distribution spec='beast.base.inference.distribution.Prior' x="@hky.kappa">
+       <distr spec='LogNormalDistributionModel' M="0.0" S="4.0"/>
+     </distribution>
+
+     <!--distribution spec='beast.base.inference.distribution.Prior' x="@rate">
+       <distr spec='LogNormalDistributionModel' M="0.0" S="4.0"/>
+     </distribution-->
+     <distribution spec='beast.base.inference.distribution.Prior' x="@rate">
+       <!--  distr spec='Exponential' mean="0.001"/-->
+       <distr spec='LogNormalDistributionModel' M="-6.0" S="0.3"/>
+     </distribution>
+     <distribution spec='beast.base.inference.distribution.Prior' x="@popSize">
+       <distr spec="LogNormalDistributionModel"  M="0.0" S="6.0"/>
+     </distribution>
+     
+     
+     <!--distribution spec='beast.base.inference.distribution.Prior' x="@numDemes">
+       <distr spec='Poisson' lambda="30.0"/>
+     </distribution-->
+   </input>
+ 
+   <!-- Probability of sequence data given tree -->
+   <input spec='TreeLikelihood' id="treeLikelihood">
+     <data idref="alignment"/>
+     <tree idref="tree"/>
+     <siteModel idref='siteModel'/>
+   </input>
+   
+   <!-- Probability of tree given migration rates and population sizes -->
+   <input spec='StructuredCoalescentTreeDensityNew' id='treePrior' limitedLifespan='False' penalizeMigration="True">
+     <multiTypeTreeConcise idref="tree"/>
+     <migrationModelUniform idref="migModel"/>
+   </input>
+
+
+   <run spec="MCMC" id="mcmc" chainLength="10000000" storeEvery="10000">
+     
+     <init spec='StructuredCoalescentMultiTypeTreeConcise' id='tree' nTypes="27">
+         <migrationModelUniform spec='MigrationModelUniform' minDemes='25'>
+             <rate spec='RealParameter' value="0.001" dimension="1"/>
+             <popSize spec='RealParameter' value="1.0" dimension="1"/>
+             <numDemes spec='IntegerParameter' value="27" dimension="1"/>
+         </migrationModelUniform>
+         <trait idref='typeTraitSet'/>
+         <trait idref='timeTraitSet'/>
+     </init>
+ 
+     <state>
+       <stateNode idref="tree"/>
+       <stateNode idref="rate"/>
+       <stateNode idref="popSize"/>
+       <stateNode idref="numDemes"/>
+       <stateNode idref="mutationRate"/>
+       <stateNode idref="hky.kappa"/>
+       <stateNode idref="hky.freq"/>
+     </state>
+     
+     <distribution spec='CompoundDistribution' id='posterior'>
+       <distribution idref="treeLikelihood"/>
+       <distribution idref='treePrior'/>
+       <distribution idref="parameterPriors"/>
+     </distribution>
+
+ 
+     <!-- parameter scaling operators -->
+
+  <!--  --> 
+     <operator spec='ScaleOperator' id='RateScaler'
+ 	      parameter="@rate"
+ 	      scaleFactor="0.8" weight="1">
+     </operator>
+    	
+      
+    <!--    --> 
+     <operator spec="ScaleOperator" id="PopSizeScaler"
+ 	      parameter="@popSize"
+	      scaleFactor="0.8" weight="1"/>
+	  
+	 <!--    --> 
+     <operator spec="ShortRangeUniformOperator" id="NumDemesScaler"
+ 	      parameter="@numDemes" weight="1"/>
+
+   <!--   -->
+     <operator spec="ScaleOperator" id="muRateScaler"
+	       parameter="@mutationRate"
+	       scaleFactor="0.8" weight="1"/>
+
+ 
+     <operator spec='ScaleOperator' id='kappaScaler'
+	       parameter="@hky.kappa"
+	       scaleFactor="0.8" weight="0.1">
+     </operator>
+
+
+ <!-- -->
+     <operator spec="DeltaExchangeOperator" id="freqExchanger"
+	       parameter="@hky.freq"
+	       delta="0.01" weight="0.1"/>
+
+
+<!-- 
+     <operator spec="UpDownOperator" id="upDown"
+               scaleFactor="0.8" weight="1">
+       <up idref="popSize"/>
+       <down idref="mutationRate"/>
+       <down idref="rate"/>
+     </operator>-->
+     
+
+     
+     
+     
+	<!-- Multi-type tree operators	--> 
+     <operator id='treeScaler.t' spec='ScaleOperator' scaleFactor="0.5" weight="3" tree="@tree"/>
+     <operator id='treeRootScaler.t' spec='ScaleOperator' scaleFactor="0.5" weight="3" tree="@tree" rootOnly='true'/>
+     <operator id='UniformOperator.t' spec='Uniform' weight="30" tree="@tree"/>
+     <operator id='SubtreeSlide.t' spec='SubtreeSlide' weight="15" gaussian="true" size="1.0" tree="@tree"/>
+     <operator id='narrow.t' spec='Exchange' isNarrow='true' weight="15" tree="@tree"/>
+     <operator id='wide.t' spec='Exchange' isNarrow='false' weight="3" tree="@tree"/>
+     <operator id='WilsonBalding.t' spec='WilsonBalding' weight="3" tree="@tree"/>
+
+
+     <!-- Multi-type tree operators  
+     
+     <operator spec='TypedSubtreeExchangeUniform' id='STX'
+ 	      weight="10" multiTypeTree="@tree"/>
+ 	     
+     
+     <operator spec="TypedWilsonBaldingUniform" id="TWB"
+ 	      weight="10" multiTypeTree="@tree" alpha="0.2"/>
+
+
+     <operator spec="MultiTypeUniformVolz" id="MTU"
+	       weight="10" multiTypeTree="@tree"
+	       includeRoot="true"
+	       rootScaleFactor="0.9"/>
+	       
+         
+     <operator spec="MultiTypeTreeScaleVolz" id="MTTS1"
+ 	      weight="10" multiTypeTree="@tree"
+ 	      scaleFactor="0.98" useOldTreeScaler="true">
+         <parameter idref="popSize"/>         
+         <parameterInverse idref="rate"/>
+         <parameterInverse idref="mutationRate"/>
+     </operator>
+     
+      
+     <operator spec="MultiTypeTreeScaleVolz" id="MTTS2"
+ 	      weight="10" multiTypeTree="@tree"
+ 	      scaleFactor="0.98" useOldTreeScaler="true">
+     </operator>
+  --> 
+
+
+
+     <!-- Loggers -->
+     
+     <logger logEvery="1000" fileName="SCOTTI_KPneu.log">
+       <model idref='posterior'/>
+       <log idref="posterior"/>
+       <log idref="treeLikelihood"/>
+       <!--log idref="treePrior"/-->
+       <log idref="migModel"/>
+       <log idref="mutationRate"/>
+       <log idref="hky.kappa"/>
+       <log idref="hky.freq"/>
+       <log spec='TreeHeightLogger' tree='@tree'/>
+       <!--log spec='TreeLengthLogger' tree='@tree'/-->
+       <!--log spec='TreeRootTypeLoggerVolz' multiTypeTreeVolz="@tree"/-->
+     </logger>
+     
+     <logger logEvery="10000" fileName="SCOTTI_KPneu.trees" mode="tree">
+       <log idref='treePrior'/>
+     </logger>
+     
+     <!--logger logEvery="10000" fileName="/Users/nicolademaio/Desktop/structuredCoalescentConcise_example.trees">
+       <log spec='TreeLoggerConcise' StructuredCoalescentTreeDensityConcise='@treePrior'/>
+     </logger-->
+
+     <!--logger logEvery="10000" fileName="/Users/nicolademaio/Desktop/structuredCoalescentConcise_example2.trees" mode="tree">
+       <log idref="tree"/>
+     </logger-->
+
+     <logger logEvery="10000">
+       <model idref='posterior'/>
+       <log idref="posterior"/>
+       <log idref="treeLikelihood"/>
+       <!--log idref="treePrior"/-->
+       <log spec='TreeHeightLogger' tree='@tree'/>
+       <log idref="migModel"/>
+       <log idref="mutationRate"/>
+       <log idref="hky.kappa"/>
+       <!--log idref="hky.freq"/-->
+       <ESS spec='ESS' name='log' arg="@treePrior"/>
+       <ESS spec='ESS' name='log' arg="@posterior"/>
+       <!--ESS spec='ESS' name='log' arg="@rateMatrix"/-->
+     </logger>
+     
+     <!--logger logEvery="1" fileName="/Users/nicolademaio/Desktop/structuredCoalescentConcise_example_transHistory.log">
+       <log spec='MigrationHistoryLoggerUniform' density='@treePrior'/>
+     </logger-->
+   </run>
+   
+ </beast>
