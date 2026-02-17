@@ -41,7 +41,7 @@ The other solution (recommended) is to download a newer example of the SCOTTI XM
 * [New FMDV XML][fmdv-xml] <br>
 * [New Klebsiella XML][kleb-xml] <br>
 
-[fmdv-xml]: <{{site.baseurl}}/tutorials/scotti-week6/SCOTTI_FMDV.xm>
+[fmdv-xml]: <{{site.baseurl}}/tutorials/scotti-week6/SCOTTI_FMDV.xml>
 [kleb-xml]: <{{site.baseurl}}/tutorials/scotti-week6/SCOTTI_KPneu.xml>
 
 ---
