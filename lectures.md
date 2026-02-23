@@ -48,7 +48,7 @@ permalink: /lectures/
 
 [Non-tree like evolution: Recombination, clonal frames and ancestral recombination graphs][lecture7] <br>
 
-[lecture7]: <{{site.baseurl}}/lectures/MolEpi.Recombination.2024.Lecture6.pdf>
+[lecture7]: <{{site.baseurl}}/lectures/MolEpi.Recombination.2026.Lecture7.pdf>
 
 #### Week 8: March 2 - 6
 
