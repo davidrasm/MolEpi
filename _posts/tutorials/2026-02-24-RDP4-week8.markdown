@@ -40,6 +40,8 @@ You can download RDP4 [here][rdp4]. Make sure you download using the link to ***
 
 RDP4 is distributed as a Windows executable file. To run in Mac OS, you will also need to download and install the [PlayOnMac][playonmac] emulator. Once you have PlayOnMac installed, you should be able to launch the RDP4 executable (.exe) file. The first time you open RDP4, PlayOnMac will also try to install XQuartz. You might need to manually download and install [XQuartz][xquartz] first, otherwise the download step during installation would time out.
 
+As of February 2026, I have not been able to get RDP4 to run via PlayOnMac on an Apple Silicon chip (e.g. M4). 
+
 ---   
 
 [playonmac]: <https://www.playonmac.com/en/download.html>
