@@ -54,7 +54,7 @@ permalink: /lectures/
 
 [Mobilize your genome: Horizontal transfers, mobile elements and genome evolution in bacterial and eukaryotic pathogens][lecture8] <br>
 
-[lecture8]: <{{site.baseurl}}/lectures/MolEpi.GenomeEvolution.2024.Lecture7.pdf>
+[lecture8]: <{{site.baseurl}}/lectures/MolEpi.GenomeEvolution.Lecture8.pdf>
 
 #### Week 9: March 9 - 13
 
