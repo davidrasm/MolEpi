@@ -60,7 +60,7 @@ permalink: /lectures/
 
 [Multi-type birth-death models and adaptive molecular evolution][lecture9] <br>
 
-[lecture9]: <{{site.baseurl}}/lectures/MolEpi.BirthDeathModels.2024.Lecture8.pdf>
+[lecture9]: <{{site.baseurl}}/lectures/MolEpi.BirthDeathModels.Lecture9.pdf>
 
 #### Week 10: March 23 - 27
 
