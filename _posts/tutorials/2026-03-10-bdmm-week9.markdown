@@ -107,7 +107,7 @@ For $$R_{0}$$, I recommend a fairly uninformative prior since we truly do not kn
 
 <img src="{{site.baseurl}}/assets/img/tutorials/bdmm-week9/R0-prior.png" alt="Setting the prior on R0" width="700" height="150">
 
-On the other hand, we will use a highly informative prior for the *becomeUninfectiousRate*, otherwise we will not be able to infer $$R_{0}$$ and the sampling proportions. The true rate is 0.5 so I chose a Log Normal prior with mean (*M*) = 0.5 (again in real space) and *S* = 0.1, which places most of the posterior probability between values of 0.4 and 0.6.
+On the other hand, we will use a highly informative prior for the *becomeUninfectiousRate*, otherwise we will not be able to infer $$R_{0}$$ and the sampling proportions. The true rate is 0.5 so I chose a Log Normal prior with mean (*M*) = 0.5 (again in real space) and *S* = 0.1, which places most of the prior probability between values of 0.4 and 0.6.
 
 <img src="{{site.baseurl}}/assets/img/tutorials/bdmm-week9/becomeUninfectious-prior.png" alt="Setting the prior on the becomeUninfectiousRates" width="700" height="150">
 
@@ -125,7 +125,7 @@ In the MCMC panel, set the *Chain Length* to 2,500,000 iterations. Then navigate
 
 ### Posterior analysis in Tracer
 
-The MCMC run will probably not finish before the end of class. It took about two hours to run on my laptop. So you may want to download my pre-cooked [.log][precooked-log] and [.trees][precooked-trees] files.
+The MCMC run took approximately 25 minutes to run on my laptop, so hopefully your run will finish before the end of class too! If its taking too long, you may want to download my pre-cooked [.log][precooked-log] and [.trees][precooked-trees] files.
 
 [precooked-log]: <{{site.baseurl}}/tutorials/bdmm-week9/AMR-sim.log>
 [precooked-trees]: <{{site.baseurl}}/tutorials/bdmm-week9/AMR.typedNode.trees>
