@@ -67,7 +67,7 @@ permalink: /lectures/
 [Modeling transmission dynamics with SIR models][lecture10] <br>
 [Video link][video-lecture10] <br>
 
-[lecture10]: <{{site.baseurl}}/lectures/MolEpi.EpiModels.2024.Lecture9.pdf>
+[lecture10]: <{{site.baseurl}}/lectures/MolEpi.EpiModels.Lecture10.pdf>
 [video-lecture10]: <https://youtu.be/oU3wdcx5W5Q>
 
 #### Week 11: March 30 - April 3
