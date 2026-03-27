@@ -75,7 +75,7 @@ permalink: /lectures/
 [Modeling and simulating evolution with generative models][lecture11] <br>
 [Video link][video-lecture11] <br>
 
-[lecture11]: <{{site.baseurl}}/lectures/MolEpi.StochasticModels.2024.Lecture10.pdf>
+[lecture11]: <{{site.baseurl}}/lectures/MolEpi.StochasticModels.Lecture11.pdf>
 [video-lecture11]: <https://youtu.be/qyomLyVh3hQ>
 
 #### Week 12: April 6 - 10
