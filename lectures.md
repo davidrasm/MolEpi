@@ -83,7 +83,7 @@ permalink: /lectures/
 [Putting it all together with phylodynamics: phylogenetics meets epidemic modeling][lecture12] <br>
 [Video link][video-lecture12] <br>
 
-[lecture12]: <{{site.baseurl}}/lectures/MolEpi.Phylodynamics.2024.Lecture11.pdf>
+[lecture12]: <{{site.baseurl}}/lectures/MolEpi.Phylodynamics.Lecture12.pdf>
 [video-lecture12]: <https://youtu.be/R2YqOXDuNMM>
 
 #### Week 13: April 13 - 17
