@@ -89,8 +89,10 @@ permalink: /lectures/
 #### Week 13: April 13 - 17
 
 [After the data deluge: scaling strategies for massive genomic datasets][lecture13] <br>
+[Video link][video-lecture13] <br>
 
-[lecture13]: <{{site.baseurl}}/lectures/MolEpi.FasterMethods.2024.Lecture12.pdf>
+[lecture13]: <{{site.baseurl}}/lectures/MolEpi.FasterMethods.Lecture13.pdf>
+[video-lecture13]: <https://youtu.be/UYEkRKUmPL0>
 
 #### Week 14: April 20 - 24
 
