@@ -159,11 +159,13 @@ Introduces the Felsenstein pruning algorithm <br>
 
 ### Week 14: April 20 - 24
 
-[Łuksza, M., & Lässig, M. (2014). A predictive fitness model for influenza. Nature, 507(7490), 57-61.][luksza2014] <br>
+[Wortel, M. T., Agashe, D., Bailey, S. F., Bank, C., Bisschop, K., Blankers, T., ... & Pennings, P. S. (2023). Towards evolutionary predictions: Current promises and challenges. Evolutionary applications, 16(1), 3-21.][wortel2023] <br>
 
-[luksza2014]: <https://www.nature.com/articles/nature13087>
+[wortel2023]: <https://doi.org/10.1111/eva.13513>
 
-[Morris, D. H., Gostic, K. M., Pompei, S., Bedford, T., Łuksza, M., Neher, R. A., ... & McCauley, J. W. (2018). Predictive modeling of influenza shows the promise of applied evolutionary biology. Trends in Microbiology, 26(2), 102-118.][morris2018] <br>
+[Meijers, M., Ruchnewitz, D., Eberhardt, J., Łuksza, M., & Lässig, M. (2023). Population immunity predicts evolutionary trajectories of SARS-CoV-2. Cell, 186(23), 5151-5164.][meijers2023] <br>
 
-[morris2018]: <https://doi.org/10.1016/j.tim.2017.09.004>
+[meijers2023]: <https://www.cell.com/cell/fulltext/S0092-8674(23)01076-0>
+
+
 
