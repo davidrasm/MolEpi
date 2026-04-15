@@ -68,7 +68,7 @@ permalink: /syllabus/
 
 ### Week 14: April 20 - 24
 **Lecture:** Predicting the (very near) future: Forecasting pathogen evolution <br> 
-**Lab:** Discussion of Lusckza and Lassig (Nature, 2015) and Morris *et al.* (Trends in Micro, 2018) 
+**Lab:** Discussion of Wortel *et al.* (Evo. Appl., 2023) and Meijers *et al.* (Cell, 2023) 
 
 ### Week 15: April 27
 **Last day of class:** Team presentations
