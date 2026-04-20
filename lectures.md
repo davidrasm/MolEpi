@@ -98,7 +98,7 @@ permalink: /lectures/
 
 [Predicting the (very near) future: forecasting pathogen evolution][lecture14] <br>
 
-[lecture14]: <{{site.baseurl}}/lectures/MolEpi.PredictingPathogenEvolution.2024.Lecture13.pdf>
+[lecture14]: <{{site.baseurl}}/lectures/MolEpi.PredictingPathogenEvolution.Lecture14.pdf>
 
 
 
